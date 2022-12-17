@@ -1,19 +1,44 @@
 {
-  "posts": [
+  "product name": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "json-server",
+      "information": "typicode"
     }
   ],
-  "comments": [
+  "product specification": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "json-server",
+      "information": "typicode"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "measurment unit": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "information": "typicode"
+    }
+  ],
+  "supplier": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "information": "typicode"
+    }
+  ],
+  "enter delivery": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "information": "typicode"
+    }
+  ],
+  "enter transferee": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "information": "typicode"
+    }
+  ]
 }
