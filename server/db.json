@@ -1,43 +1,109 @@
 {
-  "product name": [
+  "productName": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "productName",
       "information": "typicode"
     }
   ],
-  "product specification": [
+  "productSpecification": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "productSpecification",
       "information": "typicode"
     }
   ],
-  "measurment unit": [
+  "measurmentUnit": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "measurmentUnit",
       "information": "typicode"
     }
   ],
   "supplier": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "supplier",
       "information": "typicode"
     }
   ],
-  "enter delivery": [
+  "enterDelivery": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "enterDelivery",
       "information": "typicode"
     }
   ],
-  "enter transferee": [
+  "enterTransferee": [
     {
       "id": 1,
-      "name": "json-server",
+      "name": "enterTransferee",
+      "information": "typicode"
+    }
+  ],
+  "overall": [
+    {
+      "id": 1,
+      "kind":"productName",
+      "name": "productName 1",
+      "information": "typicode"
+    },
+    {
+      "id": 2,
+      "kind":"productName",
+      "name": "productName 2",
+      "information": "typicode"
+    },
+    {
+      "id": 3,
+      "kind":"productSpecification",
+      "name": "productSpecification 1",
+      "information": "typicode"
+    },
+    {
+      "id": 4,
+      "kind":"productSpecification",
+      "name": "productSpecification 2",
+      "information": "typicode"
+    },
+    {
+      "id": 5,
+      "name": "measurmentUnit 1",
+      "information": "typicode"
+    },
+    {
+      "id": 6,
+      "name": "measurmentUnit 2",
+      "information": "typicode"
+    },
+    {
+      "id": 7,
+      "name": "supplier 1",
+      "information": "typicode"
+    },
+    {
+      "id": 8,
+      "name": "supplier 2",
+      "information": "typicode"
+    },
+    {
+      "id": 9,
+      "name": "enterDelivery 1",
+      "information": "typicode"
+    },
+    {
+      "id": 10,
+      "name": "enterDelivery 2",
+      "information": "typicode"
+    },
+    {
+      "id": 11,
+      "name": "enterTransferee 1",
+      "information": "typicode"
+    },
+    {
+      "id": 12,
+      "name": "enterTransferee 2",
       "information": "typicode"
     }
   ]
