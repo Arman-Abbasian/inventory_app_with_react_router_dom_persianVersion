@@ -3,9 +3,9 @@ const Input = ({name,type="text",formik,logo}) => {
         <>
         <div className="flex flex-col gap-2 justify-center items-center w-full relative">
             <label className="flex w-full" htmlFor={`${name}`}>{`${name}`}</label>
-            <div className="border rounded-sm focus:border-2 flex items-center w-full">
+            <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>{logo}</span>
-                <input className="form-input px-10 py-3 w-full rounded-md outline-none focus:outline-none flex-1 bg-transparent" type={type} id={`${name}`}  name={`${name}`} {...formik.getFieldProps({name})} />
+                <input className="form-input w-full rounded-md outline-none flex-1 bg-transparent" type={type} id={`${name}`}  name={`${name}`} {...formik.getFieldProps({name})} />
             </div>
         </div>
         

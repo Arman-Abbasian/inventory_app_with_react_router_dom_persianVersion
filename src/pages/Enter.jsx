@@ -45,10 +45,9 @@ const Enter = () => {
         options.enterDelivery= overall.filter(item=>item.kind==="enterDelivery");
         options.enterTransferee= overall.filter(item=>item.kind==="enterTransferee");
     };
-    console.log(options)
     if(overall) {fillOptions()}
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
-    // console.log(formik.errors);
+    console.log(formik.errors);
     // console.log(formik.touched)
     // console.log(formik.isValid);
     return ( 
