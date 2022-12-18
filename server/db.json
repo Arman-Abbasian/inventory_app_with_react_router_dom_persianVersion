@@ -68,41 +68,49 @@
     },
     {
       "id": 5,
+      "kind":"measurmentUnit",
       "name": "measurmentUnit 1",
       "information": "typicode"
     },
     {
       "id": 6,
+      "kind":"measurmentUnit",
       "name": "measurmentUnit 2",
       "information": "typicode"
     },
     {
       "id": 7,
+      "kind":"supplier",
       "name": "supplier 1",
       "information": "typicode"
     },
     {
       "id": 8,
+      "kind":"supplier",
       "name": "supplier 2",
       "information": "typicode"
     },
     {
       "id": 9,
+      "kind":"enterDelivery",
       "name": "enterDelivery 1",
       "information": "typicode"
     },
     {
       "id": 10,
+      "kind":"enterDelivery",
       "name": "enterDelivery 2",
       "information": "typicode"
     },
     {
       "id": 11,
+      "kind":"enterTransferee",
       "name": "enterTransferee 1",
       "information": "typicode"
     },
     {
       "id": 12,
+      "kind":"enterTransferee",
       "name": "enterTransferee 2",
       "information": "typicode"
     }
