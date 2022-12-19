@@ -5,7 +5,7 @@ const SearchSelect = ({options,name,type="text",formik,logo}) => {
                 <label className="flex w-full" htmlFor={`${name}`}>{`${name}`}</label>
                 <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
                     <span>{logo}</span>
-                    <input list={name}  className="w-full bg-transparent outline-none" type={type}  onChange={formik.handleChange}  />
+                    <input list={name} name={name} id={name}  className="w-full bg-transparent outline-none" {...formik.getFieldProps({name})} />
                 </div>
                 <datalist id={name} name={`${name}`} {...formik.getFieldProps({name})}>
                 {options.map(item=>{

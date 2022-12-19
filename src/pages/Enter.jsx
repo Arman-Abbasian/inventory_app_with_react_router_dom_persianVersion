@@ -47,8 +47,8 @@ const Enter = () => {
     };
     if(overall) {fillOptions()}
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
-    console.log(formik.errors);
-    // console.log(formik.touched)
+    // console.log(formik.errors);
+    console.log(formik.touched)
     // console.log(formik.isValid);
     return ( 
         <div>
