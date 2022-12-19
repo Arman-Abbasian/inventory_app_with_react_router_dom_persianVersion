@@ -1,22 +1,86 @@
 {
+  "enter": [
+    {
+      "id": 1
+    },
+    {
+      "productName": "product 2",
+      "productSpecification": "specification 1",
+      "measurmentUnit": "3",
+      "date": "2022-12-07",
+      "number": 3200,
+      "supplier": "supplier 1",
+      "enterDelivery": "enter delivery 1",
+      "enterTransferee": "enter transferee 1",
+      "id": 2
+    }
+  ],
   "overall": [
     {
-      "category": "productNameInput",
-      "productNameInput": "product 1",
+      "category": "productName",
+      "productName": "product 1",
       "information": "dddddd",
       "id": 1
     },
     {
-      "category": "productNameInput",
-      "productNameInput": "product 2",
+      "category": "productName",
+      "productName": "product 2",
       "information": "eeeeee",
       "id": 2
     },
     {
-      "category": "measurement",
-      "measurement": "kg",
-      "information": "kilogram",
+      "category": "measurmentUnit",
+      "measurmentUnit": "kg",
+      "information": "ddddd",
       "id": 3
+    },
+    {
+      "category": "productSpecification",
+      "productSpecification": "specification 1",
+      "information": "eeeeee",
+      "id": 4
+    },
+    {
+      "category": "productSpecification",
+      "productSpecification": "specification 2",
+      "information": "ddddd",
+      "id": 5
+    },
+    {
+      "category": "supplier",
+      "supplier": "supplier 1",
+      "information": "ddddd",
+      "id": 6
+    },
+    {
+      "category": "supplier",
+      "supplier": "s",
+      "information": "",
+      "id": 7
+    },
+    {
+      "category": "enterDelivery",
+      "enterDelivery": "enter delivery 1",
+      "information": "dddd",
+      "id": 8
+    },
+    {
+      "category": "enterDelivery",
+      "enterDelivery": "enter delivery 2",
+      "information": "ddddd",
+      "id": 9
+    },
+    {
+      "category": "enterTransferee",
+      "enterTransferee": "enter transferee 1",
+      "information": "ddddd",
+      "id": 10
+    },
+    {
+      "category": "enterTransferee",
+      "enterTransferee": "enter transferee 2",
+      "information": "eeeee",
+      "id": 11
     }
   ]
 }

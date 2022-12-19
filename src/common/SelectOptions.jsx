@@ -7,7 +7,8 @@ const SelectOptions = ({options,name,formik,logo}) => {
                 <select className="w-full rounded-md bg-transparent outline-none" name={name} id={name} {...formik.getFieldProps({name})}>
                     <option value="">select a {name}</option>
                     {options.map(item=>{
-                        return <option key={item.id} value={item.id}>{item.name}</option>
+                        console.log(options)
+                        return <option key={item.id} value={item.id}>{item[name]}</option>
                     })}
                 </select>
             </div>

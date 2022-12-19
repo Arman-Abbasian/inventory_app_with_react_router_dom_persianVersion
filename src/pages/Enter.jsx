@@ -11,8 +11,11 @@ import { CiCalendarDate } from "react-icons/ci";
 
 
 const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
-const onSubmit=(values)=>{
-    console.log(values);
+const onSubmit=(values,{resetForm})=>{
+    axios.post(`http://localhost:4000/enter`,values)
+    .then(res=>toast.success("data added successfully"))
+    .catch(err=>toast.error(err.message));
+    resetForm();
 }
 const validationSchema=Yup.object({
     productName:Yup.string().required('product name is required'),
@@ -38,44 +41,45 @@ const Enter = () => {
        .catch(err=>toast.error(err.message))
     },[]);
     function fillOptions(){
-        options.productName= overall.filter(item=>item.kind==="productName");
-        options.productSpecification= overall.filter(item=>item.kind==="productSpecification");
-        options.measurmentUnit= overall.filter(item=>item.kind==="measurmentUnit");
-        options.supplier= overall.filter(item=>item.kind==="supplier");
-        options.enterDelivery= overall.filter(item=>item.kind==="enterDelivery");
-        options.enterTransferee= overall.filter(item=>item.kind==="enterTransferee");
+        options.productName= overall.filter(item=>item.category==="productName");
+        options.productSpecification= overall.filter(item=>item.category==="productSpecification");
+        options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
+        options.supplier= overall.filter(item=>item.category==="supplier");
+        options.enterDelivery= overall.filter(item=>item.category==="enterDelivery");
+        options.enterTransferee= overall.filter(item=>item.category==="enterTransferee");
     };
     if(overall) {fillOptions()}
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
-    // console.log(formik.errors);
-    console.log(formik.touched)
+    console.log(formik.errors);
+    //console.log(formik.touched)
     // console.log(formik.isValid);
+    console.log(options)
     return ( 
         <div>
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
-                {options.productName.length &&
+                {options.productName &&
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productSpecification.length &&
+                {options.productSpecification &&
                 <SearchSelect options={options.productSpecification} name="productSpecification" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName.length &&
+                {options.productName &&
                 <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName.length &&
-                <Input type="date" name="date" formik={formik} logo={<CiCalendarDate />} />
+                {options.productName &&
+                <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName.length &&
-                <Input type="number" name="number" formik={formik} logo={<CiCalendarDate />} />
+                {options.productName &&
+                <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.supplier.length &&
+                {options.supplier &&
                 <SearchSelect options={options.supplier} name="supplier" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.enterDelivery.length &&
+                {options.enterDelivery &&
                 <SearchSelect options={options.enterDelivery} name="enterDelivery" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.enterTransferee.length &&
+                {options.enterTransferee &&
                 <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
                 }
                 <button disabled={!formik.isValid} className="py-2 px-4 bg-blue-500 rounded-md w-full" type="submit">Add</button>
