@@ -4,6 +4,7 @@ import Enter from "./pages/Enter";
 import Exit from "./pages/Exit";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Inputs from "./pages/Inputs";
 
 
 const Routee = () => {
@@ -13,6 +14,7 @@ const Routee = () => {
             <Route path="/Enter" element={<Enter />} />
             <Route path="/Exit" element={<Exit />} />
             <Route path="/Inventory"  element={<Inventory />} />
+            <Route path="/Inputs"  element={<Inputs />} />
             <Route path="/*" element={<NotFound />} />
         </Routes>
      );

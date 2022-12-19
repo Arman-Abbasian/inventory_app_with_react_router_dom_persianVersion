@@ -3,6 +3,7 @@ import './App.css';
 import Layout from './Layout/Layout';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Layout>
           <Routee />
         </Layout>
+        <Toaster />
       </BrowserRouter>
     </div>
   );

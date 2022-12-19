@@ -1,8 +1,8 @@
-const Input = ({name,type="text",formik,logo}) => {
+const Input = ({name,type="text",formik,logo,label}) => {
     return ( 
         <>
         <div className="flex flex-col gap-2 justify-center items-center w-full relative">
-            <label className="flex w-full" htmlFor={`${name}`}>{`${name}`}</label>
+            <label className="flex w-full" htmlFor={`${name}`}>{label}</label>
             <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>{logo}</span>
                 <input className="form-input w-full rounded-md outline-none flex-1 bg-transparent" type={type} id={`${name}`}  name={`${name}`} {...formik.getFieldProps({name})} />
