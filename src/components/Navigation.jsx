@@ -10,7 +10,7 @@ const navigation=[
 
 const Navigation = () => {
     return ( 
-        <ul>
+        <ul className="flex items-center gap-4">
             {navigation.map(item=>{
                 return <li key={item.id}><Link to={item.to}>{item.name}</Link></li>
             })}

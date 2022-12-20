@@ -2,7 +2,7 @@ import Navigation from "../components/Navigation";
 
 const Header = () => {
     return ( 
-        <div>
+        <div className="h-20 bg-primary_green">
             <nav>
                 <Navigation />
             </nav>

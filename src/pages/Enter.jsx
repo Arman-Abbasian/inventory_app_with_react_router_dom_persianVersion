@@ -82,7 +82,7 @@ const Enter = () => {
                 {options.enterTransferee &&
                 <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-blue-500 rounded-md w-full" type="submit">Add</button>
+                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">Add</button>
                 </div>
             </form>
         </div>

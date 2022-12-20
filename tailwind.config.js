@@ -6,9 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primaty_white:"#FFFFFF",
-        primaty_blue:"#1D3557",
-        primaty_red:"#E63946",
+        primary_white:"#ededed",
+        primary_black:"#111",
+        primary_green:"#004749",
+        primary_red:"#540000"
       }
     },
   },
