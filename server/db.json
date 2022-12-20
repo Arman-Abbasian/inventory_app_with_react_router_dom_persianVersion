@@ -1,13 +1,13 @@
 {
   "enter": [
     {
-      "productName": "product 2",
+      "productName": "product 1",
       "productSpecification": "specification 1",
       "measurmentUnit": "3",
-      "date": "2022-12-07",
-      "number": 3200,
+      "date": "2022-12-04",
+      "number": 30000,
       "supplier": "supplier 1",
-      "enterDelivery": "enter delivery 1",
+      "enterDelivery": "enter delivery 2",
       "enterTransferee": "enter transferee 1",
       "id": 2
     },

@@ -29,10 +29,8 @@ const validationSchema=Yup.object({
 })
 
 const Enter = () => {
-    const optionsDB=['productName','productSpecification','measurmentUnit','supplier','enterDelivery','enterTransferee']
     const [overall,setOverall]=useState(null);
     const options={productName:[],productSpecification:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
-    const [productName,setProductName]=useState(null);
     useEffect(()=>{
        axios.get(`http://localhost:4000/overall`)
        .then(res=>{
