@@ -1,9 +1,6 @@
 {
   "enter": [
     {
-      "id": 1
-    },
-    {
       "productName": "product 2",
       "productSpecification": "specification 1",
       "measurmentUnit": "3",
@@ -24,6 +21,21 @@
       "enterDelivery": "enter delivery 2",
       "enterTransferee": "enter transferee 2",
       "id": 3
+    }
+  ],
+  "exit": [
+    {
+      "productName": "product 2",
+      "productSpecification": "specification 1",
+      "measurmentUnit": "3",
+      "date": "2022-12-07",
+      "number": 3400,
+      "consumingFor": "SSPPR212",
+      "exitDelivery": "delivety input 1",
+      "exitTransferee": "exit transferee 1",
+      "jobPosition": "job position 1",
+      "unit": "unit 1",
+      "id": 1
     }
   ],
   "overall": [

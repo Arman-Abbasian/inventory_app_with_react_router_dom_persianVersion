@@ -10,9 +10,9 @@ import { CiCalendarDate } from "react-icons/ci";
 
 
 
-const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
+const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
 const onSubmit=(values,{resetForm})=>{
-    axios.post(`http://localhost:4000/enter`,values)
+    axios.post(`http://localhost:4000/exit`,values)
     .then(res=>toast.success("data added successfully"))
     .catch(err=>toast.error(err.message));
     resetForm();
@@ -23,16 +23,16 @@ const validationSchema=Yup.object({
     measurmentUnit:Yup.string().required('measurement Unit is required'),
     date: Yup.date("the format is not date format").required("data is required"),
     number:Yup.number("the format is not number format").required('number is required'),
-    supplier:Yup.string().required('supplier is required'),
-    enterDelivery:Yup.string().required("delivery is required"),
-    enterTransferee:Yup.string().required("transferee is required")
+    consumingFor:Yup.string().required('consumig for is required'),
+    exitDelivery:Yup.string().required("delivery is required"),
+    exitTransferee:Yup.string().required("transferee is required"),
+    jobPosition:Yup.string().required("job position is required"),
+    unit:Yup.string().required("unit is required"),
 })
 
 const Exit = () => {
-    const optionsDB=['productName','productSpecification','measurmentUnit','supplier','enterDelivery','enterTransferee']
     const [overall,setOverall]=useState(null);
-    const options={productName:[],productSpecification:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
-    const [productName,setProductName]=useState(null);
+    const options={productName:[],productSpecification:[],measurmentUnit:[],date:[],number:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
     useEffect(()=>{
        axios.get(`http://localhost:4000/overall`)
        .then(res=>{
@@ -44,9 +44,11 @@ const Exit = () => {
         options.productName= overall.filter(item=>item.category==="productName");
         options.productSpecification= overall.filter(item=>item.category==="productSpecification");
         options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
-        options.supplier= overall.filter(item=>item.category==="supplier");
-        options.enterDelivery= overall.filter(item=>item.category==="enterDelivery");
-        options.enterTransferee= overall.filter(item=>item.category==="enterTransferee");
+        options.consumingFor= overall.filter(item=>item.category==="consumingFor");
+        options.exitDelivery= overall.filter(item=>item.category==="exitDelivery");
+        options.exitTransferee= overall.filter(item=>item.category==="exitTransferee");
+        options.jobPosition= overall.filter(item=>item.category==="jobPosition");
+        options.unit= overall.filter(item=>item.category==="unit");
     };
     if(overall) {fillOptions()}
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
@@ -56,35 +58,41 @@ const Exit = () => {
     console.log(options)
     return ( 
         <div>
+            {overall && 
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
+                    
                 {options.productName &&
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productSpecification &&
                 <SearchSelect options={options.productSpecification} name="productSpecification" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName &&
+                {options.measurmentUnit &&
                 <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName &&
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productName &&
+                
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
+                {options.consumingFor &&
+                <SearchSelect options={options.consumingFor} name="consumingFor" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.supplier &&
-                <SearchSelect options={options.supplier} name="supplier" formik={formik} logo={<CiCalendarDate />} />
+                {options.exitDelivery &&
+                <SearchSelect options={options.exitDelivery} name="exitDelivery" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.enterDelivery &&
-                <SearchSelect options={options.enterDelivery} name="enterDelivery" formik={formik} logo={<CiCalendarDate />} />
+                {options.exitTransferee &&
+                <SearchSelect options={options.exitTransferee} name="exitTransferee" formik={formik} />
                 }
-                {options.enterTransferee &&
-                <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
+                {options.jobPosition &&
+                <SearchSelect options={options.jobPosition} name="jobPosition" formik={formik} logo={<CiCalendarDate />} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
+                {options.unit &&
+                <SearchSelect options={options.unit} name="unit" formik={formik} />
+                }
+                 <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
             </form>
+            }
         </div>
      );
 }
