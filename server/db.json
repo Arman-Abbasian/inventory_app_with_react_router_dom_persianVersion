@@ -13,6 +13,17 @@
       "enterDelivery": "enter delivery 1",
       "enterTransferee": "enter transferee 1",
       "id": 2
+    },
+    {
+      "productName": "product 1",
+      "productSpecification": "specification 2",
+      "measurmentUnit": "3",
+      "date": "2022-12-06",
+      "number": 7800,
+      "supplier": "supplier 1",
+      "enterDelivery": "enter delivery 2",
+      "enterTransferee": "enter transferee 2",
+      "id": 3
     }
   ],
   "overall": [
@@ -81,6 +92,36 @@
       "enterTransferee": "enter transferee 2",
       "information": "eeeee",
       "id": 11
+    },
+    {
+      "category": "consumingFor",
+      "consumingFor": "SSPPR212",
+      "information": "dddddd",
+      "id": 12
+    },
+    {
+      "category": "exitDelivery",
+      "exitDelivery": "delivety input 1",
+      "information": "ddd",
+      "id": 13
+    },
+    {
+      "category": "exitTransferee",
+      "exitTransferee": "exit transferee 1",
+      "information": "eeee",
+      "id": 14
+    },
+    {
+      "category": "jobPosition",
+      "jobPosition": "job position 1",
+      "information": "dddd",
+      "id": 15
+    },
+    {
+      "category": "unit",
+      "unit": "unit 1",
+      "information": "dddd",
+      "id": 16
     }
   ]
 }

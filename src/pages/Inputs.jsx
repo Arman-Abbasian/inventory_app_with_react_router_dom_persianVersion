@@ -9,8 +9,13 @@ const Inputs = () => {
            <FormInput name="productSpecification" label="product specification" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
            <FormInput name="measurmentUnit" label="measurement" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
            <FormInput name="supplier" label="supplier" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
-           <FormInput name="enterDelivery" label="delivery" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="enterDelivery" label="enter delivery" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
            <FormInput name="enterTransferee" label="transferee" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="consumingFor" label="consuming for" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="exitDelivery" label="exit delivery" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="exitTransferee" label="exit transferee" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="jobPosition" label="job position" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
+           <FormInput name="unit" label="unit" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>
         </div>
      );
 }
