@@ -8,6 +8,7 @@ import Inputs from "./pages/Inputs";
 import EnterList from "./pages/EnterList";
 import ExitList from "./pages/ExitList";
 import EnterItem from "./pages/EnterItem";
+import ExitItem from "./pages/ExitItem";
 
 
 const Routee = () => {
@@ -21,6 +22,7 @@ const Routee = () => {
             <Route path="/EnterList"  element={<EnterList />} />
             <Route path="/ExitList"  element={<ExitList />} />
             <Route path="/enter/:id"  element={<EnterItem />} />
+            <Route path="/exit/:id"  element={<ExitItem />} />
             <Route path="/*" element={<NotFound />} />
         </Routes>
      );

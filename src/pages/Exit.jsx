@@ -28,7 +28,7 @@ const validationSchema=Yup.object({
     exitTransferee:Yup.string().required("transferee is required"),
     jobPosition:Yup.string().required("job position is required"),
     unit:Yup.string().required("unit is required"),
-})
+});
 
 const Exit = () => {
     const [overall,setOverall]=useState(null);

@@ -17,8 +17,8 @@ const OneExitItem = ({id,productName,productSpecification,number,measurmentUnit,
                 <p><span className="font-bold">job position:</span> {jobPosition}</p>
                 <p><span className="font-bold">unit:</span> {unit}</p>
                 <div className="flex justify-center items-center gap-6 md:col-span-2 xl:col-span-3 2xl:col-span-4 md:justify-self-center">
-                    <span><Link to={`/enter/${id}`}><CiEdit className="w-6 h-6" /></Link></span>
-                    <span onClick={()=>deleteHandler(id)} className="hover:cursor-pointer"><AiOutlineDelete className="w-6 h-6" /></span>
+                    <span><Link to={`/exit/${id}`}><CiEdit className="w-6 h-6" /></Link></span>
+                    <span onClick={deleteHandler} className="hover:cursor-pointer"><AiOutlineDelete className="w-6 h-6" /></span>
                 </div>
             </div>            
         </div>
