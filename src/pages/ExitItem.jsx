@@ -11,14 +11,14 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 const ExitItem = () => {
-    const options={productName:[],productSpecification:[],measurmentUnit:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
+    const options={productName:[],measurmentUnit:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
     const [exitItem,setExitItem]=useState({data:null,error:null,loading:false});
     const [overall,setOverall]=useState(null);
     const {id}=useParams();
     let navigate = useNavigate();
     console.log(id);
     console.log(exitItem.data)
-    const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
+    const initialValues={productName:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
     const onSubmit=(values,{resetForm})=>{
         axios.put(`http://localhost:4000/exit/${id}`,values)
         .then(res=>{
@@ -30,7 +30,6 @@ const ExitItem = () => {
     }
     const validationSchema=Yup.object({
         productName:Yup.string().required('product name is required'),
-        productSpecification:Yup.string().required('product Specification is required'),
         measurmentUnit:Yup.string().required('measurement Unit is required'),
         date: Yup.date("the format is not date format").required("data is required"),
         number:Yup.number("the format is not number format").required('number is required'),
@@ -61,7 +60,6 @@ const ExitItem = () => {
 
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.productSpecification= overall.filter(item=>item.category==="productSpecification");
         options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
         options.supplier= overall.filter(item=>item.category==="consumingFor");
         options.exitDelivery= overall.filter(item=>item.category==="exitDelivery");
@@ -85,9 +83,6 @@ const ExitItem = () => {
                             
                         {options.productName &&
                         <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
-                        }
-                        {options.productSpecification &&
-                        <SearchSelect options={options.productSpecification} name="productSpecification" formik={formik} logo={<CiCalendarDate />} />
                         }
                         {options.measurmentUnit &&
                         <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />

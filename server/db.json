@@ -1,48 +1,12 @@
 {
-  "enter": [
-    {
-      "productName": "product 1",
-      "productSpecification": "specification 2",
-      "measurmentUnit": "3",
-      "date": "2022-12-06",
-      "number": 9499,
-      "supplier": "supplier 1",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 2",
-      "id": 3
-    }
-  ],
+  "enter": [],
   "exit": [],
   "overall": [
-    {
-      "category": "productName",
-      "productName": "product 1",
-      "information": "dddddd",
-      "id": 1
-    },
-    {
-      "category": "productName",
-      "productName": "product 2",
-      "information": "eeeeee",
-      "id": 2
-    },
     {
       "category": "measurmentUnit",
       "measurmentUnit": "kg",
       "information": "ddddd",
       "id": 3
-    },
-    {
-      "category": "productSpecification",
-      "productSpecification": "specification 1",
-      "information": "eeeeee",
-      "id": 4
-    },
-    {
-      "category": "productSpecification",
-      "productSpecification": "specification 2",
-      "information": "ddddd",
-      "id": 5
     },
     {
       "category": "supplier",
@@ -52,7 +16,7 @@
     },
     {
       "category": "supplier",
-      "supplier": "s",
+      "supplier": "supplier 2",
       "information": "",
       "id": 7
     },
@@ -109,6 +73,18 @@
       "unit": "unit 1",
       "information": "dddd",
       "id": 16
+    },
+    {
+      "category": "productName",
+      "productName": "product 1 door 15",
+      "information": "from evety where",
+      "id": 17
+    },
+    {
+      "category": "productName",
+      "productName": "product 2 door 20",
+      "information": "dddd",
+      "id": 18
     }
   ]
 }

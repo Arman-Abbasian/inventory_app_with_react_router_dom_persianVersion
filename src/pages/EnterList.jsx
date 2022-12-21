@@ -29,9 +29,9 @@ const EnterList = () => {
         <div className="flex flex-col gap-y-4">
             {enterList.data && 
             enterList.data.map(item=>(
-                <OneEnterItem id={item.id}productName={item.productName}productSpecification={item.productSpecification}
+                <OneEnterItem key={item.id} id={item.id}productName={item.productName}
                 number={item.number}measurmentUnit={item.measurmentUnit}date={item.date}supplier={item.supplier}
-                enterDelivery={item.enterDelivery}enterTransferee={item.enterTransferee} deleteHandle={deleteHandler} />
+                enterDelivery={item.enterDelivery}enterTransferee={item.enterTransferee} deleteHandler={()=>deleteHandler(item.id)} />
             ))
             }
         </div>

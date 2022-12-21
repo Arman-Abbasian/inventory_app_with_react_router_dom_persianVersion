@@ -7,30 +7,33 @@ import SearchSelect from "../common/SearchSelect";
 import SelectOptions from "../common/SelectOptions";
 import Input from "../common/Input";
 import { CiCalendarDate } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 
-
-const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
-const onSubmit=(values,{resetForm})=>{
-    axios.post(`http://localhost:4000/enter`,values)
-    .then(res=>toast.success("data added successfully"))
-    .catch(err=>toast.error(err.message));
-    resetForm();
-}
-const validationSchema=Yup.object({
-    productName:Yup.string().required('product name is required'),
-    productSpecification:Yup.string().required('product Specification is required'),
-    measurmentUnit:Yup.string().required('measurement Unit is required'),
-    date: Yup.date("the format is not date format").required("data is required"),
-    number:Yup.number("the format is not number format").required('number is required'),
-    supplier:Yup.string().required('supplier is required'),
-    enterDelivery:Yup.string().required("delivery is required"),
-    enterTransferee:Yup.string().required("transferee is required")
-})
 
 const Enter = () => {
+    let navigate=useNavigate();
+    const initialValues={productName:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
+    const onSubmit=(values,{resetForm})=>{
+        axios.post(`http://localhost:4000/enter`,values)
+        .then(res=>{
+            navigate("/EnterList")
+            toast.success("data added successfully")
+        })
+        .catch(err=>toast.error(err.message));
+        resetForm();
+    }
+    const validationSchema=Yup.object({
+        productName:Yup.string().required('product name is required'),
+        measurmentUnit:Yup.string().required('measurement Unit is required'),
+        date: Yup.date("the format is not date format").required("data is required"),
+        number:Yup.number("the format is not number format").required('number is required'),
+        supplier:Yup.string().required('supplier is required'),
+        enterDelivery:Yup.string().required("delivery is required"),
+        enterTransferee:Yup.string().required("transferee is required")
+    })
     const [overall,setOverall]=useState(null);
-    const options={productName:[],productSpecification:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
+    const options={productName:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
     useEffect(()=>{
        axios.get(`http://localhost:4000/overall`)
        .then(res=>{
@@ -40,7 +43,6 @@ const Enter = () => {
     },[]);
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.productSpecification= overall.filter(item=>item.category==="productSpecification");
         options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
         options.supplier= overall.filter(item=>item.category==="supplier");
         options.enterDelivery= overall.filter(item=>item.category==="enterDelivery");
@@ -58,9 +60,6 @@ const Enter = () => {
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productSpecification &&
-                <SearchSelect options={options.productSpecification} name="productSpecification" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productName &&
                 <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />

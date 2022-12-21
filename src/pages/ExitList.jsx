@@ -30,7 +30,7 @@ const ExitList = () => {
         <div className="flex flex-col gap-y-4">
             {exitList.data && 
             exitList.data.map(item=>(
-                <OneExitItem key={item.id} id={item.id}productName={item.productName}productSpecification={item.productSpecification}
+                <OneExitItem key={item.id} id={item.id}productName={item.productName}
                 number={item.number}measurmentUnit={item.measurmentUnit}date={item.date} consumingFor={item.consumingFor}
                 exitDelivery={item.exitDelivery} exitTransferee={item.exitTransferee} jobPosition={item.jobPosition} unit={item.unit} deleteHandler={()=>deleteHandler(item.id)} />
             ))

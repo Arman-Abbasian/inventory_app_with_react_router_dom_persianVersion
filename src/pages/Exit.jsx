@@ -10,7 +10,7 @@ import { CiCalendarDate } from "react-icons/ci";
 
 
 
-const initialValues={productName:"",productSpecification:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
+const initialValues={productName:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
 const onSubmit=(values,{resetForm})=>{
     axios.post(`http://localhost:4000/exit`,values)
     .then(res=>toast.success("data added successfully"))
@@ -19,7 +19,6 @@ const onSubmit=(values,{resetForm})=>{
 }
 const validationSchema=Yup.object({
     productName:Yup.string().required('product name is required'),
-    productSpecification:Yup.string().required('product Specification is required'),
     measurmentUnit:Yup.string().required('measurement Unit is required'),
     date: Yup.date("the format is not date format").required("data is required"),
     number:Yup.number("the format is not number format").required('number is required'),
@@ -32,7 +31,7 @@ const validationSchema=Yup.object({
 
 const Exit = () => {
     const [overall,setOverall]=useState(null);
-    const options={productName:[],productSpecification:[],measurmentUnit:[],date:[],number:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
+    const options={productName:[],measurmentUnit:[],date:[],number:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
     useEffect(()=>{
        axios.get(`http://localhost:4000/overall`)
        .then(res=>{
@@ -42,7 +41,6 @@ const Exit = () => {
     },[]);
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.productSpecification= overall.filter(item=>item.category==="productSpecification");
         options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
         options.consumingFor= overall.filter(item=>item.category==="consumingFor");
         options.exitDelivery= overall.filter(item=>item.category==="exitDelivery");
@@ -64,9 +62,6 @@ const Exit = () => {
                     
                 {options.productName &&
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productSpecification &&
-                <SearchSelect options={options.productSpecification} name="productSpecification" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.measurmentUnit &&
                 <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
