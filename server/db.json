@@ -1,6 +1,52 @@
 {
-  "enter": [],
-  "exit": [],
+  "enter": [
+    {
+      "productName": "product 1 door 15",
+      "measurmentUnit": "23",
+      "date": "2022-12-06",
+      "number": 30000,
+      "supplier": "supplier 1",
+      "enterDelivery": "enter delivery 2",
+      "enterTransferee": "enter transferee 1",
+      "id": 1
+    },
+    {
+      "productName": "product 3 door 20",
+      "measurmentUnit": "23",
+      "date": "2022-12-16",
+      "number": 40000,
+      "supplier": "supplier 1",
+      "enterDelivery": "enter delivery 1",
+      "enterTransferee": "enter transferee 2",
+      "id": 2
+    }
+  ],
+  "exit": [
+    {
+      "productName": "product 1 door 15",
+      "measurmentUnit": "23",
+      "date": "2022-12-12",
+      "number": 2000,
+      "consumingFor": "SSPPR213",
+      "exitDelivery": "delivety input 1",
+      "exitTransferee": "exit transferee 1",
+      "jobPosition": "job position 1",
+      "unit": "unit 1",
+      "id": 1
+    },
+    {
+      "productName": "product 3 door 20",
+      "measurmentUnit": "23",
+      "date": "2022-12-06",
+      "number": 3000,
+      "consumingFor": "SSPPR212",
+      "exitDelivery": "delivety input 1",
+      "exitTransferee": "exit transferee 1",
+      "jobPosition": "job position 1",
+      "unit": "unit 1",
+      "id": 2
+    }
+  ],
   "overall": [
     {
       "category": "measurmentUnit",
@@ -77,14 +123,32 @@
     {
       "category": "productName",
       "productName": "product 1 door 15",
-      "information": "from evety where",
-      "id": 17
+      "safetyStock": 8,
+      "orderPoint": 13,
+      "information": "",
+      "id": 20
     },
     {
       "category": "productName",
-      "productName": "product 2 door 20",
-      "information": "dddd",
-      "id": 18
+      "productName": "product 3 door 20",
+      "safetyStock": 40,
+      "orderPoint": 90,
+      "information": "ddd",
+      "id": 21
+    },
+    {
+      "category": "productName",
+      "productName": "product 3 door 90",
+      "safetyStock": 70,
+      "orderPoint": 100,
+      "information": "eeee",
+      "id": 22
+    },
+    {
+      "category": "measurmentUnit",
+      "measurmentUnit": "number",
+      "information": "",
+      "id": 23
     }
   ]
 }
