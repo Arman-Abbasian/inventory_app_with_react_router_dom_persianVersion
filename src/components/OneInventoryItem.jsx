@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const OneInventoryItem = ({productName,enter,exit,safetyStock,orderPoint}) => {
+    const [condition,setCondition]=useState(null);
+    if(((enter - exit)>orderPoint))
     return ( 
         <div className={`flex justify-center items-center gap-2 bg-primary_green rounded-sm p-2 border-r-8  ${((enter - exit)>orderPoint)&&'border-green-500'} 
         ${((enter - exit)<=orderPoint)&&'border-yellow-500'}  ${((enter - exit)<=safetyStock)&&'border-red-500'} `}>

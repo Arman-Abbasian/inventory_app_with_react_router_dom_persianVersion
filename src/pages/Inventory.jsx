@@ -9,35 +9,20 @@ const Inventory = () => {
     const [exits,setExits]=useState({data:null,error:null,loading:false});
     const [whole,setWhole]=useState(null);
     const [allproductNames,setAllProductNames]=useState(null);
-    
+    //1- fill 3 state at first with data from DB
     useEffect(()=>{
         getOverallFromDB();
         getEnterFromDB();
         getExitFromDB()
     },[]);
-
-            if(enters.data && !allproductNames){
-            getUniqueEnterProductName()
-        }
-            
-
-        if(allproductNames && !whole){
-            setWholeItems()
-        }
-        //get unique enter Product Name
-    function getUniqueEnterProductName(){
-       const allProductNames= enters.data.map(item=>{
-          return  item.productName
-        });
-        setAllProductNames(allProductNames);
-        let uniqueProductNames = [];
-        allProductNames.forEach((element) => {
-        if (!uniqueProductNames.includes(element)) {
-            uniqueProductNames.push(element);
-        }
-        });
-        setAllProductNames(uniqueProductNames) 
-};
+    //2- fill the all produtName based on existence data in 'enters.data' state and not existennce data in allproductsName state(forbid from fill rendering)
+    if(enters.data && !allproductNames){
+         getUniqueEnterProductName()
+    };          
+    //2- fill the all whole state based on existence allproductNames  and not existennce data in whole state(forbid from fill rendering)
+    if(allproductNames && !whole){
+        setWholeItems()
+    }
     //get productName item from overall DB
     async function getOverallFromDB(){
         setProductNames({data:null,error:null,loading:true})
@@ -71,6 +56,20 @@ const Inventory = () => {
           toast.error(err.message)  
         }
     };
+        //get unique enter Product Name
+        function getUniqueEnterProductName(){
+            const allProductNames= enters.data.map(item=>{
+               return  item.productName
+             });
+             setAllProductNames(allProductNames);
+             let uniqueProductNames = [];
+             allProductNames.forEach((element) => {
+             if (!uniqueProductNames.includes(element)) {
+                 uniqueProductNames.push(element);
+             }
+             });
+             setAllProductNames(uniqueProductNames) 
+     };
     //make one whole object
         function setWholeItems(){
         let init=[]
