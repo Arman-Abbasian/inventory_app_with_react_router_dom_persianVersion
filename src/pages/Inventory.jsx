@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { getDataFromDB } from "../common/getDataFromDB";
-import OneEnterItem from "../components/OneEnterItem";
 import OneInventoryItem from "../components/OneInventoryItem";
 
 const Inventory = () => {
@@ -18,18 +16,19 @@ const Inventory = () => {
         getExitFromDB()
     },[]);
 
-    if(!whole){
-        {getUniqueEnterProductName()}
-        {setWholeItems()}
-    }
-       
+            if(enters.data && !allproductNames){
+            getUniqueEnterProductName()
+        }
+            
 
+        if(allproductNames && !whole){
+            setWholeItems()
+        }
+        //get unique enter Product Name
     function getUniqueEnterProductName(){
-        if(enters.data){
        const allProductNames= enters.data.map(item=>{
           return  item.productName
         });
-        console.log(allProductNames)
         setAllProductNames(allProductNames);
         let uniqueProductNames = [];
         allProductNames.forEach((element) => {
@@ -38,10 +37,8 @@ const Inventory = () => {
         }
         });
         setAllProductNames(uniqueProductNames) 
-    };
 };
-console.log("dd")
-    //get enter item from DB
+    //get productName item from overall DB
     async function getOverallFromDB(){
         setProductNames({data:null,error:null,loading:true})
         try {
@@ -49,7 +46,7 @@ console.log("dd")
         setProductNames({data:data,error:null,loading:false})
         } catch (err) {
             setProductNames({data:null,error:err.message,loading:false})
-          toast.error(err.message)  
+            toast.error(err.message)  
         }
     }
     //get enter item from DB
@@ -76,8 +73,6 @@ console.log("dd")
     };
     //make one whole object
         function setWholeItems(){
-            if(allproductNames && exits.data){
-        console.log(allproductNames && productNames.data)
         let init=[]
         allproductNames.map(item=>{
             console.log(item)
@@ -92,7 +87,6 @@ console.log("dd")
             init.push({productName:item,measurmentUnit:measurment, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:safetyStock,orderPoint:orderPoint})
         });
         setWhole(init)
-    }
 };
     return ( 
         <div className="flex flex-col gap-y-4">
