@@ -13,12 +13,22 @@
     {
       "productName": "product 3 door 20",
       "measurmentUnit": "23",
-      "date": "2022-12-16",
-      "number": 40000,
-      "supplier": "supplier 1",
-      "enterDelivery": "enter delivery 1",
+      "date": "2022-12-06",
+      "number": 10000,
+      "supplier": "supplier 2",
+      "enterDelivery": "enter delivery 2",
       "enterTransferee": "enter transferee 2",
       "id": 2
+    },
+    {
+      "productName": "product 1 door 15",
+      "measurmentUnit": "23",
+      "date": "2022-12-06",
+      "number": 1500,
+      "supplier": "supplier 2",
+      "enterDelivery": "enter delivery 1",
+      "enterTransferee": "enter transferee 2",
+      "id": 3
     }
   ],
   "exit": [
@@ -123,24 +133,24 @@
     {
       "category": "productName",
       "productName": "product 1 door 15",
-      "safetyStock": 8,
-      "orderPoint": 13,
+      "safetyStock": 8000,
+      "orderPoint": 1300,
       "information": "",
       "id": 20
     },
     {
       "category": "productName",
       "productName": "product 3 door 20",
-      "safetyStock": 40,
-      "orderPoint": 90,
+      "safetyStock": 4000,
+      "orderPoint": 7000,
       "information": "ddd",
       "id": 21
     },
     {
       "category": "productName",
       "productName": "product 3 door 90",
-      "safetyStock": 70,
-      "orderPoint": 100,
+      "safetyStock": 70000,
+      "orderPoint": 10000,
       "information": "eeee",
       "id": 22
     },
@@ -149,6 +159,14 @@
       "measurmentUnit": "number",
       "information": "",
       "id": 23
+    },
+    {
+      "category": "productName",
+      "productName": "product 2 door 10",
+      "safetyStock": 10,
+      "orderPoint": 20,
+      "information": "",
+      "id": 24
     }
   ]
 }
