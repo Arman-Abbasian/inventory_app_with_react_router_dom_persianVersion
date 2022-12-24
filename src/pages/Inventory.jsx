@@ -18,7 +18,7 @@ const Inventory = () => {
 
     if(productNames.data && enters.data && exits.data && !whole){
         setWholeItems()
-    }
+    };
     //get productName item from overall DB
     async function getOverallFromDB(){
         setProductNames({data:null,error:null,loading:true})
@@ -29,7 +29,7 @@ const Inventory = () => {
             setProductNames({data:null,error:err.message,loading:false})
             toast.error(err.message)  
         }
-    }
+    };
     //get enter item from DB
     async function getEnterFromDB(){
         setEnters({data:null,error:null,loading:true})
@@ -40,7 +40,7 @@ const Inventory = () => {
             setEnters({data:null,error:err.message,loading:false})
           toast.error(err.message)  
         }
-    }
+    };
     //get exits item from DB
     async function getExitFromDB(){
         setExits({data:null,error:null,loading:true})
@@ -55,23 +55,28 @@ const Inventory = () => {
         function setWholeItems(){
         let init=[]
         productNames.data.map(item=>{
-            console.log(item)
+            console.log(item.productName)
             const enterItems=enters.data.filter(element=>element.productName===item.productName);
-            const sumEnters = enterItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0);
+            const sumEnters = enterItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0) || 0;
+            console.log(sumEnters);
             const exitItems=exits.data.filter(element=>element.productName===item.productName);
-            const sumExits = exitItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0);
-            init.push({productName:item.productName,measurmentUnit:item.measurmentUnit, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:item.safetyStock,orderPoint:item.orderPoint})
+            const sumExits = exitItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0) || 0;
+            console.log(sumExits)
+            init.push({id:item.id,productName:item.productName,measurmentUnit:item.measurmentUnit, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:item.safetyStock,orderPoint:item.orderPoint})
         });
         setWhole(init)
 };
+
+
+
     return ( 
         <div className="flex flex-col gap-y-4">
             {whole && 
             whole.map(item=>(
-                <OneInventoryItem key={item.productName} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
+                <OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
             ))
             }
         </div>
      );
-}
+};
 export default Inventory;
