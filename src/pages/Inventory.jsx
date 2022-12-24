@@ -2,13 +2,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OneInventoryItem from "../components/OneInventoryItem";
+import SearchSelect from '../common/SearchSelect';
+import Filter from "../components/Filter";
 
 const Inventory = () => {
     const [productNames,setProductNames]=useState({data:null,error:null,loading:false});
     const [enters,setEnters]=useState({data:null,error:null,loading:false});
     const [exits,setExits]=useState({data:null,error:null,loading:false});
     const [whole,setWhole]=useState(null);
+    const [filters,setFilters]=useState({productName:""});
 
+    const changeHandler=(e)=>{
+        const {name,value}=e.target;
+        console.log(name,value)
+        setFilters({...filters,[name]:value})
+    };
     //1- fill 3 state at first with data from DB
     useEffect(()=>{
         getOverallFromDB();
@@ -71,6 +79,7 @@ const Inventory = () => {
 
     return ( 
         <div className="flex flex-col gap-y-4">
+            <Filter filters={filters} changeHandler={changeHandler} />
             {whole && 
             whole.map(item=>(
                 <OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
