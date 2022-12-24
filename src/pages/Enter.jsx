@@ -59,10 +59,10 @@ const Enter = () => {
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productName &&
-                <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
+                <SelectOptions options={options.measurmentUnit} name="measurmentUnit" label="measurment unit" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productName &&
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
@@ -71,13 +71,13 @@ const Enter = () => {
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.supplier &&
-                <SearchSelect options={options.supplier} name="supplier" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.enterDelivery &&
-                <SearchSelect options={options.enterDelivery} name="enterDelivery" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.enterDelivery} name="enterDelivery" label="enter delivery" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.enterTransferee &&
-                <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
+                <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} />
                 }
                 <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>

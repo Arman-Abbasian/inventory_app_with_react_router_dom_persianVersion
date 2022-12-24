@@ -131,42 +131,43 @@
       "id": 16
     },
     {
-      "category": "productName",
-      "productName": "product 1 door 15",
-      "safetyStock": 8000,
-      "orderPoint": 1300,
-      "information": "",
-      "id": 20
-    },
-    {
-      "category": "productName",
-      "productName": "product 3 door 20",
-      "safetyStock": 4000,
-      "orderPoint": 7000,
-      "information": "ddd",
-      "id": 21
-    },
-    {
-      "category": "productName",
-      "productName": "product 3 door 90",
-      "safetyStock": 70000,
-      "orderPoint": 10000,
-      "information": "eeee",
-      "id": 22
-    },
-    {
       "category": "measurmentUnit",
       "measurmentUnit": "number",
       "information": "",
       "id": 23
     },
     {
+      "category": "measurmentUnit",
+      "measurmentUnit": "meter",
+      "information": "dddd",
+      "id": 25
+    },
+    {
       "category": "productName",
-      "productName": "product 2 door 10",
-      "safetyStock": 10,
-      "orderPoint": 20,
+      "productName": "product 1 door 15",
+      "measurmentUnit": "meter",
+      "safetyStock": 9000,
+      "orderPoint": 12000,
       "information": "",
-      "id": 24
+      "id": 26
+    },
+    {
+      "category": "productName",
+      "productName": "product 3 door 20",
+      "measurmentUnit": "number",
+      "safetyStock": 2000,
+      "orderPoint": 3000,
+      "information": "",
+      "id": 27
+    },
+    {
+      "category": "productName",
+      "productName": "product 4 door 30",
+      "measurmentUnit": "kg",
+      "safetyStock": 15000,
+      "orderPoint": 30000,
+      "information": "",
+      "id": 28
     }
   ]
 }

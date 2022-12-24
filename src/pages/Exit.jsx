@@ -61,28 +61,28 @@ const Exit = () => {
                 <div className="flex flex-col gap-4 justify-center items-center">
                     
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.measurmentUnit &&
-                <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
+                <SelectOptions options={options.measurmentUnit} name="measurmentUnit" label="measurment unit" formik={formik} logo={<CiCalendarDate />} />
                 }
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
                 
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
                 {options.consumingFor &&
-                <SearchSelect options={options.consumingFor} name="consumingFor" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.consumingFor} name="consumingFor" label="consuming for" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.exitDelivery &&
-                <SearchSelect options={options.exitDelivery} name="exitDelivery" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.exitDelivery} name="exitDelivery" label="exit delivery" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.exitTransferee &&
-                <SearchSelect options={options.exitTransferee} name="exitTransferee" formik={formik} />
+                <SearchSelect options={options.exitTransferee} name="exitTransferee" label="exit transferee" formik={formik} />
                 }
                 {options.jobPosition &&
-                <SearchSelect options={options.jobPosition} name="jobPosition" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.jobPosition} name="jobPosition" label="job position" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.unit &&
-                <SearchSelect options={options.unit} name="unit" formik={formik} />
+                <SearchSelect options={options.unit} name="unit" label="unit" formik={formik} />
                 }
                  <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
