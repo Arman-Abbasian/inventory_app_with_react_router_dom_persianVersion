@@ -10,11 +10,10 @@ const Inventory = () => {
     const [enters,setEnters]=useState({data:null,error:null,loading:false});
     const [exits,setExits]=useState({data:null,error:null,loading:false});
     const [whole,setWhole]=useState(null);
-    const [filters,setFilters]=useState({productName:""});
+    const [filters,setFilters]=useState({productName:"",condition:""});
 
     const changeHandler=(e)=>{
         const {name,value}=e.target;
-        console.log(name,value)
         setFilters({...filters,[name]:value})
     };
     //1- fill 3 state at first with data from DB
@@ -23,6 +22,14 @@ const Inventory = () => {
         getEnterFromDB();
         getExitFromDB()
     },[]);
+    useEffect(()=>{
+        if(whole){
+            let val=whole;
+            whole.filter(item=>item.)
+
+        }
+    },[filters,whole])
+
 
     if(productNames.data && enters.data && exits.data && !whole){
         setWholeItems()
@@ -70,11 +77,14 @@ const Inventory = () => {
             const exitItems=exits.data.filter(element=>element.productName===item.productName);
             const sumExits = exitItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0) || 0;
             console.log(sumExits)
-            init.push({id:item.id,productName:item.productName,measurmentUnit:item.measurmentUnit, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:item.safetyStock,orderPoint:item.orderPoint})
+            let condition=""
+            if((sumEnters - sumExits)>=item.orderPoint) {condition="ok"}
+            else if((sumEnters - sumExits)< item.safetyStock) {condition="danger"}
+            if((sumEnters - sumExits)<item.orderPoint) {condition="warning"}
+            init.push({id:item.id,productName:item.productName,measurmentUnit:item.measurmentUnit, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:item.safetyStock,orderPoint:item.orderPoint,condition:condition})
         });
         setWhole(init)
 };
-
 
 
     return ( 

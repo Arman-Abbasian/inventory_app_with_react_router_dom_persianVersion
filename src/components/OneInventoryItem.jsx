@@ -1,4 +1,12 @@
+import { useEffect, useState } from "react";
+
 const OneInventoryItem = ({productName,measurmentUnit,enter,exit,safetyStock,orderPoint}) => {
+    const [condition,setCondition]=useState("");
+    useEffect(()=>{
+        if((enter - exit)>orderPoint) setCondition("ok")
+        else if((enter - exit)<=orderPoint) setCondition("danger")
+        else if((enter - exit)<=safetyStock) setCondition("warning")
+    },[])
     return ( 
         <div className={`flex justify-center items-center gap-2 bg-primary_green rounded-sm p-2 border-r-8  ${((enter - exit)>orderPoint)&&'border-green-500'} 
         ${((enter - exit)<=orderPoint)&&'border-yellow-500'}  ${((enter - exit)<=safetyStock)&&'border-red-500'} `}>
@@ -10,6 +18,7 @@ const OneInventoryItem = ({productName,measurmentUnit,enter,exit,safetyStock,ord
                 <p><span className="font-bold">inventory:</span> {enter - exit}</p>
                 <p><span className="font-bold">safety stock:</span> {safetyStock}</p>
                 <p><span className="font-bold">order point :</span> {orderPoint}</p>
+                {condition}
             </div>            
         </div>
      );
