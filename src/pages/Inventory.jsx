@@ -28,9 +28,7 @@ const Inventory = () => {
         if(whole){
         let val=[...whole];
         val=includeValFilter(val)
-        console.log(val)
         val=equalValFilter(val)
-        console.log(val)
         setShowedWhole(val)
         }
     },[filters,whole])
@@ -43,6 +41,7 @@ const Inventory = () => {
             return array;
         }
     };
+
     function includeValFilter(array){
         array=array.filter(item=>item.productName.toLowerCase().includes(filters.productName.toLowerCase()));
         return array;
@@ -51,6 +50,7 @@ const Inventory = () => {
     if(productNames.data && enters.data && exits.data && !whole){
         setWholeItems()
     };
+    
     //get productName item from overall DB
     async function getOverallFromDB(){
         setProductNames({data:null,error:null,loading:true})

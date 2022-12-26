@@ -5,10 +5,10 @@ import {HiOutlineInformationCircle } from "react-icons/hi2";
 
 
 const conditon=[
+    {id:4,conditon:"",name:"All"},
     {id:1,conditon:"ok",name:"ok"},
     {id:2,conditon:"warning",name:"warning"},
-    {id:3,conditon:"danger",name:"danger"},
-    {id:4,conditon:"",name:"All"}
+    {id:3,conditon:"danger",name:"danger"}
 ]
 
 const Filter = ({filters,changeHandler}) => {
@@ -27,7 +27,7 @@ const Filter = ({filters,changeHandler}) => {
         .catch(err=>toast.error(err.message))
     },[]);
     return ( 
-        <div className="flex flex-col gap-2 justify-center items-center w-full relative">
+        <div className="flex flex-col gap-8 justify-center items-center w-full relative">
             {productNameOptions && 
             <>
             <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
@@ -44,12 +44,12 @@ const Filter = ({filters,changeHandler}) => {
             {/* radio button */}
             <div className="flex justify-center gap-6 w-full">
           
-             <div className="flex gap-2 justify-between items-center" >
+             <div className="flex gap-2 items-center w-full" >
                     {conditon.map(item=>(
-                        <>
+                        <div className="p-2 border border-emerald-600 flex justify-center items-center gap-1 rounded-sm flex-1">
                             <input className="form-radio w-5 h-5" type="radio" name="condition" id={item.id} value={item.conditon}  onChange={(e)=>changeHandler(e)} />
                             <label htmlFor={item.id}>{item.name}</label>
-                        </>
+                        </div>
                     ))}
             </div>
         </div>     
