@@ -11,7 +11,7 @@ const conditon=[
     {id:3,conditon:"danger",name:"danger"}
 ]
 
-const Filter = ({filters,changeHandler}) => {
+const FilterInventory = ({filters,changeHandler}) => {
     const [productNameOptions,setProductNameOptions]=useState(null)
     useEffect(()=>{
         axios.get(`http://localhost:4000/overall?category=productName`)
@@ -57,4 +57,4 @@ const Filter = ({filters,changeHandler}) => {
      );
 }
  
-export default Filter;
+export default FilterInventory;

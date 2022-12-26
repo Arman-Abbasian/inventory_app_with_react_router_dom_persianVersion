@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OneInventoryItem from "../components/OneInventoryItem";
 import SearchSelect from '../common/SearchSelect';
-import Filter from "../components/Filter";
+import FilterInventory from "../components/FilterInventory";
 
 const Inventory = () => {
     const [productNames,setProductNames]=useState({data:null,error:null,loading:false});
@@ -50,7 +50,7 @@ const Inventory = () => {
     if(productNames.data && enters.data && exits.data && !whole){
         setWholeItems()
     };
-    
+
     //get productName item from overall DB
     async function getOverallFromDB(){
         setProductNames({data:null,error:null,loading:true})
@@ -106,7 +106,7 @@ const Inventory = () => {
 
     return ( 
         <div className="flex flex-col gap-y-4">
-            <Filter filters={filters} changeHandler={changeHandler} />
+            <FilterInventory filters={filters} changeHandler={changeHandler} />
             {showedWhole && 
             showedWhole.map(item=>(
                 <OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
