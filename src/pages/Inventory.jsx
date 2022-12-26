@@ -10,6 +10,7 @@ const Inventory = () => {
     const [enters,setEnters]=useState({data:null,error:null,loading:false});
     const [exits,setExits]=useState({data:null,error:null,loading:false});
     const [whole,setWhole]=useState(null);
+    const [showedWhole,setShowedWhole]=useState(null);
     const [filters,setFilters]=useState({productName:"",condition:""});
 
     const changeHandler=(e)=>{
@@ -22,14 +23,30 @@ const Inventory = () => {
         getEnterFromDB();
         getExitFromDB()
     },[]);
+
     useEffect(()=>{
         if(whole){
-            let val=whole;
-            whole.filter(item=>item.)
-
+        let val=[...whole];
+        val=includeValFilter(val)
+        console.log(val)
+        val=equalValFilter(val)
+        console.log(val)
+        setShowedWhole(val)
         }
     },[filters,whole])
 
+    function equalValFilter(array){
+        if(filters.condition===""){
+            return array;
+        }else{
+            array=array.filter(item=>item.condition===filters.condition);
+            return array;
+        }
+    };
+    function includeValFilter(array){
+        array=array.filter(item=>item.productName.toLowerCase().includes(filters.productName.toLowerCase()));
+        return array;
+    };
 
     if(productNames.data && enters.data && exits.data && !whole){
         setWholeItems()
@@ -80,7 +97,7 @@ const Inventory = () => {
             let condition=""
             if((sumEnters - sumExits)>=item.orderPoint) {condition="ok"}
             else if((sumEnters - sumExits)< item.safetyStock) {condition="danger"}
-            if((sumEnters - sumExits)<item.orderPoint) {condition="warning"}
+            else if((sumEnters - sumExits)<item.orderPoint) {condition="warning"}
             init.push({id:item.id,productName:item.productName,measurmentUnit:item.measurmentUnit, numberOfEnter:sumEnters,numberOfExit:sumExits,safetyStock:item.safetyStock,orderPoint:item.orderPoint,condition:condition})
         });
         setWhole(init)
@@ -90,8 +107,8 @@ const Inventory = () => {
     return ( 
         <div className="flex flex-col gap-y-4">
             <Filter filters={filters} changeHandler={changeHandler} />
-            {whole && 
-            whole.map(item=>(
+            {showedWhole && 
+            showedWhole.map(item=>(
                 <OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
             ))
             }

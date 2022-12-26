@@ -5,9 +5,10 @@ import {HiOutlineInformationCircle } from "react-icons/hi2";
 
 
 const conditon=[
-    {id:1,conditon:"ok",color:'border-green-500'},
-    {id:2,conditon:"warning",color:'border-yellow-500'},
-    {id:3,conditon:"danger",color:'border-red-500'},
+    {id:1,conditon:"ok",name:"ok"},
+    {id:2,conditon:"warning",name:"warning"},
+    {id:3,conditon:"danger",name:"danger"},
+    {id:4,conditon:"",name:"All"}
 ]
 
 const Filter = ({filters,changeHandler}) => {
@@ -47,7 +48,7 @@ const Filter = ({filters,changeHandler}) => {
                     {conditon.map(item=>(
                         <>
                             <input className="form-radio w-5 h-5" type="radio" name="condition" id={item.id} value={item.conditon}  onChange={(e)=>changeHandler(e)} />
-                            <label htmlFor={item.id}>{item.conditon}</label>
+                            <label htmlFor={item.id}>{item.name}</label>
                         </>
                     ))}
             </div>
