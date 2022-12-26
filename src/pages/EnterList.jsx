@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import FilterEnters from "../components/FilterEnters";
 import OneEnterItem from "../components/OneEnterItem";
 
 const EnterList = () => {
     const [enterList,setEnterList]=useState({data:null,error:null,loading:false});
+    const [showdEnterList,setShowedEnterList]=useState(null);
+    const [filters,setFilters]=useState({latest:true,productName:"",supplier:"",enterDelivery:"",enterTransferee:""});
     async  function getEnterList(){
         setEnterList({data:null,error:null,loading:true})
         try {
@@ -14,8 +17,29 @@ const EnterList = () => {
             setEnterList({data:null,error:err.message,loading:false})
           toast.error(err.message)  
         }
-    }
+    };
+    const changeHandler=(e)=>{
+        const {name,value}=e.target;
+        setFilters({...filters,[name]:value})
+    };
+    const toggleChangeHandler=(e)=>{
+        const {name,checked}=e.target;
+        console.log(checked)
+        setFilters({...filters,[name]:checked})
+    };
+    
     useEffect(()=>{getEnterList()},[]);
+    useEffect(()=>{
+        if(enterList.data){
+        let val=[...enterList.data];
+        val=includeProductNameFilter(val)
+        val=includeSupplierFilter(val)
+        val=includeEnterDeliveryFilter(val)
+        val=includeEnterTransfereeFilter(val)
+        val=sortDate(val)
+        setShowedEnterList(val)
+        }
+    },[filters,enterList.data])
     const deleteHandler=(id)=>{
         axios.delete(`http://localhost:4000/enter/${id}`)
         .then(res=>{
@@ -24,17 +48,52 @@ const EnterList = () => {
         })
         .catch(err=>toast.error(err.message))
     }
-    console.log(enterList)
-    return ( 
-        <div className="flex flex-col gap-y-4">
-            {enterList.data && 
-            enterList.data.map(item=>(
-                <OneEnterItem key={item.id} id={item.id}productName={item.productName}
-                number={item.number}measurmentUnit={item.measurmentUnit}date={item.date}supplier={item.supplier}
-                enterDelivery={item.enterDelivery}enterTransferee={item.enterTransferee} deleteHandler={()=>deleteHandler(item.id)} />
-            ))
-            }
-        </div>
+    function includeProductNameFilter(array){
+        array=array.filter(item=>item.productName.toLowerCase().includes(filters.productName.toLowerCase()));
+        return array;
+    };
+    function includeSupplierFilter(array){
+        array=array.filter(item=>item.supplier.toLowerCase().includes(filters.supplier.toLowerCase()));
+        return array;
+    };
+    function includeEnterDeliveryFilter(array){
+        array=array.filter(item=>item.enterDelivery.toLowerCase().includes(filters.enterDelivery.toLowerCase()));
+        return array;
+    };
+    function includeEnterTransfereeFilter(array){
+        array=array.filter(item=>item.enterTransferee.toLowerCase().includes(filters.enterTransferee.toLowerCase()));
+        return array;
+    };
+    function sortDate(array){
+        if(filters.latest){
+            array.sort(function(a, b){
+                const date1 = new Date(a.date)
+                const date2 = new Date(b.date);
+                return date2 - date1;
+            });
+        }else{
+            array.sort(function(a, b){
+                const date1 = new Date(a.date)
+                const date2 = new Date(b.date);
+                return date1 - date2;
+            });
+        }
+        return array;
+    };
+    if(showdEnterList){sortDate(showdEnterList)}
+    return (
+        <div>
+            <FilterEnters filters={filters} changeHandler={changeHandler} toggleChangeHandler={toggleChangeHandler}/>
+            <div className="flex flex-col gap-y-4">
+                {showdEnterList && 
+                showdEnterList.map(item=>(
+                    <OneEnterItem key={item.id} id={item.id}productName={item.productName}
+                    number={item.number}measurmentUnit={item.measurmentUnit}date={item.date}supplier={item.supplier}
+                    enterDelivery={item.enterDelivery}enterTransferee={item.enterTransferee} deleteHandler={()=>deleteHandler(item.id)} />
+                ))
+                }
+            </div>
+        </div> 
      );
 }
  

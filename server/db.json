@@ -29,6 +29,16 @@
       "enterDelivery": "enter delivery 1",
       "enterTransferee": "enter transferee 2",
       "id": 3
+    },
+    {
+      "productName": "product 1 door 15",
+      "measurmentUnit": "3",
+      "date": "2022-12-26",
+      "number": 12000,
+      "supplier": "supplier 1",
+      "enterDelivery": "enter delivery 2",
+      "enterTransferee": "enter transferee 1",
+      "id": 4
     }
   ],
   "exit": [
