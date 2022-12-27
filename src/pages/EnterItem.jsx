@@ -88,9 +88,6 @@ const EnterItem = () => {
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productName &&
-                <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productName &&
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.productName &&
