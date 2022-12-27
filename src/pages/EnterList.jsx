@@ -84,12 +84,11 @@ const EnterList = () => {
     return (
         <div>
             <FilterEnters filters={filters} changeHandler={changeHandler} toggleChangeHandler={toggleChangeHandler}/>
-            <div className="flex flex-col gap-y-4">
+            <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
                 {showdEnterList && 
                 showdEnterList.map(item=>(
-                    <OneEnterItem key={item.id} id={item.id}productName={item.productName}
-                    number={item.number}measurmentUnit={item.measurmentUnit}date={item.date}supplier={item.supplier}
-                    enterDelivery={item.enterDelivery}enterTransferee={item.enterTransferee} deleteHandler={()=>deleteHandler(item.id)} />
+                    <OneEnterItem key={item.id} id={item.id} productName={item.productName} number={item.number} date={item.date} 
+                    deleteHandler={()=>deleteHandler(item.id)} />
                 ))
                 }
             </div>
