@@ -6,12 +6,17 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primary_white:"#ededed",
-        primary_black:"#111",
-        primary_green:"#004749",
-        primary_red:"#540000"
+        primary_white:"#E1F5C4",
+        primary_red:"#FF4E50 ",
+        primary_yellow:"#EDE574",
       }
     },
   },
-  plugins: [],
+  corePlugins: {
+    aspectRatio: false,
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio')
+  ],
 }

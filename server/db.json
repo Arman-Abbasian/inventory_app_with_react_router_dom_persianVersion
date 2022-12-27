@@ -178,6 +178,15 @@
       "orderPoint": 30000,
       "information": "",
       "id": 28
+    },
+    {
+      "category": "productName",
+      "productName": "chasb pahn",
+      "measurmentUnit": "number",
+      "safetyStock": 50,
+      "orderPoint": 60,
+      "information": "",
+      "id": 29
     }
   ]
 }

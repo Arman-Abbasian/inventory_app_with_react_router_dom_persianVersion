@@ -1,6 +1,6 @@
 const Footer = () => {
     return ( 
-        <div>Footer</div>
+        <div className="h-10 bg-transparent bg-primary_yellow fixed bottom-0 left-4 right-8 w-full flex justify-center items-center">Footer</div>
      );
 }
  
