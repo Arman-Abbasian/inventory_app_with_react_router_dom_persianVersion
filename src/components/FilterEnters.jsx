@@ -6,6 +6,7 @@ import {HiOutlineInformationCircle } from "react-icons/hi2";
 const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
     
     const [options,setOptions]=useState({productNames:null,supplier:null,enterDelivery:null,enterTransferee:null});
+    const [showFilterSection,setShowFilterSection]=useState(false);
     //make productNames options
    if(!options.productNames){
         axios.get(`http://localhost:4000/overall?category=productName`)
@@ -55,29 +56,22 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
         .catch(err=>toast.error(err.message))
      }
     return ( 
-        <div className="flex flex-col gap-8 justify-center items-center w-full relative">
-             {options.productNames && options.supplier && options.enterDelivery && options.enterTransferee &&
-             <>
-            {/* ascending or descending base on date */}
-            <label className="inline-flex relative items-center cursor-pointer">
-                <input type="checkbox" value="" className="sr-only peer" name="latest" checked={filters.latest} onChange={(e)=>toggleChangeHandler(e)} />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none
-                  rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                   after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-blue-600"></div>
-                <span className="ml-3 text-sm font-medium text-primary-white">{filters.latest ? 'latest':'earliest'}</span>
-            </label>
+        <>
+        <button className="w-full p-2 rounded-sm bg-primary_green mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
+            {options.productNames && options.supplier && options.enterDelivery && options.enterTransferee &&
+            <div className={`sm:grid-cols-2 gap-8  w-full relative ${showFilterSection ?'grid':'hidden'}`}> 
             {/* make product name options */} 
-                <>
-                    <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
-                        <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none" value={filters.productName} onChange={(e)=>changeHandler(e)} />
-                    </div>
-                    <datalist id="productNamee">
-                        {options.productNames.map(item=>{
-                            return <option key={item.id} value={item.productName}>{item.productName}</option>
-                        })}
-                    </datalist>  
-                </>
+                    <>
+                        <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
+                            <span><HiOutlineInformationCircle /></span>
+                            <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none" value={filters.productName} onChange={(e)=>changeHandler(e)} />
+                        </div>
+                        <datalist id="productNamee">
+                            {options.productNames.map(item=>{
+                                return <option key={item.id} value={item.productName}>{item.productName}</option>
+                            })}
+                        </datalist>  
+                    </>
           
 
             {/* make supplier options */}
@@ -117,10 +111,22 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
                         })}
                     </datalist>  
                 </> 
-                </>
-                }
+                {/* ascending or descending based on date */}
+                <div className="w-full">
+                    <label className="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" value="" className="sr-only peer" name="latest" checked={filters.latest} onChange={(e)=>toggleChangeHandler(e)} />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none
+                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-blue-600"></div>
+                        <span className="ml-3 text-sm font-medium text-primary-white">{filters.latest ? 'latest':'earliest'}</span>
+                    </label>
+                </div>
+            </div> 
                 
-    </div> 
+                }
+            </>
+                
+ 
     
      );
 }
