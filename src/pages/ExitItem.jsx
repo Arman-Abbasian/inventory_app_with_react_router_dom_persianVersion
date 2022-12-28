@@ -11,14 +11,14 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 const ExitItem = () => {
-    const options={productName:[],measurmentUnit:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
+    const options={productName:[],consumingFor:[],exitDelivery:[],exitTransferee:[],jobPosition:[],unit:[]};
     const [exitItem,setExitItem]=useState({data:null,error:null,loading:false});
     const [overall,setOverall]=useState(null);
     const {id}=useParams();
     let navigate = useNavigate();
     console.log(id);
     console.log(exitItem.data)
-    const initialValues={productName:"",measurmentUnit:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
+    const initialValues={productName:"",date:"",number:"",consumingFor:"",exitDelivery:"",exitTransferee:"",jobPosition:"",unit:""}
     const onSubmit=(values,{resetForm})=>{
         axios.put(`http://localhost:4000/exit/${id}`,values)
         .then(res=>{
@@ -30,7 +30,6 @@ const ExitItem = () => {
     }
     const validationSchema=Yup.object({
         productName:Yup.string().required('product name is required'),
-        measurmentUnit:Yup.string().required('measurement Unit is required'),
         date: Yup.date("the format is not date format").required("data is required"),
         number:Yup.number("the format is not number format").required('number is required'),
         consumingFor:Yup.string().required('consumig for is required'),
@@ -43,34 +42,29 @@ const ExitItem = () => {
         setExitItem({data:null,error:null,loading:true})
         axios.get(`http://localhost:4000/exit/${id}`)
         .then(res=>{
-            setExitItem({data:res.data,error:null,loading:false});   
+            setExitItem({data:res.data,error:null,loading:false});
+            axios.get(`http://localhost:4000/overall`)
+            .then(res=>{
+            setOverall(res.data)
+        })   
         })
         .catch(err=>{
             setExitItem({data:null,error:err.message,loading:false});
             toast.error(err.message)
         })
     },[]);
-    useEffect(()=>{
-        axios.get(`http://localhost:4000/overall`)
-        .then(res=>{
-         setOverall(res.data)
-        })
-        .catch(err=>toast.error(err.message))
-     },[]);
 
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
-        options.supplier= overall.filter(item=>item.category==="consumingFor");
+        options.consumingFor= overall.filter(item=>item.category==="consumingFor");
         options.exitDelivery= overall.filter(item=>item.category==="exitDelivery");
         options.exitTransferee= overall.filter(item=>item.category==="exitTransferee");
         options.jobPosition= overall.filter(item=>item.category==="jobPosition");
         options.unit= overall.filter(item=>item.category==="unit");
         console.log(options)
     };
-    if(overall) {
-        fillOptions()
-    }
+    if(overall) {fillOptions()};
+
     const formik=useFormik({initialValues:exitItem.data,onSubmit,validationSchema,validateOnMount:true,enableReinitialize:true});
     
     console.log(options)
@@ -83,9 +77,6 @@ const ExitItem = () => {
                             
                         {options.productName &&
                         <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
-                        }
-                        {options.measurmentUnit &&
-                        <SelectOptions options={options.measurmentUnit} name="measurmentUnit" formik={formik} logo={<CiCalendarDate />} />
                         }
                         <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />     
                         <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />

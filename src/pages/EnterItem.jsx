@@ -40,20 +40,17 @@ const EnterItem = () => {
         setEnterItem({data:null,error:null,loading:true})
         axios.get(`http://localhost:4000/enter/${id}`)
         .then(res=>{
-            setEnterItem({data:res.data,error:null,loading:false});   
+            setEnterItem({data:res.data,error:null,loading:false});
+            axios.get(`http://localhost:4000/overall`)
+        .then(res=>{
+         setOverall(res.data)
+        })   
         })
         .catch(err=>{
             setEnterItem({data:null,error:err.message,loading:false});
             toast.error(err.message)
         })
     },[]);
-    useEffect(()=>{
-        axios.get(`http://localhost:4000/overall`)
-        .then(res=>{
-         setOverall(res.data)
-        })
-        .catch(err=>toast.error(err.message))
-     },[]);
     function fillInputs(){
         initialValues.productName=enterItem.data.productName;
         initialValues.date=enterItem.data.date;

@@ -80,7 +80,7 @@ const Exit = () => {
                 {options.unit &&
                 <SearchSelect options={options.unit} name="unit" label="unit" formik={formik} />
                 }
-                 <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
+                 <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
             </form>
             }

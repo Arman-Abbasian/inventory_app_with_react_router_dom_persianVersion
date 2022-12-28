@@ -2,78 +2,34 @@
   "enter": [
     {
       "productName": "product 1 door 15",
-      "measurmentUnit": "23",
-      "date": "2022-12-06",
-      "number": 30000,
-      "supplier": "supplier 1",
-      "enterDelivery": "enter delivery 2",
+      "date": "2022-12-08",
+      "number": 12000,
+      "supplier": "supplier 2",
+      "enterDelivery": "enter delivery 1",
       "enterTransferee": "enter transferee 1",
       "id": 1
     },
     {
       "productName": "product 3 door 20",
-      "measurmentUnit": "23",
-      "date": "2022-12-06",
-      "number": 10000,
+      "date": "2022-12-28",
+      "number": 30000,
       "supplier": "supplier 2",
       "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 2",
+      "enterTransferee": "enter transferee 1",
       "id": 2
-    },
-    {
-      "productName": "product 1 door 15",
-      "measurmentUnit": "23",
-      "date": "2022-12-06",
-      "number": 1500,
-      "supplier": "supplier 2",
-      "enterDelivery": "enter delivery 1",
-      "enterTransferee": "enter transferee 2",
-      "id": 3
-    },
-    {
-      "productName": "product 1 door 15",
-      "measurmentUnit": "3",
-      "date": "2022-12-26",
-      "number": 12000,
-      "supplier": "supplier 1",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 1",
-      "id": 4
-    },
-    {
-      "productName": "product 1 door 15",
-      "date": "2022-12-27",
-      "number": 3000,
-      "supplier": "supplier 2",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 1",
-      "id": 5
     }
   ],
   "exit": [
     {
-      "productName": "product 1 door 15",
-      "measurmentUnit": "23",
-      "date": "2022-12-12",
-      "number": 2000,
-      "consumingFor": "SSPPR213",
-      "exitDelivery": "delivety input 1",
-      "exitTransferee": "exit transferee 1",
-      "jobPosition": "job position 1",
-      "unit": "unit 1",
-      "id": 1
-    },
-    {
       "productName": "product 3 door 20",
-      "measurmentUnit": "23",
-      "date": "2022-12-06",
-      "number": 3000,
+      "date": "2022-12-20",
+      "number": 27500,
       "consumingFor": "SSPPR212",
       "exitDelivery": "delivety input 1",
       "exitTransferee": "exit transferee 1",
       "jobPosition": "job position 1",
       "unit": "unit 1",
-      "id": 2
+      "id": 1
     }
   ],
   "overall": [
