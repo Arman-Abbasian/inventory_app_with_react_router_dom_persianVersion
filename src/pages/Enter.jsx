@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const Enter = () => {
     let navigate=useNavigate();
-    const initialValues={productName:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
+    const initialValues={productName:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
     const onSubmit=(values,{resetForm})=>{
         axios.post(`http://localhost:4000/enter`,values)
         .then(res=>{
@@ -25,7 +25,6 @@ const Enter = () => {
     }
     const validationSchema=Yup.object({
         productName:Yup.string().required('product name is required'),
-        measurmentUnit:Yup.string().required('measurement Unit is required'),
         date: Yup.date("the format is not date format").required("data is required"),
         number:Yup.number("the format is not number format").required('number is required'),
         supplier:Yup.string().required('supplier is required'),
@@ -33,7 +32,7 @@ const Enter = () => {
         enterTransferee:Yup.string().required("transferee is required")
     })
     const [overall,setOverall]=useState(null);
-    const options={productName:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
+    const options={productName:[],supplier:[],enterDelivery:[],enterTransferee:[]};
     useEffect(()=>{
        axios.get(`http://localhost:4000/overall`)
        .then(res=>{
@@ -43,7 +42,6 @@ const Enter = () => {
     },[]);
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
         options.supplier= overall.filter(item=>item.category==="supplier");
         options.enterDelivery= overall.filter(item=>item.category==="enterDelivery");
         options.enterTransferee= overall.filter(item=>item.category==="enterTransferee");
@@ -61,12 +59,8 @@ const Enter = () => {
                 {options.productName &&
                 <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName &&
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productName &&
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
-                }
                 {options.supplier &&
                 <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<CiCalendarDate />} />
                 }
@@ -76,7 +70,7 @@ const Enter = () => {
                 {options.enterTransferee &&
                 <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
+                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
             </form>
         </div>

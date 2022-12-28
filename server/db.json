@@ -39,6 +39,15 @@
       "enterDelivery": "enter delivery 2",
       "enterTransferee": "enter transferee 1",
       "id": 4
+    },
+    {
+      "productName": "product 1 door 15",
+      "date": "2022-12-27",
+      "number": 30000,
+      "supplier": "supplier 2",
+      "enterDelivery": "enter delivery 2",
+      "enterTransferee": "enter transferee 1",
+      "id": 5
     }
   ],
   "exit": [

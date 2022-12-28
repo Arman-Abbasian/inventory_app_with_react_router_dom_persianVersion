@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import {HiOutlineInformationCircle } from "react-icons/hi2";
+import { AiOutlineFilter } from "react-icons/ai";
 
 const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
     
@@ -57,13 +57,13 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
      }
     return ( 
         <>
-        <button className="w-full p-2 rounded-sm bg-primary_green mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
+        <button className="w-full p-2 rounded-sm bg-primary_yellow mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
             {options.productNames && options.supplier && options.enterDelivery && options.enterTransferee &&
             <div className={`sm:grid-cols-2 gap-8  w-full relative ${showFilterSection ?'grid':'hidden'}`}> 
             {/* make product name options */} 
                     <>
                         <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                            <span><HiOutlineInformationCircle /></span>
+                            <span><AiOutlineFilter /></span>
                             <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none" value={filters.productName} onChange={(e)=>changeHandler(e)} />
                         </div>
                         <datalist id="productNamee">
@@ -77,7 +77,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make supplier options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search supplier name" list="supplierr" name="supplier"  className="w-full bg-transparent outline-none" value={filters.supplier} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="supplierr">
@@ -90,7 +90,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make enter delivery options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search delivery name" list="enterDeliveryy" name="enterDelivery"  className="w-full bg-transparent outline-none" value={filters.enterDelivery} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="enterDeliveryy">
@@ -102,7 +102,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
 
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search transferee name" list="enterTransfereee" name="enterTransferee"  className="w-full bg-transparent outline-none" value={filters.enterTransferee} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="enterTransfereee">

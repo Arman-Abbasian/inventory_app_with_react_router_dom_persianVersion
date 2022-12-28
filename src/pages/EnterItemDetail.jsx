@@ -19,7 +19,6 @@ const EnterItemDetail = () => {
                     <div className="flex flex-col gap-8 justify-center items-start">
                     <p><span className="font-bold">product name:</span> {item.productName}</p>
                     <p><span className="font-bold">number:</span> {item.number}</p>
-                    <p><span className="font-bold">measurement unit:</span> {item.measurmentUnit}</p>
                     <p><span className="font-bold">date:</span> {item.date}</p>
                     <p><span className="font-bold">supplier:</span> {item.supplier}</p>
                     <p><span className="font-bold">delivery:</span> {item.enterDelivery}</p>
