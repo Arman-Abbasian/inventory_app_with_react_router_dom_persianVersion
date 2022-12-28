@@ -33,15 +33,15 @@ const ProductNameFormInput = ({name ,label,logo,searchSelectOptions}) => {
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     return ( 
         <div className="flex flex-col gap-3 container mx-auto max-w-md p-2">
-            <button className={`w-full p-2 rounded-sm ${isShow ?'bg-primary_green':'bg-primary_yellow'}`} onClick={()=>setIsShow(!isShow)}>{isShow ?'hide' : 'show'} {label} input</button>
+            <button className={`w-full p-2 rounded-sm bg-primary_yellow`} onClick={()=>setIsShow(!isShow)}>{isShow ?'hide' : 'show'} {label} input</button>
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>
-                <div className="flex flex-col gap-4 justify-center items-center border border-primary_green  rounded-sm p-2">
+                <div className="flex flex-col gap-4 justify-center items-center border  rounded-sm p-2">
                     <Input  name={name} label={label} formik={formik} logo={logo} />
                     <SearchSelect options={searchSelectOptions} name="measurmentUnit" label="measurement unit" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> } />
                     <Input type="number" label="safety stock" name="safetyStock" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
                     <Input type="number" label="order point" name="orderPoint" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
                     <Textarea name="information" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
-                    <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full disabled:bg-opacity-60" type="submit">{formik.isValid ? 'Add':'please fill add the field'}</button>
+                    <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full disabled:bg-opacity-60" type="submit">{formik.isValid ? 'Add':'please fill add the field'}</button>
                 </div>
             </form>
         </div>

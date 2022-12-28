@@ -81,7 +81,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
      }
     return ( 
         <>
-            <button className="w-full p-2 rounded-sm bg-primary_green mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
+            <button className="w-full p-2 rounded-sm bg-primary_yellow mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
             {options.productNames && options.consumingFor && options.exitDelivery && options.jobPosition && options.unit &&
             <div className={`sm:grid-cols-2 gap-8  w-full relative ${showFilterSection ?'grid':'hidden'}`}> 
             {/* make product name options */} 

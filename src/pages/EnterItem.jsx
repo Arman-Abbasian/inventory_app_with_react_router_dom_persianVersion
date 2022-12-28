@@ -11,14 +11,14 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 const EnterItem = () => {
-    const options={productName:[],measurmentUnit:[],supplier:[],enterDelivery:[],enterTransferee:[]};
+    const options={productName:[],supplier:[],enterDelivery:[],enterTransferee:[]};
     const [enterItem,setEnterItem]=useState({data:null,error:null,loading:false});
     const [overall,setOverall]=useState(null);
     const {id}=useParams();
     let navigate = useNavigate();
     console.log(id);
     console.log(enterItem.data)
-    const initialValues={productName:"",measurmentUnit:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
+    const initialValues={productName:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
     const onSubmit=(values,{resetForm})=>{
         axios.put(`http://localhost:4000/enter/${id}`,values)
         .then(res=>{
@@ -30,7 +30,6 @@ const EnterItem = () => {
     }
     const validationSchema=Yup.object({
         productName:Yup.string().required('product name is required'),
-        measurmentUnit:Yup.string().required('measurement Unit is required'),
         date: Yup.date("the format is not date format").required("data is required"),
         number:Yup.number("the format is not number format").required('number is required'),
         supplier:Yup.string().required('supplier is required'),
@@ -57,7 +56,6 @@ const EnterItem = () => {
      },[]);
     function fillInputs(){
         initialValues.productName=enterItem.data.productName;
-        initialValues.measurmentUnit=enterItem.data.measurmentUnit;
         initialValues.date=enterItem.data.date;
         initialValues.number=enterItem.data.number;
         initialValues.supplier=enterItem.data.supplier;
@@ -67,7 +65,6 @@ const EnterItem = () => {
     if(enterItem.data) {console.log(initialValues)}
     function fillOptions(){
         options.productName= overall.filter(item=>item.category==="productName");
-        options.measurmentUnit= overall.filter(item=>item.category==="measurmentUnit");
         options.supplier= overall.filter(item=>item.category==="supplier");
         options.enterDelivery= overall.filter(item=>item.category==="enterDelivery");
         options.enterTransferee= overall.filter(item=>item.category==="enterTransferee");
@@ -81,18 +78,17 @@ const EnterItem = () => {
     console.log(options)
     return ( 
         <div>
-            {overall && 
+            {options.productName.length>0 && options.supplier.length>0 &&
+             options.enterDelivery.length>0 && options.enterTransferee.length>0 &&
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
                 <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
                 }
-                {options.productName &&
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
-                }
-                {options.productName &&
+
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
-                }
+
                 {options.supplier &&
                 <SearchSelect options={options.supplier} name="supplier" formik={formik} logo={<CiCalendarDate />} />
                 }
@@ -102,7 +98,7 @@ const EnterItem = () => {
                 {options.enterTransferee &&
                 <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_green rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
+                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Edit' : 'please complete all fields'}</button>
                 </div>
             </form>
             }

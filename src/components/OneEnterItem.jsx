@@ -4,7 +4,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const OneEnterItem = ({id,productName,number,date,deleteHandler}) => {
     return ( 
-        <div className="flex items-center gap-2 bg-primary_yellow rounded-sm p-2">
+            <div className="flex items-center gap-2 bg-primary_yellow rounded-sm p-2">
                 <div className="flex flex-col gap-2 flex-1">
                     <Link to={`/enter/detail/${id}`}>
                         <p><span className="font-bold">product name:</span> {productName}</p>
@@ -16,7 +16,7 @@ const OneEnterItem = ({id,productName,number,date,deleteHandler}) => {
                     <span><Link to={`/enter/${id}`}><CiEdit className="w-6 h-6" /></Link></span>
                     <span onClick={deleteHandler} className="hover:cursor-pointer"><AiOutlineDelete className="w-6 h-6" /></span>
                 </div>           
-        </div>
+            </div>
      );
 }
  
