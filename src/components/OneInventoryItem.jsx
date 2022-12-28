@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const OneInventoryItem = ({productName,measurmentUnit,enter,exit,safetyStock,orderPoint}) => {
     const [condition,setCondition]=useState("");
     useEffect(()=>{
-        if((enter - exit)>orderPoint) setCondition("ok")
+        if((enter - exit)>=orderPoint) setCondition("ok")
         else if((enter - exit)< safetyStock) setCondition("danger")
         else if((enter - exit)< orderPoint) setCondition("warning")
     },[])

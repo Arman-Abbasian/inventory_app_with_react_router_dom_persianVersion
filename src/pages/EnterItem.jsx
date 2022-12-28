@@ -80,22 +80,22 @@ const EnterItem = () => {
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.productName} label="product name" name="productName" formik={formik} logo={<CiCalendarDate />} />
                 }
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
 
                 <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
 
                 {options.supplier &&
-                <SearchSelect options={options.supplier} name="supplier" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.supplier} label="supplier" name="supplier" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.enterDelivery &&
-                <SearchSelect options={options.enterDelivery} name="enterDelivery" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.enterDelivery} label="delilvery" name="enterDelivery" formik={formik} logo={<CiCalendarDate />} />
                 }
                 {options.enterTransferee &&
-                <SearchSelect options={options.enterTransferee} name="enterTransferee" formik={formik} />
+                <SearchSelect options={options.enterTransferee} label="transferee" name="enterTransferee" formik={formik} logo={<CiCalendarDate />} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Edit' : 'please complete all fields'}</button>
+                <button disabled={!formik.isValid} className={`py-2 px-4 bg-primary_yellow rounded-sm w-full ${!formik.isValid && 'bg-opacity-60'}`} type="submit">{formik.isValid ?'Edit' : 'please complete all fields'}</button>
                 </div>
             </form>
             }

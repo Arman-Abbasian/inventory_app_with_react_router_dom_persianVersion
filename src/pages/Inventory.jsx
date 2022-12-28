@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OneInventoryItem from "../components/OneInventoryItem";
-import SearchSelect from '../common/SearchSelect';
 import FilterInventory from "../components/FilterInventory";
 
 const Inventory = () => {
@@ -23,7 +22,6 @@ const Inventory = () => {
         getEnterFromDB();
         getExitFromDB()
     },[]);
-
     useEffect(()=>{
         if(whole){
         let val=[...whole];
