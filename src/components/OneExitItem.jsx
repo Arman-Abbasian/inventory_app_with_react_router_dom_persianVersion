@@ -13,8 +13,8 @@ const OneExitItem = ({id,productName,number,date,deleteHandler}) => {
                     </Link>
                 </div>
                 <div className="flex justify-center items-center gap-6 md:col-span-2 xl:col-span-3 2xl:col-span-4 md:justify-self-center">
-                    <span><Link to={`/exit/${id}`}><CiEdit className="w-6 h-6" /></Link></span>
-                    <span onClick={deleteHandler} className="hover:cursor-pointer"><AiOutlineDelete className="w-6 h-6" /></span>
+                    <span><Link to={`/exit/${id}`}><CiEdit className="w-6 h-6 text-primary_red" /></Link></span>
+                    <span onClick={deleteHandler} className="hover:cursor-pointer"><AiOutlineDelete className="w-6 h-6 text-primary_red" /></span>
                 </div>        
             </div>
      );

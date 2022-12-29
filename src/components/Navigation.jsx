@@ -51,7 +51,7 @@ const Navigation = () => {
 
                         <li>
                             
-                        <button onClick={()=>setEnter(!enter)}>
+                        <button onClick={()=>setEnter(!enter)} className="w-full">
                                 <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 group hover:bg-primary_red gap-4">
                                     <div className="flex items-center">
                                         <MdLogin className="w-6 h-6 text-gray-500" />
@@ -63,7 +63,7 @@ const Navigation = () => {
                                     </div>
                                 </div>
                 
-                                <ul  class={`py-2 ml-12 ${enter ?'flex flex-col' : 'hidden'}`}>
+                                <ul  class={`py-2 ${enter ?'flex flex-col' : 'hidden'}`}>
                                     <li>
                                         <Link onClick={()=>setShowAside(false)} to={`/Enter`} className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red">enter one enter item</Link>
                                     </li>
@@ -75,7 +75,7 @@ const Navigation = () => {
                         </li>
 
                         <li>
-                            <button onClick={()=>setExit(!exit)}>
+                            <button onClick={()=>setExit(!exit)} className="w-full">
                                 <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 group hover:bg-primary_red gap-4">
                                     <div className="flex items-center">
                                         <MdLogout class="w-6 h-6 text-gray-500" />
