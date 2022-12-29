@@ -88,7 +88,7 @@ const ExitList = () => {
     };
     if(showdExitList){sortDate(showdExitList)}
     return ( 
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4 lg:flex-1">
             <FilterExits filters={filters} changeHandler={changeHandler} toggleChangeHandler={toggleChangeHandler}/>
             <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
             {showdExitList && 

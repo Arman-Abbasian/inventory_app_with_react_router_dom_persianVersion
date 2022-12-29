@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OneInventoryItem from "../components/OneInventoryItem";
 import FilterInventory from "../components/FilterInventory";
+import { Link } from "react-router-dom";
 
 const Inventory = () => {
     const [productNames,setProductNames]=useState({data:null,error:null,loading:false});
@@ -103,11 +104,11 @@ const Inventory = () => {
 
 
     return ( 
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4 lg:flex-1">
             <FilterInventory filters={filters} changeHandler={changeHandler} />
             {showedWhole && 
             showedWhole.map(item=>(
-                <OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} />
+               <Link to={`/Inventory/${item.id}`}><OneInventoryItem key={item.id} productName={item.productName} measurmentUnit={item.measurmentUnit} enter={item.numberOfEnter} exit={item.numberOfExit} safetyStock={item.safetyStock} orderPoint={item.orderPoint} /></Link>
             ))
             }
         </div>

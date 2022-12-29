@@ -53,7 +53,7 @@ const Enter = () => {
     // console.log(formik.isValid);
     console.log(options)
     return ( 
-        <div>
+        <div className="lg:flex-1">
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&

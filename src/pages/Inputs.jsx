@@ -20,7 +20,7 @@ const Inputs = () => {
         .catch(err=>toast.error(err.message))
     },[])
     return ( 
-        <div className="grid xl:grid-cols-2 gap-3 container mx-auto p-2">
+        <div className="grid xl:grid-cols-2 gap-3 container mx-auto p-2 lg:flex-1">
             {measurmentUnit &&
             <ProductNameFormInput name="productName" searchSelectOptions={measurmentUnit} label="product name" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>} />}
             <FormInput name="measurmentUnit" label="measurement" logo={<HiOutlineShoppingCart  className="w-6 h-6"/>}/>

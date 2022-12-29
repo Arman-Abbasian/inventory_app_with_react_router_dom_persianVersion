@@ -74,7 +74,7 @@ const EnterItem = () => {
     
     console.log(options)
     return ( 
-        <div>
+        <div className="lg:flex-1">
             {options.productName.length>0 && options.supplier.length>0 &&
              options.enterDelivery.length>0 && options.enterTransferee.length>0 &&
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">

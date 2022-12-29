@@ -82,7 +82,7 @@ const EnterList = () => {
     };
     if(showdEnterList){sortDate(showdEnterList)}
     return (
-        <div>
+        <div className="lg:flex-1">
             <FilterEnters filters={filters} changeHandler={changeHandler} toggleChangeHandler={toggleChangeHandler}/>
             <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
                 {showdEnterList && 

@@ -54,7 +54,7 @@ const Exit = () => {
     // console.log(formik.isValid);
     console.log(options)
     return ( 
-        <div>
+        <div className="lg:flex-1">
             {overall && 
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
