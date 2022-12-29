@@ -22,11 +22,11 @@ const Navigation = () => {
     const [exit,setExit]=useState(false);
     return ( 
         <aside className="h-screen transition-all duration-1000 bg-primary_yellow rounded">
-            <div class="overflow-y-auto py-4 px-3 ">
-                <ul class="flex flex-col gap-4">
+            <div className="overflow-y-auto py-4 px-3 ">
+                <ul className="flex flex-col gap-4">
                     <li>
                         <Link to={'/'} className="flex items-center p-2 rounded-lg  hover:bg-primary_red">
-                        <AiOutlineHome class="w-6 h-6 text-gray-500" />
+                        <AiOutlineHome className="w-6 h-6 text-gray-500" />
                         <span class="ml-3">Home</span>
                         </Link>
                     </li>
@@ -40,7 +40,7 @@ const Navigation = () => {
 
                     <li>
                         <Link to={'/Inputs'} className="flex items-center p-2 rounded-lg  hover:bg-primary_red">
-                       <CiCircleList class="w-6 h-6 text-gray-500" />
+                       <CiCircleList className="w-6 h-6 text-gray-500" />
                         <span class="ml-3">Inputs</span>
                         </Link>
                     </li>
@@ -50,7 +50,7 @@ const Navigation = () => {
                     <button onClick={()=>setEnter(!enter)}>
                             <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 group hover:bg-primary_red gap-4">
                                 <div className="flex items-center">
-                                    <MdLogin class="w-6 h-6 text-gray-500" />
+                                    <MdLogin className="w-6 h-6 text-gray-500" />
                                     <span className="flex-1 ml-3 text-left whitespace-nowrap">Enters</span>
                                 </div>
                                 <div>
@@ -61,10 +61,10 @@ const Navigation = () => {
                
                             <ul  class={`py-2 ml-12 ${enter ?'flex flex-col' : 'hidden'}`}>
                                 <li>
-                                    <Link to={`/Enter`} class="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red">enter one enter item</Link>
+                                    <Link to={`/Enter`} className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red">enter one enter item</Link>
                                 </li>
                                 <li>
-                                    <Link to={`/EnterList`} class="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red">enter list</Link>
+                                    <Link to={`/EnterList`} className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red">enter list</Link>
                                 </li>
                             </ul>
                         </button>
@@ -83,12 +83,12 @@ const Navigation = () => {
                                 </div>
                             </div>
                
-                            <ul  class={`p-2 ${exit ?'flex flex-col' : 'hidden'}`}>
+                            <ul  className={`p-2 ${exit ?'flex flex-col' : 'hidden'}`}>
                                 <li>
-                                    <Link to={`/Exit`}  class="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red">enter one Exit item</Link>
+                                    <Link to={`/Exit`}  className="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red">enter one Exit item</Link>
                                 </li>
                                 <li>
-                                    <Link to={`/ExitList`} class="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red">exit list</Link>
+                                    <Link to={`/ExitList`} className="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red">exit list</Link>
                                 </li>
                             </ul>
                         </button>

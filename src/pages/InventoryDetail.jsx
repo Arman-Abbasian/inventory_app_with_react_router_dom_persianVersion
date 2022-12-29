@@ -2,11 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OneInventoryItem from "../components/OneInventoryItem";
-import FilterInventory from "../components/FilterInventory";
 import { useParams } from "react-router-dom";
 
 const InventoryDetail = () => {
-    const [productNames,setProductNames]=useState({data:null,error:null,loading:false});
+    const [productName,setProductName]=useState({data:null,error:null,loading:false});
     const [enters,setEnters]=useState({data:null,error:null,loading:false});
     const [exits,setExits]=useState({data:null,error:null,loading:false});
     const [inventoryItem,setInentoryItem]=useState(null);
@@ -14,51 +13,55 @@ const {id}=useParams();
 
     //1- fill 3 state at first with data from DB
     useEffect(()=>{
-        axios.get(`http://localhost:4000/overall/${id}`)
-        .then(res=>{
-            setProductNames(res.data);
-            getEnterFromDB();
-            getExitFromDB()
-        })
-        .catch(err=>toast.error(err.message))
+        const getInitlaData=async()=>{
+            try {
+            const {data}=await axios.get(`http://localhost:4000/overall/${id}`);
+            setProductName({data:data,error:null,loading:false});
+             getEnterFromDB(data);
+             getExitFromDB(data);
+            } catch (err) {
+                toast.error(err.message)
+            }
+        };
+getInitlaData()
     },[]);
-
-    if(productNames.data && enters.data && exits.data && !inventoryItem){
+    if(productName.data && enters.data && exits.data && !inventoryItem){
         setWholeItems()
     };
 
     //get enter item from DB
-    async function getEnterFromDB(){
+    async function getEnterFromDB(res){
         setEnters({data:null,error:null,loading:true})
         try {
-        const {data}= await axios.get(`http://localhost:4000/enter?productName=${productNames.data.productName}`) 
+        const {data}= await axios.get(`http://localhost:4000/enter?productName=${res.productName}`) ;
         setEnters({data:data,error:null,loading:false})
         } catch (err) {
             setEnters({data:null,error:err.message,loading:false})
-          toast.error(err.message)  
+            toast.error(err.message)  ;
         }
     };
     //get exits item from DB
-    async function getExitFromDB(){
+    async function getExitFromDB(res){
         setExits({data:null,error:null,loading:true})
         try {
-        const {data}= await axios.get(`http://localhost:4000/exit?productName=${productNames.data.productName}`) 
+        const {data}= await axios.get(`http://localhost:4000/exit?productName=${res.productName}`) 
         setExits({data:data,error:null,loading:false})
         } catch (err) {
             setExits({data:null,error:err.message,loading:false})
-          toast.error(err.message)  
+          toast.error(err.message);
+          console.log(err)  
         }
     };
         function setWholeItems(){
-            const enterItems=enters.data.filter(element=>element.productName===productNames.data.productName);
+            const enterItems=enters.data.filter(element=>element.productName===productName.data.productName);
             const sumEnters = enterItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0) || 0;
-            const exitItems=exits.data.filter(element=>element.productName===productNames.data.productName);
+            const exitItems=exits.data.filter(element=>element.productName===productName.data.productName);
             const sumExits = exitItems.reduce((accumulator, currentValue) => accumulator + currentValue.number,0) || 0;
             let condition=""
-            if((sumEnters - sumExits)>=productNames.data.orderPoint) {condition="ok"}
-            else if((sumEnters - sumExits)< productNames.data.safetyStock) {condition="danger"}
-            else if((sumEnters - sumExits)<productNames.data.orderPoint) {condition="warning"}
-            setInentoryItem({...productNames.data,numberOfEnter:sumEnters,numberOfExit:sumExits,condition:condition})
+            if((sumEnters - sumExits)>=productName.data.orderPoint) {condition="ok"}
+            else if((sumEnters - sumExits)< productName.data.safetyStock) {condition="danger"}
+            else if((sumEnters - sumExits)<productName.data.orderPoint) {condition="warning"}
+            setInentoryItem({...productName.data,numberOfEnter:sumEnters,numberOfExit:sumExits,condition:condition})
 };
 
 
