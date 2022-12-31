@@ -3,20 +3,11 @@
     {
       "productName": "product 1 door 15",
       "date": "2022-12-08",
-      "number": 12000,
+      "number": 1200,
       "supplier": "supplier 2",
       "enterDelivery": "enter delivery 1",
       "enterTransferee": "enter transferee 2",
       "id": 1
-    },
-    {
-      "productName": "product 3 door 20",
-      "date": "2022-12-28",
-      "number": 30000,
-      "supplier": "supplier 2",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 1",
-      "id": 2
     }
   ],
   "exit": [
