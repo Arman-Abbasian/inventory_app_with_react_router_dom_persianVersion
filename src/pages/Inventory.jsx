@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import OneInventoryItem from "../components/OneInventoryItem";
 import FilterInventory from "../components/FilterInventory";
 import { Link } from "react-router-dom";
 import OneInventoryListItem from "../components/OneInventoryListItem";

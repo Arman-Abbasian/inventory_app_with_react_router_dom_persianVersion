@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import * as Yup from 'yup';
 import SearchSelect from "../common/SearchSelect";
-import SelectOptions from "../common/SelectOptions";
+import { HiOutlineShoppingCart } from "react-icons/hi2";
+import { RiStore2Line } from "react-icons/ri";
 import Input from "../common/Input";
 import { CiCalendarDate } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineNumber } from "react-icons/ai";
+import {  BsPerson} from "react-icons/bs";
 
 
 
@@ -57,18 +60,18 @@ const Enter = () => {
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<HiOutlineShoppingCart />} />
                 }
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
-                <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
+                <Input type="number" label="number" name="number" formik={formik} logo={<AiOutlineNumber />} />
                 {options.supplier &&
-                <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<RiStore2Line />} />
                 }
                 {options.enterDelivery &&
-                <SearchSelect options={options.enterDelivery} name="enterDelivery" label="enter delivery" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.enterDelivery} name="enterDelivery" label="enter delivery" formik={formik} logo={<BsPerson />} />
                 }
                 {options.enterTransferee &&
-                <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} />
+                <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} logo={<BsPerson />} />
                 }
                 <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>

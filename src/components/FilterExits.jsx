@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import {HiOutlineInformationCircle } from "react-icons/hi2";
+import { AiOutlineFilter } from "react-icons/ai";
 
 const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
     
@@ -87,7 +88,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make product name options */} 
                     <>
                         <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                            <span><HiOutlineInformationCircle /></span>
+                            <span><AiOutlineFilter /></span>
                             <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none" value={filters.productName} onChange={(e)=>changeHandler(e)} />
                         </div>
                         <datalist id="productNamee">
@@ -101,7 +102,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make consuming for options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search supplier name" list="consumingForr" name="consumingFor"  className="w-full bg-transparent outline-none" value={filters.supplier} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="consumingForr">
@@ -114,7 +115,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make exit delivery options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search delivery name" list="exitDeliveryy" name="exitDelivery"  className="w-full bg-transparent outline-none" value={filters.enterDelivery} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="exitDeliveryy">
@@ -126,7 +127,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
                          {/* make exit job position options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search transferee name" list="jobPositionn" name="jobPosition"  className="w-full bg-transparent outline-none" value={filters.enterTransferee} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="jobPositionn">
@@ -138,7 +139,7 @@ const FilterExits = ({filters,changeHandler,toggleChangeHandler}) => {
                        {/* make unit options */}
                        <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><HiOutlineInformationCircle /></span>
+                        <span><AiOutlineFilter /></span>
                         <input placeholder="search transferee name" list="unitt" name="unit"  className="w-full bg-transparent outline-none" value={filters.enterTransferee} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="unitt">

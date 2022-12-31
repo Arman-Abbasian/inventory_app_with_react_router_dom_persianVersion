@@ -4,9 +4,14 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import * as Yup from 'yup';
 import SearchSelect from "../common/SearchSelect";
-import SelectOptions from "../common/SelectOptions";
 import Input from "../common/Input";
+import { HiOutlineShoppingCart ,HiOutlineInformationCircle } from "react-icons/hi2";
+import { RiStore2Line } from "react-icons/ri";
 import { CiCalendarDate } from "react-icons/ci";
+import { AiOutlineNumber } from "react-icons/ai";
+import { BsPerson} from "react-icons/bs";
+import { HiBuildingOffice } from "react-icons/hi2";
+import { GrUserWorker } from "react-icons/gr";
 
 
 
@@ -60,25 +65,25 @@ const Exit = () => {
                 <div className="flex flex-col gap-4 justify-center items-center">
                     
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<HiOutlineShoppingCart />} />
                 }
                 <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
                 
-                <Input type="number" label="number" name="number" formik={formik} logo={<CiCalendarDate />} />
+                <Input type="number" label="number" name="number" formik={formik} logo={<AiOutlineNumber />} />
                 {options.consumingFor &&
-                <SearchSelect options={options.consumingFor} name="consumingFor" label="consuming for" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.consumingFor} name="consumingFor" label="consuming for" formik={formik} logo={<HiOutlineInformationCircle />} />
                 }
                 {options.exitDelivery &&
-                <SearchSelect options={options.exitDelivery} name="exitDelivery" label="exit delivery" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.exitDelivery} name="exitDelivery" label="exit delivery" formik={formik} logo={<BsPerson />} />
                 }
                 {options.exitTransferee &&
-                <SearchSelect options={options.exitTransferee} name="exitTransferee" label="exit transferee" formik={formik} />
+                <SearchSelect options={options.exitTransferee} name="exitTransferee" label="exit transferee" formik={formik} logo={<BsPerson />} />
                 }
                 {options.jobPosition &&
-                <SearchSelect options={options.jobPosition} name="jobPosition" label="job position" formik={formik} logo={<CiCalendarDate />} />
+                <SearchSelect options={options.jobPosition} name="jobPosition" label="job position" formik={formik} logo={<GrUserWorker />} />
                 }
                 {options.unit &&
-                <SearchSelect options={options.unit} name="unit" label="unit" formik={formik} />
+                <SearchSelect options={options.unit} name="unit" label="unit" formik={formik} logo={<HiBuildingOffice />}  />
                 }
                  <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
