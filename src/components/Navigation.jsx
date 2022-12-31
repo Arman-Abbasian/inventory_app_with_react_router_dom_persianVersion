@@ -23,8 +23,8 @@ const Navigation = () => {
     const [exit,setExit]=useState(false);
     const [showAside,setShowAside]=useState(false)
         return (
-            <>
-            <div onClick={()=>setShowAside(!showAside)} className="lg:hidden hover:cursor-pointer mb-4"><HiMenu className="w-12 h-12 p-2 rounded-full bg-primary_yellow" /></div>
+    <div>
+        <div onClick={()=>setShowAside(!showAside)} className="lg:hidden hover:cursor-pointer mb-4"><HiMenu className="w-12 h-12 p-2 rounded-full bg-primary_yellow" /></div>
             <aside className={`${showAside ===false ? 'hidden':''} lg:${()=>setShowAside(true)} lg:h-screen lg:sticky lg:top-2 transition-all duration-1000 bg-primary_yellow rounded mb-10 lg:mb-0`}>
                 <div className="overflow-y-auto py-4 px-3 ">
                     <ul className="flex flex-col gap-4">
@@ -98,11 +98,11 @@ const Navigation = () => {
                             </button>
                         </li>
                     </ul>
-                </div>
+            </div>
         </aside>
 
-
-        <aside className={`hidden lg:block sticky h-screen top-2 transition-all duration-1000 bg-primary_yellow rounded`}>
+           {/* show in lg und upper */}
+        <aside className={`hidden lg:block fixed  top-2 bottom-2 overflow-y-auto transition-all duration-700 bg-primary_yellow rounded`}>
                 <div className="overflow-y-auto py-4 px-3 ">
                     <ul className="flex flex-col gap-4">
                         <li>
@@ -140,7 +140,7 @@ const Navigation = () => {
                                     </div>
                                 </div>
                 
-                                <ul  class={`py-2 ml-12 ${enter ?'flex flex-col' : 'hidden'}`}>
+                                <ul  class={`py-2 ${enter ?'flex flex-col' : 'hidden'}`}>
                                     <li>
                                         <Link onClick={()=>setShowAside(false)} to={`/Enter`} className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red">enter one enter item</Link>
                                     </li>
@@ -177,7 +177,7 @@ const Navigation = () => {
                     </ul>
                 </div>
         </aside>
-            </>
+    </div>
      );
 }
  
