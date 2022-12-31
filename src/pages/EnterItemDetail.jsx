@@ -16,7 +16,7 @@ const EnterItemDetail = () => {
     return ( 
             <>
                 {item && 
-                    <div className="flex flex-col gap-8 justify-center items-start">
+                    <div className="flex flex-col gap-8 justify-start items-start">
                     <p><span className="font-bold">product name:</span> {item.productName}</p>
                     <p><span className="font-bold">number:</span> {item.number}</p>
                     <p><span className="font-bold">date:</span> {item.date}</p>

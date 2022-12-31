@@ -102,8 +102,8 @@ const Navigation = () => {
         </aside>
 
            {/* show in lg und upper */}
-        <aside className={`hidden lg:block fixed  top-2 bottom-2 overflow-y-auto transition-all duration-700 bg-primary_yellow rounded`}>
-                <div className="overflow-y-auto py-4 px-3 ">
+        <aside className={`hidden lg:block h-screen overflow-hidden transition-all duration-700 bg-primary_yellow rounded`}>
+                <div className="overflow-y-auto py-4 px-3">
                     <ul className="flex flex-col gap-4">
                         <li>
                             <Link onClick={()=>setShowAside(false)} to={'/'} className="flex items-center p-2 rounded-lg  hover:bg-primary_red">

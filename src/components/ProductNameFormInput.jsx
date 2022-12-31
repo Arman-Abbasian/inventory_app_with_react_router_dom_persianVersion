@@ -2,6 +2,8 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import Input from "../common/Input";
 import Textarea from "../common/Textarea";
+import { BsSpeedometer2 } from "react-icons/bs";
+import { AiOutlineNumber } from "react-icons/ai";
 import {HiOutlineInformationCircle } from "react-icons/hi2";
 import { useState } from "react";
 import axios from "axios";
@@ -37,9 +39,9 @@ const ProductNameFormInput = ({name ,label,logo,searchSelectOptions}) => {
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>
                 <div className="flex flex-col gap-4 justify-center items-center border  rounded-sm p-2">
                     <Input  name={name} label={label} formik={formik} logo={logo} />
-                    <SearchSelect options={searchSelectOptions} name="measurmentUnit" label="measurement unit" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> } />
-                    <Input type="number" label="safety stock" name="safetyStock" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
-                    <Input type="number" label="order point" name="orderPoint" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
+                    <SearchSelect options={searchSelectOptions} name="measurmentUnit" label="measurement unit" formik={formik} logo={<BsSpeedometer2 className="w-6 h-6" /> } />
+                    <Input type="number" label="safety stock" name="safetyStock" formik={formik} logo={<AiOutlineNumber className="w-6 h-6" /> }/>
+                    <Input type="number" label="order point" name="orderPoint" formik={formik} logo={<AiOutlineNumber className="w-6 h-6" /> }/>
                     <Textarea name="information" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
                     <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full disabled:bg-opacity-60" type="submit">{formik.isValid ? 'Add':'please fill add the field'}</button>
                 </div>
