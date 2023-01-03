@@ -165,6 +165,28 @@
       "information": "",
       "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
       "id": 1
+    },
+    {
+      "name": "products",
+      "customerName": "sazeh gastar",
+      "productName": "ecu",
+      "partName": "body",
+      "stageName": "bending",
+      "RandomWeight": 0.76,
+      "information": "",
+      "whole": "sazeh gastar ecu body bending",
+      "id": 2
+    }
+  ],
+  "palletes": [
+    {
+      "name": "pallete",
+      "palleteNumber": 450,
+      "palleteColor": "blue",
+      "palleteKind": "GP4",
+      "palleteWeight": 120,
+      "whole": "450 blue GP4 120 ",
+      "id": 1
     }
   ],
   "customer": [
@@ -200,5 +222,16 @@
       "id": 1
     }
   ],
-  "palleteKind":[]
+  "palleteKind": [
+    {
+      "palleteKind": "GP5",
+      "information": "",
+      "id": 1
+    },
+    {
+      "palleteKind": "GP4",
+      "information": "",
+      "id": 2
+    }
+  ]
 }

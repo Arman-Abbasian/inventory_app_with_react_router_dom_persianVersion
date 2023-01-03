@@ -11,7 +11,7 @@ import { toast } from "react-hot-toast";
 const PalleteKindFormInput = () => {
     const [isShow,setIsShow]=useState(false);
 
-    const initialValues={productName:"",information:""}
+    const initialValues={palleteKind:"",information:""}
     const onSubmit=(values,{ resetForm })=>{
         axios.post(`http://localhost:4000/palleteKind`,values)
         .then(res=>{
