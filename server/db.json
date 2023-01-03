@@ -166,5 +166,39 @@
       "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
       "id": 1
     }
-  ]
+  ],
+  "customer": [
+    {
+      "customerName": "sazeh gastar",
+      "information": "",
+      "id": 1
+    },
+    {
+      "customerName": "pol astara",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "product": [
+    {
+      "productName": "ecu",
+      "information": "",
+      "id": 1
+    }
+  ],
+  "part": [
+    {
+      "partName": "body",
+      "information": "",
+      "id": 1
+    }
+  ],
+  "stage": [
+    {
+      "stageName": "bending",
+      "information": "",
+      "id": 1
+    }
+  ],
+  "palleteKind":[]
 }

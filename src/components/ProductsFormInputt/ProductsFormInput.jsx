@@ -35,7 +35,7 @@ const ProductsFormInput = () => {
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     return ( 
         <div className="flex flex-col gap-3 container mx-auto max-w-md p-2">
-            <button className={`w-full p-2 rounded-sm bg-primary_yellow`}onClick={()=>setIsShow(!isShow)}>{isShow ?'hide' : 'show'}  input</button>
+            <button className={`w-full p-2 rounded-sm bg-primary_yellow`}onClick={()=>setIsShow(!isShow)}>{isShow ?'hide products form' : 'show products form'}  input</button>
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>
                 <div className="flex flex-col gap-4 justify-center items-center border border-primary_green  rounded-sm p-2">
                     <Input  name="customerName" label="customer name" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" />} />
