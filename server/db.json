@@ -143,16 +143,27 @@
       "orderPoint": 60,
       "information": "",
       "id": 29
+    },
+    {
+      "category": "productName",
+      "productName": "product 1 door 50",
+      "measurmentUnit": "kg",
+      "safetyStock": 0,
+      "orderPoint": 0,
+      "information": "",
+      "id": 30
     }
   ],
   "overallProucts": [
     {
-      "customerName": "dddd",
-      "productName": "dddd",
-      "partName": "ddddd",
-      "stageName": "ddddd",
-      "RandomWeight": 4,
-      "information": "edede",
+      "name": "products",
+      "customerName": "سازه گستر",
+      "productName": "رینف دش پنل راست",
+      "partName": "بدنه",
+      "stageName": "کشش",
+      "RandomWeight": 0.012,
+      "information": "",
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
       "id": 1
     }
   ]
