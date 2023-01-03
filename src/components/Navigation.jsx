@@ -175,6 +175,10 @@ const Navigation = () => {
                             </button>
                         </li>
                     </ul>
+
+                    {/* products section */}
+                        
+
                 </div>
         </aside>
     </div>

@@ -12,6 +12,7 @@ import ExitItem from "./pages/ExitItem";
 import EnterItemDetail from "./pages/EnterItemDetail";
 import ExitItemDetail from "./pages/ExitItemDetail";
 import InventoryDetail from "./pages/InventoryDetail";
+import ProductsInputs from "./pages/ProductsInputs";
 
 
 const Routee = () => {
@@ -29,6 +30,13 @@ const Routee = () => {
             <Route path="/enter/detail/:id"  element={<EnterItemDetail />} />
             <Route path="/exit/:id"  element={<ExitItem />} />
             <Route path="/exit/detail/:id"  element={<ExitItemDetail />} />
+
+
+            <Route path="/ProductsInputs"  element={<ProductsInputs />} />
+
+
+
+
             <Route path="/*" element={<NotFound />} />
         </Routes>
      );
