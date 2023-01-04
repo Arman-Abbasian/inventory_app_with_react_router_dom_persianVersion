@@ -178,6 +178,63 @@
       "id": 2
     }
   ],
+  "enterProducts": [
+    {
+      "palleteNumber": 123,
+      "whole": "sazeh gastar ecu body bending",
+      "weight": 1200,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 1
+    },
+    {
+      "palleteNumber": 1200,
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "weight": 3400,
+      "date": "2023-01-18",
+      "information": "",
+      "id": 2
+    },
+    {
+      "palleteNumber": 123,
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "weight": 12343,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 3
+    },
+    {
+      "palleteNumber": 122,
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "weight": 1234,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 4
+    },
+    {
+      "palleteNumber": 124,
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "weight": 123,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 5
+    }
+  ],
+  "exitProducts": [
+    {
+      "palleteNumber": 123,
+      "date": "2023-01-03",
+      "information": "",
+      "id": 1
+    },
+    {
+      "palleteNumber": 124,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "productsInventory":[],
   "palletes": [
     {
       "name": "pallete",
@@ -232,56 +289,6 @@
       "palleteKind": "GP4",
       "information": "",
       "id": 2
-    }
-  ],
-  "enterProducts": [
-    {
-      "palleteNumber": 123,
-      "whole": "sazeh gastar ecu body bending",
-      "weight": 1200,
-      "date": "2023-01-02",
-      "information": "",
-      "id": 1
-    },
-    {
-      "palleteNumber": 1200,
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
-      "weight": 3400,
-      "date": "2023-01-18",
-      "information": "",
-      "id": 2
-    },
-    {
-      "palleteNumber": 123,
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
-      "weight": 12343,
-      "date": "2023-01-02",
-      "information": "",
-      "id": 3
-    },
-    {
-      "palleteNumber": 122,
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
-      "weight": 1234,
-      "date": "2023-01-02",
-      "information": "",
-      "id": 4
-    },
-    {
-      "palleteNumber": 124,
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
-      "weight": 123,
-      "date": "2023-01-02",
-      "information": "",
-      "id": 5
-    }
-  ],
-  "exitProducts": [
-    {
-      "palleteNumber": 123,
-      "date": "2023-01-03",
-      "information": "",
-      "id": 1
     }
   ]
 }

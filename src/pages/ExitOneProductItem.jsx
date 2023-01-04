@@ -23,7 +23,7 @@ const ExitOneProductItem = () => {
         if(findedExitedPalleteNumber===undefined && findedExteredPalletNumber!==undefined){
         axios.post(`http://localhost:4000/exitProducts/`,values)
         .then(res=>{
-            navigate("/ProductsExit")
+            navigate("/ProductsExits")
             toast.success("data added successfully")
         })
         .catch(err=>toast.error(err.message));
