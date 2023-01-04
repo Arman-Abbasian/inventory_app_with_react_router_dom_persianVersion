@@ -1,6 +1,6 @@
 const ProductsEnters = () => {
     return ( 
-        <div>dev</div>
+        <div>products enter</div>
      );
 }
  

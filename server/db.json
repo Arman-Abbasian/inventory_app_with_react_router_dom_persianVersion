@@ -233,5 +233,24 @@
       "information": "",
       "id": 2
     }
-  ]
+  ],
+  "enterProducts": [
+    {
+      "palleteNumber": 123,
+      "whole": "sazeh gastar ecu body bending",
+      "weight": 1200,
+      "date": "2023-01-02",
+      "information": "",
+      "id": 1
+    },
+    {
+      "palleteNumber": 1200,
+      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "weight": 3400,
+      "date": "2023-01-18",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "exitProducts": []
 }

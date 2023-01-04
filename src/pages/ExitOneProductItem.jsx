@@ -10,13 +10,13 @@ import { useNavigate } from "react-router-dom";
 import Textarea from "../common/Textarea";
 
 
-const EnterOneProductItem = () => { 
+const ExitOneProductItem = () => { 
     const [productList,setProductList]=useState(null);
     const initialValues={palleteNumber:"",whole:"",weight:"",date:"",information:""};
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        axios.post(`http://localhost:4000/exitProducts/`,values)
+        axios.post(`http://localhost:4000/enterProducts/`,values)
         .then(res=>{
             navigate("/ProductsEnters")
             toast.success("data added successfully")
@@ -60,4 +60,4 @@ const EnterOneProductItem = () => {
 
             }
  
-export default EnterOneProductItem;
+export default ExitOneProductItem;
