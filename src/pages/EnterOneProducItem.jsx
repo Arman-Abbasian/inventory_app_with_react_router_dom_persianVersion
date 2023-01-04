@@ -39,7 +39,7 @@ const EnterOneProductItem = () => {
           setProductsEnters(data)
         })
         .catch(err=>toast.error(err.message))
-    },[])
+    },[]);
 
     const validationSchema=Yup.object({
         palleteNumber:Yup.string().required('pallete number is required'),
