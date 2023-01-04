@@ -13,17 +13,33 @@ import Textarea from "../common/Textarea";
 const EnterOneProductItem = () => { 
     const [productList,setProductList]=useState(null);
     const initialValues={palleteNumber:"",whole:"",weight:"",date:"",information:""};
+    const [productsEnters,setProductsEnters]=useState(null);
+
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        axios.post(`http://localhost:4000/exitProducts/`,values)
+        const findedPalleteNumber=productsEnters.find(item=>item===values.palleteNumber);
+        if(findedPalleteNumber===undefined){
+        axios.post(`http://localhost:4000/enterProducts/`,values)
         .then(res=>{
             navigate("/ProductsEnters")
             toast.success("data added successfully")
         })
         .catch(err=>toast.error(err.message));
         resetForm();
-    };
+    }else{
+        toast.error("pallete number is already existed")
+    }
+};
+
+    useEffect(()=>{
+        axios.get(`http://localhost:4000/enterProducts`)
+        .then(res=>{
+          const data=  res.data.map(item=>item.palleteNumber);
+          setProductsEnters(data)
+        })
+        .catch(err=>toast.error(err.message))
+    },[])
 
     const validationSchema=Yup.object({
         palleteNumber:Yup.string().required('pallete number is required'),
@@ -46,8 +62,8 @@ const EnterOneProductItem = () => {
             {productList &&
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
-                <Input type="number" label="number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} />         
-                <SearchSelect options={productList} label="product" name="whole" formik={formik} logo={<CiCalendarDate />} />
+                <Input type="number" label="pallete number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} />         
+                <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />
                 <Input type="number" label="weight" name="weight" formik={formik} logo={<CiCalendarDate />} />
                 <Input type="date" label="date" name="date" formik={formik} logo={<CiCalendarDate />} />
                 <Textarea name="information" formik={formik} />

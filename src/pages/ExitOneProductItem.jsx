@@ -16,7 +16,7 @@ const ExitOneProductItem = () => {
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        axios.post(`http://localhost:4000/enterProducts/`,values)
+        axios.post(`http://localhost:4000/exitProducts/`,values)
         .then(res=>{
             navigate("/ProductsEnters")
             toast.success("data added successfully")
