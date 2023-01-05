@@ -4,25 +4,14 @@ import { toast } from "react-hot-toast";
 import OneProduct from "../components/ProductsComponent/OneProduct";
 
 const ProductsInventory = () => {
-    const [exitItems,setExitItems]=useState(null);
-    const [enterItems,setEnterItems]=useState(null);
-    const [overallItem,setOverallItems]=useState(null);
-    const [items,setItems]=useState(null);
-    useEffect(()=>{
-        axios.get(`http://localhost:4000/exitProducts`)
-        .then(res=>setExitItems(res.data))
-        .catch(err=>toast.error(err.message))
-    },[]);
+    const [enterProducts,setEnterProducts]=useState(null);
+
     useEffect(()=>{
         axios.get(`http://localhost:4000/enterProducts`)
-        .then(res=>setEnterItems(res.data))
+        .then(res=>setEnterProducts(res.data))
         .catch(err=>toast.error(err.message))
     },[]);
-    useEffect(()=>{
-        axios.get(`http://localhost:4000/overallProucts`)
-        .then(res=>setOverallItems(res.data))
-        .catch(err=>toast.error(err.message))
-    },[]);
+
     if(exitItems && enterItems && overallItem && !items){
         overallItem.map(item=>{
             const enters=enterItems.filter(element=>element.whole===item.whole);

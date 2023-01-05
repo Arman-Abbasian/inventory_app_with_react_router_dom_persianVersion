@@ -178,18 +178,7 @@
       "id": 2
     }
   ],
-  "enterProducts": [
-    {
-      "palleteNumber": 450,
-      "whole": "sazeh gastar ecu body bending",
-      "weight": 12000,
-      "date": "2023-01-03",
-      "information": "",
-      "productId": 2,
-      "netWeight": 15632,
-      "id": 1
-    }
-  ],
+  "enterProducts": [],
   "exitProducts": [
     {
       "palleteNumber": 1200,

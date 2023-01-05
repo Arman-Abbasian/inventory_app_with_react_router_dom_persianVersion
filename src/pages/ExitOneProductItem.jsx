@@ -11,40 +11,45 @@ import SearchSelect from "../common/SearchSelect";
 
 
 const ExitOneProductItem = () => { 
-    const initialValues={palleteNumber:"",date:"",information:""};
+    const initialValues={palleteNumber:"",whole:"",date:"",information:""};
     const [productList,setProductList]=useState(null);
-    const [productsExits,setProductsExits]=useState(null);
     const [productsEnters,setProductsEnters]=useState(null);
 
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        const findedExitedPalleteNumber=productsExits.find(item=>item.palleteNumber===values.palleteNumber);
-        const findedExteredPalletNumber=productsEnters.find(item=>item.palleteNumber===values.palleteNumber);
-        if(findedExitedPalleteNumber===undefined && findedExteredPalletNumber!==undefined){
-        const findWholeFromEnterProducts=productsEnters.find(item=>item.palleteNumber===values.palleteNumber)
-        const whole=findWholeFromEnterProducts.whole
-        axios.post(`http://localhost:4000/exitProducts/`,{...values,whole})
+       
+        const choosedEnterItem=productsEnters.find(item=>item.palleteNumber===values.palleteNumber)||undefined;
+        const wholeEquality=choosedEnterItem ? choosedEnterItem.whole===values.whole :false ;
+        console.log(choosedEnterItem.id);
+        console.log(wholeEquality)
+        if(choosedEnterItem!==undefined && wholeEquality){
+        axios.delete(`http://localhost:4000/enterProducts/${choosedEnterItem.id}`)
         .then(res=>{
-            navigate("/ProductsExits")
+            // navigate("/ProductsExits")
             toast.success("data added successfully")
         })
         .catch(err=>toast.error(err.message));
         resetForm();
     }else{
-        toast.error("pallete number is already existed or  pallete number is not entered beofre")
+        toast.error("some error occured")
     }
 };
 
-useEffect(()=>{
-    axios.get(`http://localhost:4000/exitProducts`)
-    .then(res=>{setProductsExits(res.data)})
-    .catch(err=>toast.error(err.message))
-},[]);
 
 useEffect(()=>{
     axios.get(`http://localhost:4000/enterProducts`)
     .then(res=>{setProductsEnters(res.data)})
+    .catch(err=>toast.error(err.message))
+},[]);
+
+ //get overallProduct from DB
+ useEffect(()=>{
+    axios.get(`http://localhost:4000/overallProucts`)
+    .then(res=>{
+       const productList= res.data.map(item=>item.whole);
+       setProductList(productList)
+    })
     .catch(err=>toast.error(err.message))
 },[]);
 
@@ -71,7 +76,9 @@ useEffect(()=>{
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 <Input type="number" label="pallete number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} /> 
-                <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />        
+                {productList && 
+                <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />
+                }       
                 <Input type="date" label="date" name="date" formik={formik} logo={<CiCalendarDate />} />
                 <Textarea name="information" formik={formik} />
                 <button disabled={!formik.isValid} className={`py-2 px-4 bg-primary_yellow rounded-sm w-full ${!formik.isValid && 'bg-opacity-60'}`} type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
