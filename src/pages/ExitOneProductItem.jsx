@@ -7,6 +7,7 @@ import Input from "../common/Input";
 import { CiCalendarDate } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import Textarea from "../common/Textarea";
+import SearchSelect from "../common/SearchSelect";
 
 
 const ExitOneProductItem = () => { 
@@ -69,7 +70,8 @@ useEffect(()=>{
             {productList &&
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
-                <Input type="number" label="number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} />         
+                <Input type="number" label="pallete number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} /> 
+                <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />        
                 <Input type="date" label="date" name="date" formik={formik} logo={<CiCalendarDate />} />
                 <Textarea name="information" formik={formik} />
                 <button disabled={!formik.isValid} className={`py-2 px-4 bg-primary_yellow rounded-sm w-full ${!formik.isValid && 'bg-opacity-60'}`} type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>

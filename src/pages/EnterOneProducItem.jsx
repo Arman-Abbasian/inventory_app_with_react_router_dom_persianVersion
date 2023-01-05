@@ -11,21 +11,24 @@ import Textarea from "../common/Textarea";
 
 
 const EnterOneProductItem = () => { 
-    const [productList,setProductList]=useState(null);
     const initialValues={palleteNumber:"",whole:"",weight:"",date:"",information:""};
     const [productsEnters,setProductsEnters]=useState(null);
     const [palletes,setPalletes]=useState(null);
-    const [overallProucts,setOverallProucts]=useState(null)
+    const [overallProucts,setOverallProucts]=useState(null);
+    const [productList,setProductList]=useState(null);
 
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        const findedPalleteNumber=productsEnters.find(item=>item===values.palleteNumber);
-        const findedPalleteInwholePalletes=palletes.find(item=>item.number===values.palleteNumber);
+        //check for existence pallete in enterProducts alredy
+        const findedPalleteNumber=productsEnters.find(item=>item===values.palleteNumber)||undefined;
+        //find the enteredpallete in palletes DB
+        const findedPalleteInwholePalletes=palletes.find(item=>item.palleteNumber===values.palleteNumber);
+        //find the  enteredProduct in overallProucts DB
         const choosedOverallProduct= overallProucts.find(item=>item.whole===values.whole);
-          console.log(choosedOverallProduct)
         if(findedPalleteNumber===undefined && findedPalleteInwholePalletes!==undefined && choosedOverallProduct){
-        axios.post(`http://localhost:4000/enterProducts/`,{...values,productId:choosedOverallProduct.id,random:choosedOverallProduct.RandomWeight})
+        axios.post(`http://localhost:4000/enterProducts/`,
+        {...values,productId:choosedOverallProduct.id,netWeight:Math.round((values.weight- findedPalleteInwholePalletes.palleteWeight ) / choosedOverallProduct.RandomWeight)})
         .then(res=>{
             navigate("/ProductsEnters")
             toast.success("data added successfully")
@@ -36,7 +39,7 @@ const EnterOneProductItem = () => {
         toast.error("some error occured")
     }
 };
-
+    //get enterProducts from enterProducts DB    
     useEffect(()=>{
         axios.get(`http://localhost:4000/enterProducts`)
         .then(res=>{
@@ -48,10 +51,14 @@ const EnterOneProductItem = () => {
     //get overallProduct from DB
     useEffect(()=>{
         axios.get(`http://localhost:4000/overallProucts`)
-        .then(res=>setOverallProucts(res.data))
+        .then(res=>{
+            setOverallProucts(res.data);
+           const productList= res.data.map(item=>item.whole);
+           setProductList(productList)
+        })
         .catch(err=>toast.error(err.message))
     },[]);
-
+    //get palletes from palletes DB
     useEffect(()=>{
         axios.get(`http://localhost:4000/palletes`)
         .then(res=>{setPalletes(res.data)})
@@ -66,21 +73,17 @@ const EnterOneProductItem = () => {
         information:Yup.string(),
     });
 
-    useEffect(()=>{
-        axios.get(`http://localhost:4000/overallProucts`)
-        .then(res=>setProductList(res.data))
-        .catch(err=>toast.error(err.message))
-    },[])
-
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     console.log(formik.isValid)
     return ( 
         <div className="lg:flex-1">
-            {productList &&
+            {overallProucts &&
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 <Input type="number" label="pallete number" name="palleteNumber" formik={formik} logo={<CiCalendarDate />} />         
-                <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />
+                {productList && 
+                    <SearchSelect options={productList} label="product name" name="whole" formik={formik} logo={<CiCalendarDate />} />
+                }
                 <Input type="number" label="weight" name="weight" formik={formik} logo={<CiCalendarDate />} />
                 <Input type="date" label="date" name="date" formik={formik} logo={<CiCalendarDate />} />
                 <Textarea name="information" formik={formik} />
