@@ -14,13 +14,18 @@ const EnterOneProductItem = () => {
     const [productList,setProductList]=useState(null);
     const initialValues={palleteNumber:"",whole:"",weight:"",date:"",information:""};
     const [productsEnters,setProductsEnters]=useState(null);
+    const [palletes,setPalletes]=useState(null);
+    const [overallProucts,setOverallProucts]=useState(null)
 
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
         const findedPalleteNumber=productsEnters.find(item=>item===values.palleteNumber);
-        if(findedPalleteNumber===undefined){
-        axios.post(`http://localhost:4000/enterProducts/`,values)
+        const findedPalleteInwholePalletes=palletes.find(item=>item.number===values.palleteNumber);
+        const choosedOverallProduct= overallProucts.find(item=>item.whole===values.whole);
+          console.log(choosedOverallProduct)
+        if(findedPalleteNumber===undefined && findedPalleteInwholePalletes!==undefined && choosedOverallProduct){
+        axios.post(`http://localhost:4000/enterProducts/`,{...values,productId:choosedOverallProduct.id,random:choosedOverallProduct.RandomWeight})
         .then(res=>{
             navigate("/ProductsEnters")
             toast.success("data added successfully")
@@ -28,7 +33,7 @@ const EnterOneProductItem = () => {
         .catch(err=>toast.error(err.message));
         resetForm();
     }else{
-        toast.error("pallete number is already existed")
+        toast.error("some error occured")
     }
 };
 
@@ -38,6 +43,18 @@ const EnterOneProductItem = () => {
           const data=  res.data.map(item=>item.palleteNumber);
           setProductsEnters(data)
         })
+        .catch(err=>toast.error(err.message))
+    },[]);
+    //get overallProduct from DB
+    useEffect(()=>{
+        axios.get(`http://localhost:4000/overallProucts`)
+        .then(res=>setOverallProucts(res.data))
+        .catch(err=>toast.error(err.message))
+    },[]);
+
+    useEffect(()=>{
+        axios.get(`http://localhost:4000/palletes`)
+        .then(res=>{setPalletes(res.data)})
         .catch(err=>toast.error(err.message))
     },[]);
 

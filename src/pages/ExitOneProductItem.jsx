@@ -18,10 +18,12 @@ const ExitOneProductItem = () => {
     let navigate = useNavigate();
 
     const onSubmit=(values,{resetForm})=>{
-        const findedExitedPalleteNumber=productsExits.find(item=>item===values.palleteNumber);
-        const findedExteredPalletNumber=productsEnters.find(item=>item===values.palleteNumber)
+        const findedExitedPalleteNumber=productsExits.find(item=>item.palleteNumber===values.palleteNumber);
+        const findedExteredPalletNumber=productsEnters.find(item=>item.palleteNumber===values.palleteNumber);
         if(findedExitedPalleteNumber===undefined && findedExteredPalletNumber!==undefined){
-        axios.post(`http://localhost:4000/exitProducts/`,values)
+        const findWholeFromEnterProducts=productsEnters.find(item=>item.palleteNumber===values.palleteNumber)
+        const whole=findWholeFromEnterProducts.whole
+        axios.post(`http://localhost:4000/exitProducts/`,{...values,whole})
         .then(res=>{
             navigate("/ProductsExits")
             toast.success("data added successfully")
@@ -35,19 +37,13 @@ const ExitOneProductItem = () => {
 
 useEffect(()=>{
     axios.get(`http://localhost:4000/exitProducts`)
-    .then(res=>{
-      const data= res.data.map(item=>item.palleteNumber);
-      setProductsExits(data)
-    })
+    .then(res=>{setProductsExits(res.data)})
     .catch(err=>toast.error(err.message))
 },[]);
 
 useEffect(()=>{
     axios.get(`http://localhost:4000/enterProducts`)
-    .then(res=>{
-      const data= res.data.map(item=>item.palleteNumber);
-      setProductsEnters(data)
-    })
+    .then(res=>{setProductsEnters(res.data)})
     .catch(err=>toast.error(err.message))
 },[]);
 
