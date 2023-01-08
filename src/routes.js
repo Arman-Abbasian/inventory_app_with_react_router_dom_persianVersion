@@ -15,6 +15,7 @@ import InventoryDetail from "./pages/InventoryDetail";
 import ProductsInputs from "./pages/ProductsInputs";
 import EnterOneProductItem from "./pages/EnterOneProducItem";
 import ProductsInventory from "./pages/ProductsInventory";
+import ExitOneProductItem from "./pages/ExitOneProductItem";
 
 
 const Routee = () => {
@@ -36,6 +37,7 @@ const Routee = () => {
 
             <Route path="/ProductsInputs"  element={<ProductsInputs />} />
             <Route path="/EnterOneProductItem"  element={<EnterOneProductItem />} />
+            <Route path="/ExitOneProductItem"  element={<ExitOneProductItem />} />
             <Route path="/ProductsInventory"  element={<ProductsInventory />} />
 
 

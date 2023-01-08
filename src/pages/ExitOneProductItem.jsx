@@ -26,7 +26,7 @@ const ExitOneProductItem = () => {
         if(choosedEnterItem!==undefined && wholeEquality){
         axios.delete(`http://localhost:4000/enterProducts/${choosedEnterItem.id}`)
         .then(res=>{
-            // navigate("/ProductsExits")
+            navigate("/ProductsInventory")
             toast.success("data added successfully")
         })
         .catch(err=>toast.error(err.message));

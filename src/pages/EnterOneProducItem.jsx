@@ -28,9 +28,9 @@ const EnterOneProductItem = () => {
         const choosedOverallProduct= overallProucts.find(item=>item.whole===values.whole);
         if(findedPalleteNumber===undefined && findedPalleteInwholePalletes!==undefined && choosedOverallProduct){
         axios.post(`http://localhost:4000/enterProducts/`,
-        {...values,productId:choosedOverallProduct.id,netWeight:Math.round((values.weight- findedPalleteInwholePalletes.palleteWeight ) / choosedOverallProduct.RandomWeight)})
+        {...values,productId:choosedOverallProduct.id,productNumber:Math.round((values.weight- findedPalleteInwholePalletes.palleteWeight ) / choosedOverallProduct.RandomWeight)})
         .then(res=>{
-            navigate("/ProductsEnters")
+            navigate("/ProductsInventory")
             toast.success("data added successfully")
         })
         .catch(err=>toast.error(err.message));
