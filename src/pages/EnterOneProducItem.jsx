@@ -30,8 +30,12 @@ const EnterOneProductItem = () => {
         axios.post(`http://localhost:4000/enterProducts/`,
         {...values,productId:choosedOverallProduct.id,productNumber:Math.round((values.weight- findedPalleteInwholePalletes.palleteWeight ) / choosedOverallProduct.RandomWeight)})
         .then(res=>{
-            navigate("/ProductsInventory")
-            toast.success("data added successfully")
+            axios.post(`http://localhost:4000/allEnterProducts/`,
+        {...values,productId:choosedOverallProduct.id,productNumber:Math.round((values.weight- findedPalleteInwholePalletes.palleteWeight ) / choosedOverallProduct.RandomWeight)})
+            .then(res=>{
+                navigate("/ProductsInventory")
+                toast.success("data added successfully")
+            })
         })
         .catch(err=>toast.error(err.message));
         resetForm();

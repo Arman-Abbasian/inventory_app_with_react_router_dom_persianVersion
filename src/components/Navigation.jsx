@@ -207,7 +207,7 @@ const Navigation = () => {
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <RiStore2Line class="w-6 h-6 text-gray-500" />
-                <span class="ml-3">parts Inventory</span>
+                <span class="ml-3">Inventory</span>
               </Link>
             </li>
 
@@ -217,7 +217,7 @@ const Navigation = () => {
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <CiCircleList className="w-6 h-6 text-gray-500" />
-                <span class="ml-3">parts Input</span>
+                <span class="ml-3">Input</span>
               </Link>
             </li>
 

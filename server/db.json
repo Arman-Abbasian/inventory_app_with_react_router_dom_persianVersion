@@ -157,17 +157,6 @@
   "overallProucts": [
     {
       "name": "products",
-      "customerName": "سازه گستر",
-      "productName": "رینف دش پنل راست",
-      "partName": "بدنه",
-      "stageName": "کشش",
-      "RandomWeight": 0.012,
-      "information": "",
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
-      "id": 1
-    },
-    {
-      "name": "products",
       "customerName": "sazeh gastar",
       "productName": "ecu",
       "partName": "body",
@@ -190,12 +179,34 @@
       "id": 1
     }
   ],
-  "exitProducts": [
+  "allEnterProducts": [
     {
-      "palleteNumber": 1200,
-      "date": "2023-01-05",
+      "palleteNumber": 100,
+      "whole": "sazeh gastar ecu body bending",
+      "weight": 1200,
+      "date": "2023-01-02",
       "information": "",
-      "whole": "سازه گستر رینف دش پنل راست بدنه کشش",
+      "productId": 2,
+      "productNumber": 1382,
+      "id": 1
+    },
+    {
+      "palleteNumber": 100,
+      "whole": "sazeh gastar ecu body bending",
+      "weight": 1200,
+      "date": "2023-01-03",
+      "information": "",
+      "productId": 2,
+      "productNumber": 1382,
+      "id": 2
+    }
+  ],
+  "allExitProducts": [
+    {
+      "palleteNumber": 100,
+      "whole": "sazeh gastar ecu body bending",
+      "date": "2023-01-08",
+      "information": "",
       "id": 1
     }
   ],
@@ -209,6 +220,15 @@
       "palleteWeight": 120,
       "whole": "450 blue GP4 120 ",
       "id": 1
+    },
+    {
+      "name": "pallete",
+      "palleteNumber": 100,
+      "palleteColor": "blue",
+      "palleteKind": "GP4",
+      "palleteWeight": 150,
+      "whole": "100 blue GP4 150 ",
+      "id": 2
     }
   ],
   "customer": [
