@@ -165,6 +165,28 @@
       "information": "",
       "whole": "sazeh gastar ecu body bending",
       "id": 2
+    },
+    {
+      "name": "products",
+      "customerName": "sazeh gastar",
+      "productName": "ecu",
+      "partName": "body",
+      "stageName": "blank",
+      "RandomWeight": 0.08,
+      "information": "",
+      "whole": "sazeh gastar ecu body blank",
+      "id": 3
+    },
+    {
+      "name": "products",
+      "customerName": "sazeh gastar",
+      "productName": "rienf dash panel R",
+      "partName": "body",
+      "stageName": "bending",
+      "RandomWeight": 1.04,
+      "information": "",
+      "whole": "sazeh gastar rienf dash panel R body bending",
+      "id": 4
     }
   ],
   "enterProducts": [],
@@ -263,6 +285,11 @@
       "productName": "ecu",
       "information": "",
       "id": 1
+    },
+    {
+      "productName": "rienf dash panel R",
+      "information": "",
+      "id": 2
     }
   ],
   "part": [
@@ -277,6 +304,11 @@
       "stageName": "bending",
       "information": "",
       "id": 1
+    },
+    {
+      "stageName": "blank",
+      "information": "",
+      "id": 2
     }
   ],
   "palleteKind": [
