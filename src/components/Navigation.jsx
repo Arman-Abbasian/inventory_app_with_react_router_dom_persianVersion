@@ -24,6 +24,8 @@ const navigation = [
 const Navigation = () => {
   const [enter, setEnter] = useState(false);
   const [exit, setExit] = useState(false);
+  const [enterProduct, setEnterProduct] = useState(false);
+  const [exitProduct, setExitProduct] = useState(false);
   const [showAside, setShowAside] = useState(false);
   const [showInventorySection, setShowInventorySection] = useState(false);
   const [showProductSection, setShowProductSection] = useState(false);
@@ -348,24 +350,88 @@ const Navigation = () => {
               </Link>
             </li>
             <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/EnterOneProductItem"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+              <button
+                onClick={() => setEnterProduct(!enterProduct)}
+                className="w-full"
               >
-                <MdLogin className="w-6 h-6 text-gray-500" />
-                <span class="ml-3">Enter one enter product</span>
-              </Link>
+                <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                  <div className="flex items-center">
+                    <MdLogin className="w-6 h-6 text-gray-500" />
+                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                      Enters
+                    </span>
+                  </div>
+                  <div>
+                    <BsChevronUp
+                      className={`${enterProduct ? "hidden" : "block"}`}
+                    />
+                    <BsChevronDown
+                      className={`${!enterProduct ? "hidden" : "block"}`}
+                    />
+                  </div>
+                </div>
+
+                <ul class={`py-2 ${enterProduct ? "flex flex-col" : "hidden"}`}>
+                  <li>
+                    <Link
+                      to={`/EnterOneProductItem`}
+                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                    >
+                      enter one enter product
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/EnterProductsList`}
+                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                    >
+                      enter list
+                    </Link>
+                  </li>
+                </ul>
+              </button>
             </li>
             <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/ExitOneProductItem"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+              <button
+                onClick={() => setExitProduct(!exitProduct)}
+                className="w-full"
               >
-                <MdLogout className="w-6 h-6 text-gray-500" />
-                <span class="ml-3">Enter one exit product</span>
-              </Link>
+                <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                  <div className="flex items-center">
+                    <MdLogin className="w-6 h-6 text-gray-500" />
+                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                      Enters
+                    </span>
+                  </div>
+                  <div>
+                    <BsChevronUp
+                      className={`${exitProduct ? "hidden" : "block"}`}
+                    />
+                    <BsChevronDown
+                      className={`${!exitProduct ? "hidden" : "block"}`}
+                    />
+                  </div>
+                </div>
+
+                <ul class={`py-2 ${exitProduct ? "flex flex-col" : "hidden"}`}>
+                  <li>
+                    <Link
+                      to={`/ExitOneProductItem`}
+                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                    >
+                      enter one exit product
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/ExitProductsList`}
+                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                    >
+                      exit list
+                    </Link>
+                  </li>
+                </ul>
+              </button>
             </li>
           </ul>
         </div>
