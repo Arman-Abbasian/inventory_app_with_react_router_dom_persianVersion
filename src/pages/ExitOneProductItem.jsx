@@ -29,11 +29,12 @@ const ExitOneProductItem = () => {
     const wholeEquality = choosedEnterItem
       ? choosedEnterItem.whole === values.whole
       : false;
-    console.log(choosedEnterItem.id);
-    console.log(wholeEquality);
     if (choosedEnterItem !== undefined && wholeEquality) {
       axios
-        .post(`http://localhost:4000/allExitProducts`,values)
+        .post(`http://localhost:4000/allExitProducts`, {
+          ...values,
+          productNumber: choosedEnterItem.productNumber,
+        })
         .then((res) => {
           axios
             .delete(

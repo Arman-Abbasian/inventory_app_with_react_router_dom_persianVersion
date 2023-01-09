@@ -22,7 +22,7 @@ const ExitProductsList = () => {
   useEffect(() => {
     setEnterProductsList({ data: null, error: null, loading: true });
     axios
-      .get(`http://localhost:4000/allEnterProducts`)
+      .get(`http://localhost:4000/allExitProducts`)
       .then((res) =>
         setEnterProductsList({ data: res.data, error: null, loading: false })
       )
