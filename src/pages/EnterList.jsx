@@ -80,7 +80,6 @@ const EnterList = () => {
         }
         return array;
     };
-    if(showdEnterList){sortDate(showdEnterList)}
     return (
         <div className="lg:flex-1">
             <FilterEnters filters={filters} changeHandler={changeHandler} toggleChangeHandler={toggleChangeHandler}/>

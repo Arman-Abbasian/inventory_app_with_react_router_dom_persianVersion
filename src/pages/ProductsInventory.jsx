@@ -8,8 +8,75 @@ const ProductsInventory = () => {
   const [enterProducts, setEnterProducts] = useState(null);
   const [overallProducts, setOverallProucts] = useState(null);
   const [products, setProducts] = useState(null);
-  const [productInventoryFilter,setProductInventoryFilter]=useState({customer:"",product:"",part:"",stage:"",all:true})
+  const [showProducts, setShowProducts] = useState(null);
+  const [productInventoryFilter, setProductInventoryFilter] = useState({
+    customer: "",
+    product: "",
+    part: "",
+    stage: "",
+    all: true,
+  });
+  function filterWithCustomer(arr) {
+    if (productInventoryFilter.customer === "") {
+      return arr;
+    } else {
+      arr = arr.filter(
+        (item) => item.customerName === productInventoryFilter.customer
+      );
+      return arr;
+    }
+  }
+  function filterWithProduct(arr) {
+    if (productInventoryFilter.product === "") {
+      return arr;
+    } else {
+      arr = arr.filter(
+        (item) => item.productName === productInventoryFilter.product
+      );
+      return arr;
+    }
+  }
+  function filterWithPart(arr) {
+    if (productInventoryFilter.part === "") {
+      return arr;
+    } else {
+      arr = arr.filter((item) => item.partName === productInventoryFilter.part);
+      return arr;
+    }
+  }
 
+  function filterWithStage(arr) {
+    if (productInventoryFilter.stage === "") {
+      return arr;
+    } else {
+      arr = arr.filter(
+        (item) => item.stageName === productInventoryFilter.stage
+      );
+      return arr;
+    }
+  }
+  function filterWihtExistance(arr) {
+    if (productInventoryFilter.all) return arr;
+    arr = arr.filter((item) => item.inventory > 0);
+    return arr;
+  }
+  const toggleChangeExistanceHandler = (e) => {
+    const { checked } = e.target;
+    console.log(checked);
+    setProductInventoryFilter({ ...productInventoryFilter, all: checked });
+  };
+
+  useEffect(() => {
+    if (products) {
+      let show = [...products];
+      show = filterWithCustomer(show);
+      show = filterWithProduct(show);
+      show = filterWithPart(show);
+      show = filterWithStage(show);
+      show=filterWihtExistance(show)
+      setShowProducts(show);
+    }
+  }, [productInventoryFilter, products]);
 
   useEffect(() => {
     axios
@@ -24,8 +91,6 @@ const ProductsInventory = () => {
       .then((res) => setOverallProucts(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
-
-
 
   if (enterProducts && overallProducts && !products) {
     let arr = [];
@@ -56,10 +121,15 @@ const ProductsInventory = () => {
 
   return (
     <div className="lg:flex-1">
-      <FilterProductsInventory productInventoryFilter={productInventoryFilter} setProductInventoryFilter={setProductInventoryFilter} />
+      <FilterProductsInventory
+        productInventoryFilter={productInventoryFilter}
+        setProductInventoryFilter={setProductInventoryFilter}
+        all={productInventoryFilter.all}
+        toggleChangeExistanceHandler={toggleChangeExistanceHandler}
+      />
       <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
-        {products &&
-          products.map((item) => (
+        {showProducts &&
+          showProducts.map((item) => (
             <OneProduct
               key={item.whole}
               id={item.whole}
