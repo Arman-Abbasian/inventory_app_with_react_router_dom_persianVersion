@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import FilterEnters from "../components/FilterEnters";
-import OneEnterItem from "../components/OneEnterItem";
+import FilterProductsEnters from "../components/Filters/FilterProductsEnters";
+import OneEnterItem from "../components/ProductsComponent/OneEnterItem";
 
 const EnterProductsList = () => {
   const [enterProductsList, setEnterProductsList] = useState({
@@ -10,43 +10,105 @@ const EnterProductsList = () => {
     error: null,
     loading: false,
   });
+  const [showProducts, setShowProducts] = useState(null);
 
   const [filters, setFilters] = useState({
+    whole: "",
+    pallete: "",
     latest: true,
-    productName: "",
-    supplier: "",
-    enterDelivery: "",
-    enterTransferee: "",
   });
 
-  useEffect(()=>{
-    setEnterProductsList({data:null,error:null,loading:true})
-    axios.get(`http://localhost:4000/allEnterProducts`)
-    .then(res=>setEnterProductsList({data:res.data,error:null,loading:false}))
-    .catch(err=>{
+  function filterWithWhole(arr) {
+    if (filters.whole === "") {
+      return arr;
+    } else {
+      arr = arr.filter((item) => item.whole === filters.whole);
+      return arr;
+    }
+  }
+  function filterWithPallete(arr) {
+    if (filters.pallete === "") return arr;
+    arr = arr.filter((item) => item.palleteNumber.toString() === filters.pallete);
+    return arr;
+  }
+  function sortDate(arr) {
+    if (filters.latest) {
+      arr.sort(function (a, b) {
+        const date1 = new Date(a.date);
+        const date2 = new Date(b.date);
+        return date2 - date1;
+      });
+    } else {
+      arr.sort(function (a, b) {
+        const date1 = new Date(a.date);
+        const date2 = new Date(b.date);
+        return date1 - date2;
+      });
+    }
+    return arr;
+  }
+
+  useEffect(() => {
+    if (enterProductsList.data) {
+      let show = [...enterProductsList.data];
+      console.log(show)
+      show = filterWithWhole(show);
+      show = filterWithPallete(show);
+      show = sortDate(show);
+      setShowProducts(show);
+    }
+  }, [filters, enterProductsList.data]);
+
+  const changeHandler = (e) => {
+    setFilters({ ...filters, [e.target.name]: e.target.value });
+  };
+  const toggleChangeDateHandler = (e) => {
+    console.log(e.target.checked);
+    setFilters({ ...filters, latest: e.target.checked });
+  };
+
+  // fill the enterProductsList state
+  useEffect(() => {
+    setEnterProductsList({ data: null, error: null, loading: true });
+    axios
+      .get(`http://localhost:4000/allEnterProducts`)
+      .then((res) =>
+        setEnterProductsList({ data: res.data, error: null, loading: false })
+      )
+      .catch((err) => {
         toast.error(err.message);
-        setEnterProductsList({data:null,error:err.message,loading:false})
-    })
-  },[])
+        setEnterProductsList({
+          data: null,
+          error: err.message,
+          loading: false,
+        });
+      });
+  }, []);
 
   return (
     <div className="lg:flex-1">
-      {/* <FilterEnters
-        filters={filters}
-        changeHandler={changeHandler}
-        toggleChangeHandler={toggleChangeHandler}
-      /> */}
-      <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
-        {enterProductsList.data &&
-          enterProductsList.data.map((item) => (
-            <OneEnterItem
-              key={item.id}
-              productName={item.whole}
-              number={item.productNumber}
-              date={item.date}
-            />
-          ))}
-      </div>
+      {showProducts && (
+        <>
+          <FilterProductsEnters
+            changeHandler={changeHandler}
+            toggleChangeDateHandler={toggleChangeDateHandler}
+            selectedProduct={filters.whole}
+            selectedPallete={filters.pallete}
+            latest={filters.latest}
+          />
+          <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
+            {showProducts &&
+              showProducts.map((item) => (
+                <OneEnterItem
+                  key={item.id}
+                  productName={item.whole}
+                  number={item.productNumber}
+                  date={item.date}
+                />
+              ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

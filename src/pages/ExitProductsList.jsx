@@ -5,12 +5,14 @@ import FilterEnters from "../components/FilterEnters";
 import OneEnterItem from "../components/OneEnterItem";
 
 const ExitProductsList = () => {
+  //states
+  //1- enter products
   const [enterProductsList, setEnterProductsList] = useState({
     data: null,
     error: null,
     loading: false,
   });
-
+  //2-  filters
   const [filters, setFilters] = useState({
     latest: true,
     productName: "",
@@ -18,7 +20,13 @@ const ExitProductsList = () => {
     enterDelivery: "",
     enterTransferee: "",
   });
-
+  //3- overall products
+  const [overallProducts, setOverallProducts] = useState({
+    data: null,
+    error: null,
+    loading: false,
+  });
+// fill the enterProductsList state
   useEffect(() => {
     setEnterProductsList({ data: null, error: null, loading: true });
     axios
@@ -29,6 +37,24 @@ const ExitProductsList = () => {
       .catch((err) => {
         toast.error(err.message);
         setEnterProductsList({
+          data: null,
+          error: err.message,
+          loading: false,
+        });
+      });
+  }, []);
+  
+  // fill the overallProducts state
+  useEffect(() => {
+    setOverallProducts({ data: null, error: null, loading: true });
+    axios
+      .get(`http://localhost:4000/overallProucts`)
+      .then((res) =>
+      setOverallProducts({ data: res.data, error: null, loading: false })
+      )
+      .catch((err) => {
+        toast.error(err.message);
+        setOverallProducts({
           data: null,
           error: err.message,
           loading: false,
