@@ -18,7 +18,6 @@ const ProductsInputs = () => {
             <PartFormInput />
             <StageFormInput />
             <PalleteKindFormInput />
-            
         </div>
      );
 }

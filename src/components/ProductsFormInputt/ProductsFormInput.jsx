@@ -69,7 +69,7 @@ useEffect(()=>{
 
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     return ( 
-        <div className="flex flex-col gap-3 container mx-auto max-w-md p-2">
+        <div className="flex flex-col gap-3 container mx-auto max-w-md">
             <button className={`w-full p-2 rounded-sm bg-primary_yellow`}onClick={()=>setIsShow(!isShow)}>{isShow ?'hide products form' : 'show products form'}  input</button>
             {customers && products && parts && stages &&
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>

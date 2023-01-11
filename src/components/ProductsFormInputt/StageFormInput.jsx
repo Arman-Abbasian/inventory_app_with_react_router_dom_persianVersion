@@ -29,7 +29,7 @@ const StageFormInput = () => {
 
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     return ( 
-        <div className="flex flex-col gap-3 container mx-auto max-w-md p-2">
+        <div className="flex flex-col gap-3 container mx-auto max-w-md">
             <button className={`w-full p-2 rounded-sm bg-primary_yellow`}onClick={()=>setIsShow(!isShow)}>{isShow ?'hide stage name' : 'show stage name'}  input</button>
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>
                 <div className="flex flex-col gap-4 justify-center items-center border border-primary_green  rounded-sm p-2">

@@ -11,6 +11,7 @@ const EnterProductsList = () => {
     loading: false,
   });
   const [showProducts, setShowProducts] = useState(null);
+  const [sum, setSum] = useState(0);
 
   const [filters, setFilters] = useState({
     whole: "",
@@ -28,7 +29,9 @@ const EnterProductsList = () => {
   }
   function filterWithPallete(arr) {
     if (filters.pallete === "") return arr;
-    arr = arr.filter((item) => item.palleteNumber.toString() === filters.pallete);
+    arr = arr.filter(
+      (item) => item.palleteNumber.toString() === filters.pallete
+    );
     return arr;
   }
   function sortDate(arr) {
@@ -51,11 +54,18 @@ const EnterProductsList = () => {
   useEffect(() => {
     if (enterProductsList.data) {
       let show = [...enterProductsList.data];
-      console.log(show)
+      console.log(show);
       show = filterWithWhole(show);
       show = filterWithPallete(show);
       show = sortDate(show);
       setShowProducts(show);
+      //calculate sum
+      const summ = show.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.productNumber,
+        0
+      );
+      setSum(summ);
+      console.log(summ);
     }
   }, [filters, enterProductsList.data]);
 
@@ -96,6 +106,9 @@ const EnterProductsList = () => {
             selectedPallete={filters.pallete}
             latest={filters.latest}
           />
+          <p className="bg-primary_yellow inline-block p-2 rounded mb-10 mt-10">
+            sum: {sum}
+          </p>
           <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
             {showProducts &&
               showProducts.map((item) => (

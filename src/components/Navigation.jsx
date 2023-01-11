@@ -398,9 +398,9 @@ const Navigation = () => {
               >
                 <div className="flex justify-between items-center p-2 w-full text-gray-900 rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
                   <div className="flex items-center">
-                    <MdLogin className="w-6 h-6 text-gray-500" />
+                    <MdLogout className="w-6 h-6 text-gray-500" />
                     <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Enters
+                      Exits
                     </span>
                   </div>
                   <div>
