@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primary_white:"#E1F5C4",
-        primary_red:"#FF4E50 ",
-        primary_yellow:"#EDE574",
+        primary_cream:"#ECF39E",
+        primary_dark_green:"#132A13",
+        primary_light_green:"#4F772D",
       }
     },
   },
@@ -17,6 +17,8 @@ module.exports = {
   },
   plugins: [
     // require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwind-scrollbar-hide')
+
   ],
 }

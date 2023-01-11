@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Layout>
-          <Routee className="flex-1"/>
+          <Routee />
         </Layout>
         <Toaster />
       </BrowserRouter>
