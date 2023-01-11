@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import FilterInventory from "../components/FilterInventory";
+import FilterInventory from "../components/FiltersParts/FilterInventory";
 import { Link } from "react-router-dom";
-import OneInventoryListItem from "../components/OneInventoryListItem";
+import OneInventoryListItem from "../components/PartsComponent/OneInventoryListItem";
 
 const Inventory = () => {
   const [productNames, setProductNames] = useState({

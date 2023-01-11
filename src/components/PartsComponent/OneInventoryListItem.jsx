@@ -10,8 +10,8 @@ const OneInventoryListItem = ({productName,enter,exit,safetyStock,orderPoint}) =
     return (
         <>
         {condition && 
-        <div className={`flex  items-center gap-2 bg-primary_yellow rounded-sm p-2 border-r-8 ${condition==="ok" &&'border-green-500'} 
-            ${condition==="warning" &&'border-yellow-700'}  ${condition==="danger" &&'border-red-800'} `}>
+        <div className={`flex  items-center gap-2 bg-primary_cream rounded-sm p-2 border-r-8 ${condition==="ok" &&'border-green-500'} 
+            ${condition==="warning" &&'border-yellow-500'}  ${condition==="danger" &&'border-red-500'} `}>
             <div className="flex flex-col gap-8 items-start">
                 <p><span className="font-bold">product name:</span> {productName}</p>
                 <p><span className="font-bold">inventory:</span> {enter - exit}</p>

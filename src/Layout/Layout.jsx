@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   return (
     <div className="lg:flex gap-4">
       <Header />
-      {children}
+        {children}
     </div>
   );
 };

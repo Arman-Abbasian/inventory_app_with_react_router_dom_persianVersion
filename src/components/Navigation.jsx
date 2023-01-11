@@ -20,7 +20,7 @@ const Navigation = () => {
   const [showInventorySection, setShowInventorySection] = useState(false);
   const [showProductSection, setShowProductSection] = useState(false);
   return (
-    <div>
+    <div className="lg:w-1/4 lg:h-full">
       {/* show in md und lower */}
       <div className="lg:hidden mb-10">
         <div
@@ -307,7 +307,7 @@ const Navigation = () => {
       </div>
 
       {/* show in lg und upper */}
-      <aside className={`hidden lg:block  scrollbar-hide overflow-y-auto`}>
+      <aside className={`hidden lg:block scrollbar-hide overflow-y-auto`}>
         <div className="fixed bg-primary_light_green bottom-4 top-4 scrollbar-hide overflow-y-auto py-4 px-3 rounded">
           {/* Home icon in side bar */}
           <div className="bg-primary_cream rounded">
