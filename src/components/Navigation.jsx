@@ -83,11 +83,11 @@ const Navigation = () => {
 
             <li>
               <Link
-                to={"/Inputs"}
+                to={"/PartInputs"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">Input</span>
+                <span class="ml-3">inputs</span>
               </Link>
             </li>
 
@@ -358,11 +358,11 @@ const Navigation = () => {
 
             <li>
               <Link
-                to={"/Inputs"}
+                to={"/PartInputs"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">Input</span>
+                <span class="ml-3">inputs</span>
               </Link>
             </li>
 
