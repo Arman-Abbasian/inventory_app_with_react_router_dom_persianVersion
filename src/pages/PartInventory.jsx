@@ -5,7 +5,7 @@ import FilterInventory from "../components/FiltersParts/FilterInventory";
 import { Link } from "react-router-dom";
 import OneInventoryListItem from "../components/PartsComponent/OneInventoryListItem";
 
-const Inventory = () => {
+const PartInventory = () => {
   const [productNames, setProductNames] = useState({
     data: null,
     error: null,
@@ -148,7 +148,7 @@ const Inventory = () => {
       <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
         {showedWhole &&
           showedWhole.map((item) => (
-            <Link to={`/Inventory/${item.id}`}>
+            <Link to={`/Inventory/${item.id}`} key={item.id}>
               <OneInventoryListItem
                 key={item.id}
                 productName={item.productName}
@@ -163,4 +163,4 @@ const Inventory = () => {
     </div>
   );
 };
-export default Inventory;
+export default PartInventory;

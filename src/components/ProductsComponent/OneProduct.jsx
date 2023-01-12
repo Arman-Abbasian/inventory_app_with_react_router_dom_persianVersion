@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
-import Inventory from "../../pages/Inventory";
+import PartInventory from "../../pages/PartInventory";
 
 const OneProduct = ({id,customerName,productName,partName,stageName,whole,inventory}) => {
     return ( 

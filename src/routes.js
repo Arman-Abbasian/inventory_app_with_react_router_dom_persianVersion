@@ -1,5 +1,5 @@
 import { Routes,Route } from "react-router-dom";
-import Inventory from "./pages/Inventory";
+import PartInventory from "./pages/PartInventory";
 import Enter from "./pages/Enter";
 import Exit from "./pages/Exit";
 import Home from "./pages/Home";
@@ -26,7 +26,7 @@ const Routee = () => {
             <Route path="/" element={<Home />} />
             <Route path="/Enter" element={<Enter />} />
             <Route path="/Exit" element={<Exit />} />
-            <Route path="/Inventory"  element={<Inventory />} />
+            <Route path="/PartInventory"  element={<PartInventory />} />
             <Route path="/Inventory/:id"  element={<InventoryDetail />} />
             <Route path="/Inputs"  element={<Inputs />} />
             <Route path="/EnterList"  element={<EnterList />} />

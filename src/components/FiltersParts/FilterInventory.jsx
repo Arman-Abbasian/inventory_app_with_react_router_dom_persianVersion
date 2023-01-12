@@ -4,10 +4,10 @@ import { toast } from "react-hot-toast";
 import { AiOutlineFilter } from "react-icons/ai";
 
 const conditon = [
-  { id: 4, conditon: "", name: "All" },
-  { id: 1, conditon: "ok", name: "ok", color: "green-500" },
-  { id: 2, conditon: "warning", name: "warning", color: "red-500" },
-  { id: 3, conditon: "danger", name: "danger", color: "yellow-500" },
+  { id: 1, conditon: "", name: "All"},
+  { id: 2, conditon: "ok", name: "ok", color: "green-500" },
+  { id: 3, conditon: "warning", name: "warning", color: "yellow-500" },
+  { id: 4, conditon: "danger", name: "danger", color: "red-500" },
 ];
 
 const FilterInventory = ({ filters, changeHandler }) => {
@@ -58,8 +58,8 @@ const FilterInventory = ({ filters, changeHandler }) => {
       <div className="flex justify-center gap-4 w-full lg:w-2/4">
         <div className="flex gap-2 items-center w-full">
           {conditon.map((item) => (
-            <div
-              className={`p-2 border ${`border-${item.color}`}  flex justify-center items-center gap-1 rounded-sm flex-1`}
+            <div key={item.id}
+              className={`p-2 border flex justify-center items-center gap-3 rounded-sm flex-1 ${`border-${item.color}`}`}
             >
               <input
                 className="form-radio w-5 h-5"
