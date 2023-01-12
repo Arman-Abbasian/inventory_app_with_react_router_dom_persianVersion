@@ -1,6 +1,6 @@
 import { Routes,Route } from "react-router-dom";
 import PartInventory from "./pages/PartInventory";
-import PartEnterInput from "./pages/PartEnterEditInput";
+import PartEnterInput from "./pages/PartEnterInput";
 import PartExitInput from "./pages/PartExitInput";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";

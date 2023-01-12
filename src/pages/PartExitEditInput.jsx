@@ -8,9 +8,10 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { FaRegBuilding } from "react-icons/fa";
 import { BsPerson } from "react-icons/bs";
-import Input from "../common/Input";
 import { AiOutlineNumber } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
+import Input from "../common/Input";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 const PartExitEditInput = () => {
