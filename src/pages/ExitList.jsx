@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import FilterExits from "../components/FilterExits";
+import FilterExits from "../components/FiltersParts/FilterExits";
 import OneExitItem from "../components/OneExitItem";
 
 const ExitList = () => {

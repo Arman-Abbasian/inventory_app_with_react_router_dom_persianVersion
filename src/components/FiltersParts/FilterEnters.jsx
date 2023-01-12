@@ -57,14 +57,14 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
      }
     return ( 
         <>
-        <button className="w-full p-2 rounded-sm bg-primary_yellow mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
+        <button className="w-full p-2 rounded-sm bg-primary_cream mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
             {options.productNames && options.supplier && options.enterDelivery && options.enterTransferee &&
             <div className={`sm:grid-cols-2 gap-8  w-full relative ${showFilterSection ?'grid':'hidden'}`}> 
             {/* make product name options */} 
                     <>
                         <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                            <span><AiOutlineFilter /></span>
-                            <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none" value={filters.productName} onChange={(e)=>changeHandler(e)} />
+                            <span><AiOutlineFilter className="w-6 h-6 text-primary_cream" /></span>
+                            <input placeholder="search product name" list="productNamee" name="productName"  className="w-full bg-transparent outline-none text-primary_cream" value={filters.productName} onChange={(e)=>changeHandler(e)} />
                         </div>
                         <datalist id="productNamee">
                             {options.productNames.map(item=>{
@@ -77,8 +77,8 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
             {/* make supplier options */}
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><AiOutlineFilter /></span>
-                        <input placeholder="search supplier name" list="supplierr" name="supplier"  className="w-full bg-transparent outline-none" value={filters.supplier} onChange={(e)=>changeHandler(e)} />
+                        <span><AiOutlineFilter className="w-6 h-6 text-primary_cream" /></span>
+                        <input placeholder="search supplier name" list="supplierr" name="supplier"  className="w-full bg-transparent outline-none text-primary_cream" value={filters.supplier} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="supplierr">
                         {options.supplier.map(item=>{
@@ -89,9 +89,9 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
 
             {/* make enter delivery options */}
                 <>
-                    <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><AiOutlineFilter /></span>
-                        <input placeholder="search delivery name" list="enterDeliveryy" name="enterDelivery"  className="w-full bg-transparent outline-none" value={filters.enterDelivery} onChange={(e)=>changeHandler(e)} />
+                    <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
+                        <span><AiOutlineFilter className="w-6 h-6 text-primary_cream" /></span>
+                        <input placeholder="search delivery name" list="enterDeliveryy" name="enterDelivery"  className="w-full bg-transparent outline-none text-primary_cream" value={filters.enterDelivery} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="enterDeliveryy">
                         {options.enterDelivery.map(item=>{
@@ -102,8 +102,8 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
 
                 <>
                     <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2" >
-                        <span><AiOutlineFilter /></span>
-                        <input placeholder="search transferee name" list="enterTransfereee" name="enterTransferee"  className="w-full bg-transparent outline-none" value={filters.enterTransferee} onChange={(e)=>changeHandler(e)} />
+                        <span><AiOutlineFilter className="w-6 h-6 text-primary_cream" /></span>
+                        <input placeholder="search transferee name" list="enterTransfereee" name="enterTransferee"  className="w-full bg-transparent outline-none text-primary_cream" value={filters.enterTransferee} onChange={(e)=>changeHandler(e)} />
                     </div>
                     <datalist id="enterTransfereee">
                         {options.enterTransferee.map(item=>{
@@ -117,7 +117,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
                         <input type="checkbox" value="" className="sr-only peer" name="latest" checked={filters.latest} onChange={(e)=>toggleChangeHandler(e)} />
                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none
                         rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-blue-600"></div>
+                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_light_green"></div>
                         <span className="ml-3 text-sm font-medium text-primary-white">{filters.latest ? 'latest':'earliest'}</span>
                     </label>
                 </div>

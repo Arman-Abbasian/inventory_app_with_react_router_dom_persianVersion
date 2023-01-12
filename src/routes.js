@@ -1,15 +1,15 @@
 import { Routes,Route } from "react-router-dom";
 import PartInventory from "./pages/PartInventory";
-import Enter from "./pages/Enter";
+import PartEnterInput from "./pages/PartEnterEditInput";
 import Exit from "./pages/Exit";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import PartInputs from "./pages/PartInputs";
-import EnterList from "./pages/EnterList";
+import PartEnterList from "./pages/PartEnterList";
 import ExitList from "./pages/ExitList";
-import EnterItem from "./pages/EnterItem";
+import PartEnterEditInput from "./pages/PartEnterEditInput";
 import ExitItem from "./pages/ExitItem";
-import EnterItemDetail from "./pages/EnterItemDetail";
+import PartEnterItemDetail from "./pages/PartEnterItemDetail";
 import ExitItemDetail from "./pages/ExitItemDetail";
 import InventoryDetail from "./pages/InventoryDetail";
 import ProductsInputs from "./pages/ProductsInputs";
@@ -24,15 +24,15 @@ const Routee = () => {
     return ( 
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Enter" element={<Enter />} />
+            <Route path="/PartEnterInput" element={<PartEnterInput />} />
             <Route path="/Exit" element={<Exit />} />
             <Route path="/PartInventory"  element={<PartInventory />} />
             <Route path="/Inventory/:id"  element={<InventoryDetail />} />
             <Route path="/PartInputs"  element={<PartInputs />} />
-            <Route path="/EnterList"  element={<EnterList />} />
+            <Route path="/PartEnterList"  element={<PartEnterList />} />
             <Route path="/ExitList"  element={<ExitList />} />
-            <Route path="/enter/:id"  element={<EnterItem />} />
-            <Route path="/enter/detail/:id"  element={<EnterItemDetail />} />
+            <Route path="/partEnter/:id"  element={<PartEnterEditInput />} />
+            <Route path="/partEnter/detail/:id"  element={<PartEnterItemDetail />} />
             <Route path="/exit/:id"  element={<ExitItem />} />
             <Route path="/exit/detail/:id"  element={<ExitItemDetail />} />
 

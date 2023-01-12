@@ -14,7 +14,7 @@ import {  BsPerson} from "react-icons/bs";
 
 
 
-const Enter = () => {
+const PartEnterEditInput = () => {
     let navigate=useNavigate();
     const initialValues={productName:"",date:"",number:"",supplier:"",enterDelivery:"",enterTransferee:""}
     const onSubmit=(values,{resetForm})=>{
@@ -60,24 +60,24 @@ const Enter = () => {
             <form onSubmit={formik.handleSubmit} className="container mx-auto max-w-md p-2 ">
                 <div className="flex flex-col gap-4 justify-center items-center">
                 {options.productName &&
-                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<HiOutlineShoppingCart />} />
+                <SearchSelect options={options.productName} name="productName" label="product name" formik={formik} logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />} />
                 }
-                <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate />} />
-                <Input type="number" label="number" name="number" formik={formik} logo={<AiOutlineNumber />} />
+                <Input type="date" name="date" label="date" formik={formik} logo={<CiCalendarDate className="w-6 h-6 text-primary_cream"  />} />
+                <Input type="number" label="number" name="number" formik={formik} logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream"  />} />
                 {options.supplier &&
-                <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<RiStore2Line />} />
+                <SearchSelect options={options.supplier} name="supplier" label="supplier" formik={formik} logo={<RiStore2Line className="w-6 h-6 text-primary_cream"  />} />
                 }
                 {options.enterDelivery &&
-                <SearchSelect options={options.enterDelivery} name="enterDelivery" label="enter delivery" formik={formik} logo={<BsPerson />} />
+                <SearchSelect options={options.enterDelivery} name="enterDelivery" label="enter delivery" formik={formik} logo={<BsPerson className="w-6 h-6 text-primary_cream"  />} />
                 }
                 {options.enterTransferee &&
-                <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} logo={<BsPerson />} />
+                <SearchSelect options={options.enterTransferee} name="enterTransferee" label="enter transferee" formik={formik} logo={<BsPerson className="w-6 h-6 text-primary_cream"  />} />
                 }
-                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
+                <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_cream rounded-sm w-full" type="submit">{formik.isValid ?'Add' : 'please complete all fields'}</button>
                 </div>
             </form>
         </div>
      );
 }
  
-export default Enter;
+export default PartEnterEditInput;

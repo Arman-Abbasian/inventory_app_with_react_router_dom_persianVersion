@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const EnterItemDetail = () => {
+const PartEnterItemDetail = () => {
     const [item,setItem]=useState(null);
     const {id}=useParams();
     useEffect(()=>{
@@ -16,7 +16,7 @@ const EnterItemDetail = () => {
     return ( 
             <>
                 {item && 
-                    <div className="flex flex-col gap-8 justify-start items-start">
+                    <div className="flex flex-col gap-8 justify-start items-start text-primary_cream">
                     <p><span className="font-bold">product name:</span> {item.productName}</p>
                     <p><span className="font-bold">number:</span> {item.number}</p>
                     <p><span className="font-bold">date:</span> {item.date}</p>
@@ -29,4 +29,4 @@ const EnterItemDetail = () => {
      );
 }
  
-export default EnterItemDetail;
+export default PartEnterItemDetail;

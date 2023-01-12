@@ -111,7 +111,7 @@ const Navigation = () => {
                 <ul class={`py-2 ${enter ? "flex flex-col" : "hidden"}`}>
                   <li>
                     <Link
-                      to={`/Enter`}
+                      to={`/PartEnterInput`}
                       className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
                     >
                       enter one enter item
@@ -119,7 +119,7 @@ const Navigation = () => {
                   </li>
                   <li>
                     <Link
-                      to={`/EnterList`}
+                      to={`/PartEnterList`}
                       className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
                     >
                       enter list
@@ -386,7 +386,7 @@ const Navigation = () => {
                 <ul class={`py-2 ${enter ? "flex flex-col" : "hidden"}`}>
                   <li>
                     <Link
-                      to={`/Enter`}
+                      to={`/PartEnterInput`}
                       className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
                     >
                       enter one enter item
@@ -394,7 +394,7 @@ const Navigation = () => {
                   </li>
                   <li>
                     <Link
-                      to={`/EnterList`}
+                      to={`/PartEnterList`}
                       className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
                     >
                       enter list
