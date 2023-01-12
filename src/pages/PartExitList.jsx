@@ -2,9 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import FilterExits from "../components/FiltersParts/FilterExits";
-import OneExitItem from "../components/OneExitItem";
+import OneExitItem from "../components/PartsComponent/OneExitItem";
 
-const ExitList = () => {
+const PartExitList = () => {
     const [exitList,setExitList]=useState({data:null,error:null,loading:false});
     const [showdExitList,setShowedExitList]=useState(null);
     const [filters,setFilters]=useState({latest:true,productName:"",consumingFor:"",exitDelivery:"",jobPosition:"",unit:""});
@@ -93,7 +93,7 @@ const ExitList = () => {
             <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
             {showdExitList && 
             showdExitList.map(item=>(
-                <OneExitItem key={item.id} id={item.id}productName={item.productName}
+                <OneExitItem key={item.id} id={item.id} productName={item.productName}
                 number={item.number}measurmentUnit={item.measurmentUnit}date={item.date} consumingFor={item.consumingFor}
                 exitDelivery={item.exitDelivery} exitTransferee={item.exitTransferee} jobPosition={item.jobPosition} unit={item.unit} deleteHandler={()=>deleteHandler(item.id)} />
             ))
@@ -102,4 +102,4 @@ const ExitList = () => {
         </div>
      );
 } 
-export default ExitList;
+export default PartExitList;

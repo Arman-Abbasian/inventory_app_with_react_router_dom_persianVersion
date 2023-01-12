@@ -1,16 +1,16 @@
 import { Routes,Route } from "react-router-dom";
 import PartInventory from "./pages/PartInventory";
 import PartEnterInput from "./pages/PartEnterEditInput";
-import Exit from "./pages/Exit";
+import PartExitInput from "./pages/PartExitInput";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import PartInputs from "./pages/PartInputs";
 import PartEnterList from "./pages/PartEnterList";
-import ExitList from "./pages/ExitList";
+import PartExitList from "./pages/PartExitList";
 import PartEnterEditInput from "./pages/PartEnterEditInput";
-import ExitItem from "./pages/ExitItem";
+import PartExitEditInput from "./pages/PartExitEditInput";
 import PartEnterItemDetail from "./pages/PartEnterItemDetail";
-import ExitItemDetail from "./pages/ExitItemDetail";
+import PartExitItemDetail from "./pages/PartExitItemDetail";
 import InventoryDetail from "./pages/InventoryDetail";
 import ProductsInputs from "./pages/ProductsInputs";
 import EnterOneProductItem from "./pages/EnterOneProducItem";
@@ -25,16 +25,16 @@ const Routee = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/PartEnterInput" element={<PartEnterInput />} />
-            <Route path="/Exit" element={<Exit />} />
+            <Route path="/PartExitInput" element={<PartExitInput />} />
             <Route path="/PartInventory"  element={<PartInventory />} />
             <Route path="/Inventory/:id"  element={<InventoryDetail />} />
             <Route path="/PartInputs"  element={<PartInputs />} />
             <Route path="/PartEnterList"  element={<PartEnterList />} />
-            <Route path="/ExitList"  element={<ExitList />} />
             <Route path="/partEnter/:id"  element={<PartEnterEditInput />} />
             <Route path="/partEnter/detail/:id"  element={<PartEnterItemDetail />} />
-            <Route path="/exit/:id"  element={<ExitItem />} />
-            <Route path="/exit/detail/:id"  element={<ExitItemDetail />} />
+            <Route path="/partExitList"  element={<PartExitList />} />
+            <Route path="/PartExit/:id"  element={<PartExitEditInput />} />
+            <Route path="/PartExit/detail/:id"  element={<PartExitItemDetail />} />
 
 
             <Route path="/ProductsInputs"  element={<ProductsInputs />} />

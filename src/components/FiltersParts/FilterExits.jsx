@@ -94,7 +94,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
   return (
     <>
       <button
-        className="w-full p-2 rounded-sm bg-primary_yellow mb-4"
+        className="w-full p-2 rounded-sm bg-primary_cream mb-4"
         onClick={() => setShowFilterSection(!showFilterSection)}
       >
         {showFilterSection ? "hide filter section" : "show filter section"}
@@ -113,13 +113,13 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
-                  <AiOutlineFilter />
+                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
                   placeholder="search product name"
                   list="productNamee"
                   name="productName"
-                  className="w-full bg-transparent outline-none"
+                  className="w-full bg-transparent outline-none text-primary_cream"
                   value={filters.productName}
                   onChange={(e) => changeHandler(e)}
                 />
@@ -139,13 +139,13 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
-                  <AiOutlineFilter />
+                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
                   placeholder="search supplier name"
                   list="consumingForr"
                   name="consumingFor"
-                  className="w-full bg-transparent outline-none"
+                  className="w-full bg-transparent outline-none text-primary_cream"
                   value={filters.supplier}
                   onChange={(e) => changeHandler(e)}
                 />
@@ -165,13 +165,13 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
-                  <AiOutlineFilter />
+                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
                   placeholder="search delivery name"
                   list="exitDeliveryy"
                   name="exitDelivery"
-                  className="w-full bg-transparent outline-none"
+                  className="w-full bg-transparent outline-none text-primary_cream"
                   value={filters.enterDelivery}
                   onChange={(e) => changeHandler(e)}
                 />
@@ -190,13 +190,13 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
-                  <AiOutlineFilter />
+                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
                   placeholder="search transferee name"
                   list="jobPositionn"
                   name="jobPosition"
-                  className="w-full bg-transparent outline-none"
+                  className="w-full bg-transparent outline-none text-primary_cream"
                   value={filters.enterTransferee}
                   onChange={(e) => changeHandler(e)}
                 />
@@ -215,13 +215,13 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
-                  <AiOutlineFilter />
+                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
                   placeholder="search transferee name"
                   list="unitt"
                   name="unit"
-                  className="w-full bg-transparent outline-none"
+                  className="w-full bg-transparent outline-none text-primary_cream"
                   value={filters.enterTransferee}
                   onChange={(e) => changeHandler(e)}
                 />
@@ -242,7 +242,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                 <input
                   type="checkbox"
                   value=""
-                  className="sr-only peer"
+                  className="sr-only peer text-primary_cream"
                   name="latest"
                   checked={filters.latest}
                   onChange={(e) => toggleChangeHandler(e)}
@@ -250,7 +250,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                 <div
                   className="w-11 h-6 bg-gray-200 peer-focus:outline-none
                         rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-blue-600"
+                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_light_green"
                 ></div>
                 <span className="ml-3 text-sm font-medium text-primary-white">
                   {filters.latest ? "latest" : "earliest"}

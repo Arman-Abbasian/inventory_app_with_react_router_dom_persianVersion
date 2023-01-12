@@ -149,7 +149,7 @@ const Navigation = () => {
                 <ul className={`p-2 ${exit ? "flex flex-col" : "hidden"}`}>
                   <li>
                     <Link
-                      to={`/Exit`}
+                      to={`/PartExitInput`}
                       className="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red"
                     >
                       enter one Exit item
@@ -157,7 +157,7 @@ const Navigation = () => {
                   </li>
                   <li>
                     <Link
-                      to={`/ExitList`}
+                      to={`/PartExitList`}
                       className="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red"
                     >
                       exit list
@@ -424,7 +424,7 @@ const Navigation = () => {
                 <ul className={`p-2 ${exit ? "flex flex-col" : "hidden"}`}>
                   <li>
                     <Link
-                      to={`/Exit`}
+                      to={`/PartExitInput`}
                       className="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red"
                     >
                       enter one Exit item
@@ -432,7 +432,7 @@ const Navigation = () => {
                   </li>
                   <li>
                     <Link
-                      to={`/ExitList`}
+                      to={`/PartExitList`}
                       className="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red"
                     >
                       exit list
