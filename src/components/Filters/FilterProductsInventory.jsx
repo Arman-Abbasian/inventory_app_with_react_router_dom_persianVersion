@@ -39,13 +39,13 @@ const FilterProductsInventory = ({
   }, []);
 
   return (
-    <>
+    <div className="mb-10">
       {customerFilter && productFilter && partFilter && stageFilter && (
         <div className="grid sm:grid-cols-2 container mx-auto max-w-lg gap-4">
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1">select a customer</label>
+            <label className="mb-1 text-primary_light_green">select a customer</label>
             <select
-              className="w-full bg-transparent p-2 border rounded focus:outline-none"
+              className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
                 setProductInventoryFilter({
                   ...productInventoryFilter,
@@ -53,11 +53,11 @@ const FilterProductsInventory = ({
                 })
               }
             >
-              <option value="" className="bg-primary_yellow">
+              <option value="" className="bg-primary_light_green">
                 All
               </option>
               {customerFilter.map((item) => (
-                <option className="bg-primary_yellow" value={item.customerName}>
+                <option className="bg-primary_light_green" value={item.customerName}>
                   {item.customerName}
                 </option>
               ))}
@@ -65,9 +65,9 @@ const FilterProductsInventory = ({
           </div>
 
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1">select a product</label>
+            <label className="mb-1 text-primary_light_green">select a product</label>
             <select
-              className="w-full bg-transparent p-2 border rounded focus:outline-none"
+              className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
                 setProductInventoryFilter({
                   ...productInventoryFilter,
@@ -75,20 +75,20 @@ const FilterProductsInventory = ({
                 })
               }
             >
-              <option value="" className="bg-primary_yellow">
+              <option value="" className="bg-primary_light_green">
                 All
               </option>
               {productFilter.map((item) => (
-                <option className="bg-primary_yellow" value={item.productName}>
+                <option className="bg-primary_light_green" value={item.productName}>
                   {item.productName}
                 </option>
               ))}
             </select>
           </div>
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1">select a part</label>
+            <label className="mb-1 text-primary_light_green">select a part</label>
             <select
-              className="w-full bg-transparent p-2 border rounded focus:outline-none"
+              className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
                 setProductInventoryFilter({
                   ...productInventoryFilter,
@@ -96,20 +96,20 @@ const FilterProductsInventory = ({
                 })
               }
             >
-              <option value="" className="bg-primary_yellow">
+              <option value="" className="bg-primary_light_green">
                 All
               </option>
               {partFilter.map((item) => (
-                <option className="bg-primary_yellow" value={item.partName}>
+                <option className="bg-primary_light_green" value={item.partName}>
                   {item.partName}
                 </option>
               ))}
             </select>
           </div>
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1">select a stage</label>
+            <label className="mb-1 text-primary_light_green">select a stage</label>
             <select
-              className="w-full bg-transparent p-2 border rounded focus:outline-none"
+              className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
                 setProductInventoryFilter({
                   ...productInventoryFilter,
@@ -117,11 +117,11 @@ const FilterProductsInventory = ({
                 })
               }
             >
-              <option className="bg-primary_yellow" value="">
+              <option className="bg-primary_light_green" value="">
                 All
               </option>
               {stageFilter.map((item) => (
-                <option className="bg-primary_yellow" value={item.stageName}>
+                <option className="bg-primary_light_green hover:shadow-[0 0 0 0.25rem rgb(25 135 84 , 25%)] hover:border-primary_cream" value={item.stageName}>
                   {item.stageName}
                 </option>
               ))}
@@ -129,28 +129,28 @@ const FilterProductsInventory = ({
           </div>
           {/* ascending or descending based on date */}
           <div className="w-full">
-              <label className="inline-flex relative items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  value=""
-                  className="sr-only peer"
-                  name="all"
-                  checked={all}
-                  onChange={(e) => toggleChangeExistanceHandler(e)}
-                />
-                <div
-                  className="w-11 h-6 bg-gray-200 peer-focus:outline-none
+            <label className="inline-flex relative items-center cursor-pointer">
+              <input
+                type="checkbox"
+                value=""
+                className="sr-only peer"
+                name="all"
+                checked={all}
+                onChange={(e) => toggleChangeExistanceHandler(e)}
+              />
+              <div
+                className="w-11 h-6 bg-primary_light_green peer-focus:outline-none
                         rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
                         after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_yellow"
-                ></div>
-                <span className="ml-3 text-sm font-medium text-primary-white">
-                  {all ? "all product" : "existed product"}
-                </span>
-              </label>
-            </div>
+              ></div>
+              <span className="ml-3 text-sm font-medium text-primary_cream">
+                {all ? "all product" : "existed product"}
+              </span>
+            </label>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

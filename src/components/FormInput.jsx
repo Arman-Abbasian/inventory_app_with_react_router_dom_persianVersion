@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import Input from "../common/Input";
 import Textarea from "../common/Textarea";
-import { HiOutlineShoppingCart , HiOutlineInformationCircle } from "react-icons/hi2";
+import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";

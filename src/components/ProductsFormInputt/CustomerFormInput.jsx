@@ -36,7 +36,7 @@ const CustomerFormInput = () => {
   return (
     <div className="flex flex-col gap-3 container mx-auto max-w-md">
       <button
-        className={`w-full p-2 rounded-sm bg-primary_yellow`}
+        className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`}
         onClick={() => setIsShow(!isShow)}
       >
         {isShow ? "hide customer name" : "show customer name"} input

@@ -30,12 +30,12 @@ const PalleteKindFormInput = () => {
     const formik=useFormik({initialValues,onSubmit,validationSchema,validateOnMount:true});
     return ( 
         <div className="flex flex-col gap-3 container mx-auto max-w-md">
-            <button className={`w-full p-2 rounded-sm bg-primary_yellow`} onClick={()=>setIsShow(!isShow)}>{isShow ?'hide pallete kind' : 'show pallete kind'}  input</button>
+            <button className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`} onClick={()=>setIsShow(!isShow)}>{isShow ?'hide pallete kind' : 'show pallete kind'}  input</button>
             <form onSubmit={formik.handleSubmit} className={`${isShow ? 'block':'hidden'}`}>
                 <div className="flex flex-col gap-4 justify-center items-center border border-primary_green  rounded-sm p-2">
                     <Input  name="palleteKind" label="pallete kind" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" />} />
                     <Textarea name="information" label="information" formik={formik} logo={<HiOutlineInformationCircle className="w-6 h-6" /> }/>
-                    <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_yellow rounded-sm w-full disabled:bg-opacity-60" type="submit">{formik.isValid ? 'Add':'please fill necessary fields'}</button>
+                    <button disabled={!formik.isValid} className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60" type="submit">{formik.isValid ? 'Add':'please fill necessary fields'}</button>
                 </div>
             </form>
         </div>
