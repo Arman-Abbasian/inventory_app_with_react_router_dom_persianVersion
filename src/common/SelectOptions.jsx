@@ -12,7 +12,7 @@ const SelectOptions = ({options,name,formik,logo}) => {
                     })}
                 </select>
             </div>
-            {formik.errors[name] && formik.touched[name] && <p className="text-primary_light_green">{formik.errors[name]}</p>}
+            {formik.errors[name] && formik.touched[name] && <p className="text-primary_cream">{formik.errors[name]}</p>}
         </div>
      );
 }

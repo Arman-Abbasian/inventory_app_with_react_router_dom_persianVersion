@@ -7,7 +7,7 @@ const RadioButton = ({options,formik,name}) => {
                             <label htmlFor={item.value}>{item.label}</label>
                         </div>
             })}
-        {formik.errors[name] && formik.touched[name] && <p className="text-red-600">{formik.errors[name]}</p>}
+        {formik.errors[name] && formik.touched[name] && <p className="text-primary_cream">{formik.errors[name]}</p>}
         </div>
      );
 }
