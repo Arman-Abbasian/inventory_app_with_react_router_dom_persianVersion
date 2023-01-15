@@ -41,7 +41,7 @@ const FilterProductsInventory = ({
   return (
     <div className="mb-10">
       {customerFilter && productFilter && partFilter && stageFilter && (
-        <div className="grid sm:grid-cols-2 container mx-auto max-w-lg gap-4">
+        <div className="grid sm:grid-cols-2 container mx-auto max-w-2xl gap-4">
           <div className="flex flex-col items-start justify-center">
             <label className="mb-1 text-primary_light_green">select a customer</label>
             <select

@@ -58,8 +58,9 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
       .get(`http://localhost:4000/overall?category=exitDelivery`)
       .then((res) => {
         const data = res.data;
+        console.log(res.data);
         const exitDelivery = data.map((item) => {
-          return { id: item.id, exitDelivery: item.enterTransferee };
+          return { id: item.id, exitDelivery: item.exitDelivery };
         });
         setOptions({ ...options, exitDelivery });
       })
@@ -72,7 +73,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
       .then((res) => {
         const data = res.data;
         const jobPosition = data.map((item) => {
-          return { id: item.id, exitDelivery: item.jobPosition };
+          return { id: item.id, jobPosition: item.jobPosition };
         });
         setOptions({ ...options, jobPosition });
       })
@@ -85,7 +86,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
       .then((res) => {
         const data = res.data;
         const unit = data.map((item) => {
-          return { id: item.id, exitDelivery: item.unit };
+          return { id: item.id, unit: item.unit };
         });
         setOptions({ ...options, unit });
       })
@@ -94,7 +95,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
   return (
     <>
       <button
-        className="w-full p-2 rounded-sm bg-primary_cream mb-4"
+        className="w-full p-2 rounded-sm bg-primary_cream mb-4 shadow-md shadow-primary_light_green"
         onClick={() => setShowFilterSection(!showFilterSection)}
       >
         {showFilterSection ? "hide filter section" : "show filter section"}
@@ -193,11 +194,11 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search transferee name"
+                  placeholder="search job position"
                   list="jobPositionn"
                   name="jobPosition"
                   className="w-full bg-transparent outline-none text-primary_cream"
-                  value={filters.enterTransferee}
+                  value={filters.jobPosition}
                   onChange={(e) => changeHandler(e)}
                 />
               </div>
@@ -218,16 +219,16 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search transferee name"
+                  placeholder="search unit"
                   list="unitt"
                   name="unit"
                   className="w-full bg-transparent outline-none text-primary_cream"
-                  value={filters.enterTransferee}
+                  value={filters.unit}
                   onChange={(e) => changeHandler(e)}
                 />
               </div>
               <datalist id="unitt">
-                {options.jobPosition.map((item) => {
+                {options.unit.map((item) => {
                   return (
                     <option key={item.id} value={item.unit}>
                       {item.unit}

@@ -4,7 +4,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const OneExitItem = ({id,productName,number,date,deleteHandler}) => {
     return ( 
-            <div className="flex items-center gap-2 bg-primary_cream rounded-sm p-2">
+            <div className="flex items-center gap-2 bg-primary_cream rounded-sm p-2 shadow-md shadow-primary_light_green">
                 <div className="flex flex-col gap-2 flex-1">
                     <Link to={`/PartExit/detail/${id}`}>
                         <p><span className="font-bold">product name:</span> {productName}</p>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import FilterProductsInventory from "../components/Filters/FilterProductsInventory";
+import FilterProductsInventory from "../components/FiltersProducts/FilterProductsInventory";
 import OneProduct from "../components/ProductsComponent/OneProduct";
 
 const ProductsInventory = () => {
