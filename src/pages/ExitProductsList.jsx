@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import FilterEnters from "../components/FiltersParts/FilterEnters";
-import FilterProductsExits from "../components/Filters/FilterProductsExits";
+import FilterProductsExits from "../components/FiltersProducts/FilterProductsExits";
 import OneExitItem from "../components/ProductsComponent/OneExitItem";
 
 const ExitProductsList = () => {

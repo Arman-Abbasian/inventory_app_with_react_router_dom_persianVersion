@@ -2,10 +2,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/Input";
 import Textarea from "../../common/Textarea";
-import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import {
+  HiOutlineShoppingCart,
+  HiOutlineInformationCircle,
+} from "react-icons/hi2";
 
 const CustomerFormInput = () => {
   const [isShow, setIsShow] = useState(false);
@@ -45,22 +48,22 @@ const CustomerFormInput = () => {
         onSubmit={formik.handleSubmit}
         className={`${isShow ? "block" : "hidden"}`}
       >
-        <div className="flex flex-col gap-4 justify-center items-center border border-primary_green  rounded-sm p-2">
+        <div className="flex flex-col gap-4 justify-center items-center border border-primary_green rounded-sm p-2 shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]">
           <Input
             name="customerName"
             label="customer name"
             formik={formik}
-            logo={<HiOutlineInformationCircle className="w-6 h-6" />}
+            logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
           />
           <Textarea
             name="information"
             label="information"
             formik={formik}
-            logo={<HiOutlineInformationCircle className="w-6 h-6" />}
+            logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
           />
           <button
             disabled={!formik.isValid}
-            className="py-2 px-4 bg-primary_yellow rounded-sm w-full disabled:bg-opacity-60"
+            className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60"
             type="submit"
           >
             {formik.isValid ? "Add" : "please fill necessary fields"}
