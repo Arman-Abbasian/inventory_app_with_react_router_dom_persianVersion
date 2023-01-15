@@ -4,15 +4,14 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import * as Yup from "yup";
 import SearchSelect from "../common/SearchSelect";
-import { HiOutlineShoppingCart } from "react-icons/hi2";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import { HiOutlineInformationCircle,HiOutlineShoppingCart } from "react-icons/hi";
 import { FaRegBuilding } from "react-icons/fa";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineNumber } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
 import Input from "../common/Input";
-
 import { useNavigate, useParams } from "react-router-dom";
+
 
 const PartExitEditInput = () => {
   const options = {
