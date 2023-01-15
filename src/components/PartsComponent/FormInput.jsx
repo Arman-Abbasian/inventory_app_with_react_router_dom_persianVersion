@@ -44,7 +44,7 @@ const FormInput = ({ name, label, logo }) => {
         onSubmit={formik.handleSubmit}
         className={`${isShow ? "block" : "hidden"}`}
       >
-        <div className="flex flex-col gap-4 justify-center items-center border border-primary_cream  rounded-sm p-2">
+        <div className="flex flex-col gap-4 justify-center items-center border border-primary_cream  rounded-sm p-2  shadow-[rgba(236,_243,_158,_0.4)_0px_30px_90px]">
           <Input name={name} label={label} formik={formik} logo={logo} />
           <Textarea
             name="information"

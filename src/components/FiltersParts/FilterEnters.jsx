@@ -56,8 +56,8 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
         .catch(err=>toast.error(err.message))
      }
     return ( 
-        <>
-        <button className="w-full p-2 rounded-sm bg-primary_cream mb-4" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
+        <div className="mb-10">
+        <button className="w-full p-2 rounded-sm bg-primary_cream mb-4 shadow-md shadow-primary_light_green" onClick={()=>setShowFilterSection(! showFilterSection)}>{showFilterSection ?'hide filter section':'show filter section'}</button> 
             {options.productNames && options.supplier && options.enterDelivery && options.enterTransferee &&
             <div className={`sm:grid-cols-2 gap-8  w-full relative ${showFilterSection ?'grid':'hidden'}`}> 
             {/* make product name options */} 
@@ -82,7 +82,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
                     </div>
                     <datalist id="supplierr">
                         {options.supplier.map(item=>{
-                            return <option key={item.id} value={item.productName}>{item.productName}</option>
+                            return <option key={item.id} value={item.supplier}>{item.supplier}</option>
                         })}
                     </datalist>  
                 </> 
@@ -124,7 +124,7 @@ const FilterEnters = ({filters,changeHandler,toggleChangeHandler}) => {
             </div> 
                 
                 }
-            </>
+            </div>
                 
  
     
