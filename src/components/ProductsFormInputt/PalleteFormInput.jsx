@@ -17,6 +17,7 @@ const colorOptions = [
     color: "blue-500",
     label: "blue",
     borderColor: "border-blue-500",
+    textColor: "text-blue-500"
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const colorOptions = [
     color: "red-500",
     label: "red",
     borderColor: "border-red-500",
+    textColor: "text-red-500",
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const colorOptions = [
     color: "yellow-500",
     label: "yellow",
     borderColor: "border-yellow-500",
+    textColor: "text-yellow-500",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const colorOptions = [
     color: "green-500",
     label: "green",
     borderColor: "border-green-500",
+    textColor: "text-green-500",
   },
 ];
 

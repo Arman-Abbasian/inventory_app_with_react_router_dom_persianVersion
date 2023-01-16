@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import OneInventoryItem from "../components/OneInventoryItem";
+import OneInventoryItem from "../components/PartsComponent/OneInventoryItem";
 import { useParams } from "react-router-dom";
 
 const InventoryDetail = () => {

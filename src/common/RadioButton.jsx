@@ -12,7 +12,7 @@ const RadioButton = ({ options, formik, name, label }) => {
         {options.map((item) => {
           return (
             <div
-              className={`flex flex-1 gap-2 justify-between items-center border-red-400 ${item.borderColor}`}
+              className={`flex flex-1 gap-2  items-center border-red-400 ${item.borderColor}`}
               key={item.id}
             >
               <input
@@ -24,7 +24,7 @@ const RadioButton = ({ options, formik, name, label }) => {
                 checked={formik.values[name] === item.value}
                 onChange={formik.handleChange}
               />
-              <label className={`text-${item.color}`} htmlFor={item.value}>
+              <label className={`${item.textColor}`} htmlFor={item.value}>
                 {item.label}
               </label>
             </div>

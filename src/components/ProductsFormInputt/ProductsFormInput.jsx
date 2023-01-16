@@ -10,7 +10,7 @@ import {
   HiOutlineShoppingCart,
   HiOutlineInformationCircle,
 } from "react-icons/hi2";
-
+import { AiOutlineNumber } from "react-icons/ai";
 const ProductsFormInput = () => {
   const [isShow, setIsShow] = useState(false);
   const [customers, setCustomers] = useState(null);
@@ -145,7 +145,7 @@ const ProductsFormInput = () => {
               name="RandomWeight"
               label="random weight"
               formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6" />}
+              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
               type="number"
             />
             <Textarea
