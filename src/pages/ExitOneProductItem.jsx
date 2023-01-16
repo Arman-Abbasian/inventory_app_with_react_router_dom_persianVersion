@@ -8,6 +8,11 @@ import { CiCalendarDate } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import Textarea from "../common/Textarea";
 import SearchSelect from "../common/SearchSelect";
+import {
+  HiOutlineInformationCircle,
+  HiOutlineShoppingCart,
+} from "react-icons/hi";
+import { AiOutlineNumber } from "react-icons/ai";
 
 const ExitOneProductItem = () => {
   const initialValues = {
@@ -111,7 +116,7 @@ const ExitOneProductItem = () => {
               label="pallete number"
               name="palleteNumber"
               formik={formik}
-              logo={<CiCalendarDate />}
+              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
             />
             {productList && (
               <SearchSelect
@@ -119,7 +124,9 @@ const ExitOneProductItem = () => {
                 label="product name"
                 name="whole"
                 formik={formik}
-                logo={<CiCalendarDate />}
+                logo={
+                  <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
+                }
               />
             )}
             <Input
@@ -127,12 +134,18 @@ const ExitOneProductItem = () => {
               label="date"
               name="date"
               formik={formik}
-              logo={<CiCalendarDate />}
+              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
-            <Textarea name="information" formik={formik} />
+            <Textarea
+              name="information"
+              formik={formik}
+              logo={
+                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+              }
+            />
             <button
               disabled={!formik.isValid}
-              className={`py-2 px-4 bg-primary_yellow rounded-sm w-full ${
+              className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${
                 !formik.isValid && "bg-opacity-60"
               }`}
               type="submit"

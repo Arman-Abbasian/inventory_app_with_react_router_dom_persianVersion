@@ -60,18 +60,18 @@ const FilterProductsExits = ({
 
   return (
     <>
-      <div className="grid sm:grid-cols-2 container mx-auto max-w-lg gap-4">
+      <div className="grid sm:grid-cols-2 container mx-auto max-w-2طم gap-4">
         {overallProducts.data && palletes.data && (
           <>
             {/* make search select for products */}
             <div className="flex flex-col items-start justify-center">
-              <label className="mb-1" htmlFor="productName">
+              <label className="mb-1 text-primary_light_green" htmlFor="productName">
                 select a products
               </label>
               <input
                 placeholder="Search.."
                 id="productName"
-                className="w-full bg-transparent p-2 border rounded focus:outline-none"
+                className="w-full bg-transparent p-2 border text-primary_cream rounded focus:outline-none"
                 list="overallProducts"
                 name="whole"
                 onChange={(e) => changeHandler(e)}
@@ -94,12 +94,12 @@ const FilterProductsExits = ({
             </div>
             {/* make search select for palletes */}
             <div className="flex flex-col items-start justify-center">
-              <label className="mb-1" htmlFor="pallete">
+              <label className="mb-1 text-primary_light_green" htmlFor="pallete">
                 select a pallete number
               </label>
               <input
                 type="text"
-                className="w-full bg-transparent p-2 border rounded focus:outline-none"
+                className="w-full bg-transparent p-2 border text-primary_cream rounded focus:outline-none"
                 placeholder="Search.."
                 id="pallete"
                 list="palleteNumber"
@@ -136,7 +136,7 @@ const FilterProductsExits = ({
               onChange={(e) => toggleChangeDateHandler(e)}
             />
             <div
-              className="w-11 h-6 bg-gray-200 peer-focus:outline-none
+              className="w-11 h-6 bg-primary_light_green peer-focus:outline-none
                         rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
                         after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_yellow"
             ></div>

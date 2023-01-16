@@ -165,7 +165,13 @@ const EnterOneProductItem = () => {
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
-            <Textarea name="information" formik={formik} />
+            <Textarea
+              name="information"
+              formik={formik}
+              logo={
+                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+              }
+            />
             <button
               disabled={!formik.isValid}
               className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${
