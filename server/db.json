@@ -152,6 +152,12 @@
       "orderPoint": 0,
       "information": "",
       "id": 30
+    },
+    {
+      "category": "personnel",
+      "personnel": "ali yousefi",
+      "information": "",
+      "id": 31
     }
   ],
   "overallProucts": [
@@ -189,7 +195,6 @@
       "id": 4
     }
   ],
-  "enterProducts": [],
   "allEnterProducts": [
     {
       "palleteNumber": 100,

@@ -337,7 +337,7 @@ const Navigation = () => {
           >
             <li>
               <Link
-                onClick={() => setShowProductSection(false)}
+                onClick={() => setShowAside(false)}
                 to={"/PurchaseRequest"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
@@ -347,7 +347,7 @@ const Navigation = () => {
             </li>
             <li>
               <Link
-                onClick={() => setShowProductSection(false)}
+                onClick={() => setShowAside(false)}
                 to={"/Purchasing"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
@@ -357,7 +357,7 @@ const Navigation = () => {
             </li>
             <li>
               <Link
-                onClick={() => setShowProductSection(false)}
+                onClick={() => setShowAside(false)}
                 to={"/PurchasingCondition"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >

@@ -75,6 +75,11 @@ const PartInputs = () => {
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
+        name="personnel"
+        label="personnel name"
+        logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
+      />
+      <FormInput
         name="jobPosition"
         label="job position"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
