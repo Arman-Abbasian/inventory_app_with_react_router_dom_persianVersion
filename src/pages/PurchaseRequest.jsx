@@ -5,18 +5,18 @@ import { toast } from "react-hot-toast";
 import * as Yup from "yup";
 import SearchSelect from "../common/SearchSelect";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
-import { RiStore2Line } from "react-icons/ri";
+import { HiOutlineInformationCircle } from "react-icons/hi";
 import Input from "../common/Input";
 import { CiCalendarDate } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineNumber } from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
+import { BsPerson,BsFileEarmarkCode } from "react-icons/bs";
 
 const initialValues = {
   requestCode: "",
-  applicant: "",
+  personnel: "",
   jobPosition: "",
-  productName: "",
+  whole: "",
   number: "",
   consumingFor: "",
   supplier: "",
@@ -26,9 +26,9 @@ const initialValues = {
 
 const validationSchema = Yup.object({
   requestCode: Yup.string().required("request code is required"),
-  applicant: Yup.string().required("applicant is required"),
+  personnel: Yup.string().required("applicant is required"),
   jobPosition: Yup.string().required("job position code is required"),
-  productName: Yup.string().required("product name code is required"),
+  whole: Yup.string().required("product name code is required"),
   number: Yup.number("the format is not number format").required(
     "number is required"
   ),
@@ -50,7 +50,7 @@ const PurchaseRequest = () => {
 
   const onSubmit = (values, { resetForm }) => {
     axios
-      .post(`http://localhost:4000/purchasingReequest`, values)
+      .post(`http://localhost:4000/purchasingReequests`, values)
       .then((res) => {
         navigate("/PurchasingCondition");
         toast.success("purchase request added successfully");
@@ -58,6 +58,7 @@ const PurchaseRequest = () => {
       .catch((err) => toast.error(err.message));
     resetForm();
   };
+  
   //get the applicant list from DB
   useEffect(() => {
     axios
@@ -93,6 +94,7 @@ const PurchaseRequest = () => {
     validationSchema,
     validateOnMount: true,
   });
+  console.log(formik.errors)
   return (
     <div className="lg:flex-1">
       {personnel && jobPosition && whole && supplier && (
@@ -106,7 +108,7 @@ const PurchaseRequest = () => {
               label="request code"
               formik={formik}
               logo={
-                <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
+                <BsFileEarmarkCode className="w-6 h-6 text-primary_cream" />
               }
             />
 
@@ -115,21 +117,21 @@ const PurchaseRequest = () => {
               name="personnel"
               label="Applicant"
               formik={formik}
-              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
+              logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
             <SearchSelect
               options={jobPosition}
               name="jobPosition"
               label="job position"
               formik={formik}
-              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
+              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
             />
             <SearchSelect
               options={whole}
-              name="productName"
+              name="whole"
               label="product name"
               formik={formik}
-              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
+              logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="number"
@@ -142,7 +144,7 @@ const PurchaseRequest = () => {
               label="consuming for"
               name="consumingFor"
               formik={formik}
-              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
             />
 
             <SearchSelect
@@ -150,26 +152,26 @@ const PurchaseRequest = () => {
               name="supplier"
               label="supplier"
               formik={formik}
-              logo={<RiStore2Line className="w-6 h-6 text-primary_cream" />}
+              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
               label="date"
               name="date"
               formik={formik}
-              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
               label="needed date"
               name="neededDate"
               formik={formik}
-              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
 
             <button
               disabled={!formik.isValid}
-              className="py-2 px-4 bg-primary_cream rounded-sm w-full"
+              className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${!formik.isValid ? 'bg-opacity-60' :'bg-opacity-100'} `}
               type="submit"
             >
               {formik.isValid ? "Add" : "please complete all fields"}
