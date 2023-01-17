@@ -14,43 +14,33 @@ import { BsPerson,BsFileEarmarkCode } from "react-icons/bs";
 
 const initialValues = {
   requestCode: "",
-  personnel: "",
-  jobPosition: "",
-  whole: "",
-  number: "",
-  consumingFor: "",
-  supplier: "",
   date: "",
-  neededDate: "",
+  personnel: "",
+  number: "",
+  unitCost: "",
 };
 
 const validationSchema = Yup.object({
   requestCode: Yup.string().required("request code is required"),
-  personnel: Yup.string().required("applicant is required"),
-  jobPosition: Yup.string().required("job position code is required"),
-  whole: Yup.string().required("product name code is required"),
+  date: Yup.date("the format is not date format").required("date is required"),
+  personnel: Yup.string().required("resposible for purchase is required"),
   number: Yup.number("the format is not number format").required(
     "number is required"
   ),
-  consumingFor: Yup.string().required("consuming for is required"),
-  supplier: Yup.string().required("supplier is required"),
-  date: Yup.date("the format is not date format").required("data is required"),
-  neededDate: Yup.date("the format is not date format").required(
-    "eeded data is required"
+  unitCost: Yup.number("the format is not number format").required(
+    "unit cost is required"
   ),
+  
 });
 
 const Purchasing = () => {
-  const [personnel, setPersonnel] = useState(null);
-  const [jobPosition, setJobPosition] = useState(null);
-  const [whole, setWhole] = useState(null);
-  const [supplier, setSupplier] = useState(null);
-
+  const [requestCode, setRequestCode] = useState(null);
+  const[personnel,setPersonnel]=useState(null)
   let navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     axios
-      .post(`http://localhost:4000/purchasingReequests`, values)
+      .post(`http://localhost:4000/purchasing`, {...values,wholeCost:values.number*values.unitCost})
       .then((res) => {
         navigate("/PurchasingCondition");
         toast.success("purchase request added successfully");
@@ -59,34 +49,21 @@ const Purchasing = () => {
     resetForm();
   };
   
-  //get the applicant list from DB
+  //get the requst code list from DB
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/purchasingReequests`)
+      .then((res) => setRequestCode(res.data))
+      .catch((err) => toast.error(err.message));
+  }, []);
+  //get the personnel list from DB
   useEffect(() => {
     axios
       .get(`http://localhost:4000/overall?category=personnel`)
       .then((res) => setPersonnel(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
-  //get the job position list from DB
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/overall?category=jobPosition`)
-      .then((res) => setJobPosition(res.data))
-      .catch((err) => toast.error(err.message));
-  }, []);
-  //get the supplier list from DB
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/overall?category=supplier`)
-      .then((res) => setSupplier(res.data))
-      .catch((err) => toast.error(err.message));
-  }, []);
-  //get the product name list from DB
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/overallProucts`)
-      .then((res) => setWhole(res.data))
-      .catch((err) => toast.error(err.message));
-  }, []);
+
 
   const formik = useFormik({
     initialValues,
@@ -97,62 +74,18 @@ const Purchasing = () => {
   console.log(formik.errors)
   return (
     <div className="lg:flex-1">
-      {personnel && jobPosition && whole && supplier && (
+      {personnel && requestCode && (
         <form
           onSubmit={formik.handleSubmit}
           className="container mx-auto max-w-md p-2 "
         >
           <div className="flex flex-col gap-4 justify-center items-center">
-            <Input
+          <SearchSelect
+              options={requestCode}
               name="requestCode"
               label="request code"
               formik={formik}
-              logo={
-                <BsFileEarmarkCode className="w-6 h-6 text-primary_cream" />
-              }
-            />
-
-            <SearchSelect
-              options={personnel}
-              name="personnel"
-              label="Applicant"
-              formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
-            />
-            <SearchSelect
-              options={jobPosition}
-              name="jobPosition"
-              label="job position"
-              formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
-            />
-            <SearchSelect
-              options={whole}
-              name="whole"
-              label="product name"
-              formik={formik}
-              logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
-            />
-            <Input
-              type="number"
-              label="number"
-              name="number"
-              formik={formik}
-              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
-            />
-            <Input
-              label="consuming for"
-              name="consumingFor"
-              formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
-            />
-
-            <SearchSelect
-              options={supplier}
-              name="supplier"
-              label="supplier"
-              formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
@@ -161,13 +94,31 @@ const Purchasing = () => {
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
-            <Input
-              type="date"
-              label="needed date"
-              name="neededDate"
+
+            <SearchSelect
+              options={personnel}
+              name="personnel"
+              label="Resposible for purchase"
               formik={formik}
-              logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
+              logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
+            
+            <Input
+              type="number"
+              label="number"
+              name="number"
+              formik={formik}
+              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+            />
+            <Input
+              type="number"
+              label="unit cost"
+              name="unitCost"
+              formik={formik}
+              logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+            />
+            
+       
 
             <button
               disabled={!formik.isValid}

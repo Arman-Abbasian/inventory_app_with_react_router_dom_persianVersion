@@ -341,5 +341,16 @@
       "neededDate": "2023-01-02",
       "id": 1
     }
+  ],
+  "purchasing": [
+    {
+      "requestCode": "weee2",
+      "date": "2023-01-03",
+      "personnel": "ali yousefi",
+      "number": 12000,
+      "unitCost": 3000,
+      "wholeCost": 36000000,
+      "id": 1
+    }
   ]
 }

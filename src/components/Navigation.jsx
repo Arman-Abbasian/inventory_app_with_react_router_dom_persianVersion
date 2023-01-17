@@ -358,7 +358,7 @@ const Navigation = () => {
             <li>
               <Link
                 onClick={() => setShowAside(false)}
-                to={"/PurchasingCondition"}
+                to={"/PurchasingRequestList"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <CiCircleList className="w-6 h-6 " />
@@ -695,7 +695,7 @@ const Navigation = () => {
             <li>
               <Link
                 onClick={() => setShowProductSection(false)}
-                to={"/PurchasingCondition"}
+                to={"/PurchasingRequestList"}
                 className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
               >
                 <CiCircleList className="w-6 h-6 " />
