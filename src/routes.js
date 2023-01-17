@@ -18,6 +18,9 @@ import ProductsInventory from "./pages/ProductsInventory";
 import ExitOneProductItem from "./pages/ExitOneProductItem";
 import EnterProductsList from "./pages/EnterProductsList";
 import ExitProductsList from "./pages/ExitProductsList";
+import PurchaseRequest from "./pages/PurchaseRequest";
+import Purchasing from "./pages/Purchasing";
+import PurchasingCondition from "./pages/PurchasingCondition";
 
 
 const Routee = () => {
@@ -43,6 +46,10 @@ const Routee = () => {
             <Route path="/ExitOneProductItem"  element={<ExitOneProductItem />} />
             <Route path="/ExitProductsList"  element={<ExitProductsList />} />
             <Route path="/ProductsInventory"  element={<ProductsInventory />} />
+
+            <Route path="/PurchaseRequest"  element={<PurchaseRequest />} />
+            <Route path="/Purchasing"  element={<Purchasing />} />
+            <Route path="/PurchasingCondition"  element={<PurchasingCondition />} />
 
 
             <Route path="/*" element={<NotFound />} />
