@@ -16,7 +16,7 @@ const initialValues = {
   requestCode: "",
   personnel: "",
   jobPosition: "",
-  whole: "",
+  productName: "",
   number: "",
   consumingFor: "",
   supplier: "",
@@ -28,7 +28,7 @@ const validationSchema = Yup.object({
   requestCode: Yup.string().required("request code is required"),
   personnel: Yup.string().required("applicant is required"),
   jobPosition: Yup.string().required("job position code is required"),
-  whole: Yup.string().required("product name code is required"),
+  productName: Yup.string().required("product name code is required"),
   number: Yup.number("the format is not number format").required(
     "number is required"
   ),
@@ -43,7 +43,7 @@ const validationSchema = Yup.object({
 const PurchaseRequest = () => {
   const [personnel, setPersonnel] = useState(null);
   const [jobPosition, setJobPosition] = useState(null);
-  const [whole, setWhole] = useState(null);
+  const [productName, setProductName] = useState(null);
   const [supplier, setSupplier] = useState(null);
 
   let navigate = useNavigate();
@@ -83,8 +83,8 @@ const PurchaseRequest = () => {
   //get the product name list from DB
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/overallProucts`)
-      .then((res) => setWhole(res.data))
+      .get(`http://localhost:4000/overall?category=productName`)
+      .then((res) => setProductName(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
 
@@ -97,7 +97,7 @@ const PurchaseRequest = () => {
   console.log(formik.errors)
   return (
     <div className="lg:flex-1">
-      {personnel && jobPosition && whole && supplier && (
+      {personnel && jobPosition && productName && supplier && (
         <form
           onSubmit={formik.handleSubmit}
           className="container mx-auto max-w-md p-2 "
@@ -127,8 +127,8 @@ const PurchaseRequest = () => {
               logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
             />
             <SearchSelect
-              options={whole}
-              name="whole"
+              options={productName}
+              name="productName"
               label="product name"
               formik={formik}
               logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}

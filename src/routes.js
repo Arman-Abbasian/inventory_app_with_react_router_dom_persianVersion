@@ -21,6 +21,7 @@ import ExitProductsList from "./pages/ExitProductsList";
 import PurchaseRequest from "./pages/PurchaseRequest";
 import Purchasing from "./pages/Purchasing";
 import PurchasingRequestList from "./pages/PurchasingRequestList";
+import PurchasingItemDetail from "./pages/PurchasingItemDetail";
 
 
 const Routee = () => {
@@ -50,6 +51,7 @@ const Routee = () => {
             <Route path="/PurchaseRequest"  element={<PurchaseRequest />} />
             <Route path="/Purchasing"  element={<Purchasing />} />
             <Route path="/PurchasingRequestList"  element={<PurchasingRequestList />} />
+            <Route path="/PurchasingRequestList/:id"  element={<PurchasingItemDetail />} />
 
 
             <Route path="/*" element={<NotFound />} />
