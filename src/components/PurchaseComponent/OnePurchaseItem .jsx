@@ -25,7 +25,7 @@ const OnePurchaseItem = ({ id, productName, number, date, deleteHandler }) => {
             <CiEdit className="w-6 h-6 text-primary_dark_green" />
           </Link>
         </span>
-        <span onClick={deleteHandler} className="hover:cursor-pointer">
+        <span onClick={()=>deleteHandler(id)} className="hover:cursor-pointer">
           <AiOutlineDelete className="w-6 h-6 text-primary_dark_green" />
         </span>
       </div>

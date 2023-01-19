@@ -82,6 +82,21 @@ const PurchasingRequestList = () => {
     }
     return arr;
   }
+  const deleteHandler = (id) => {
+    axios
+      .delete(`http://localhost:4000/purchasingReequests/${id}`)
+      .then((res) => {
+        axios.get(`http://localhost:4000/purchasingReequests`).then((res) =>
+          setAllPurchasingRequest({
+            data: res.data,
+            error: null,
+            loading: false,
+          })
+        );
+        toast.success("data deleted successfully");
+      })
+      .catch((err) => toast.error(err.message));
+  };
   return (
     <div className="lg:flex-1">
       <FilterPurchaseRequestList
@@ -101,6 +116,7 @@ const PurchasingRequestList = () => {
               number={item.number}
               date={item.date}
               id={item.id}
+              deleteHandler={deleteHandler}
             />
           ))}
       </div>

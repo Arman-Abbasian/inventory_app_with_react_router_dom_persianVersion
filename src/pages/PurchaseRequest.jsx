@@ -6,10 +6,13 @@ import { toast } from "react-hot-toast";
 import * as Yup from "yup";
 import SearchSelect from "../common/SearchSelect";
 import Input from "../common/Input";
-import { HiOutlineShoppingCart, HiOutlineInformationCircle } from "react-icons/hi2";
+import {
+  HiOutlineShoppingCart,
+  HiOutlineInformationCircle,
+} from "react-icons/hi2";
 import { CiCalendarDate } from "react-icons/ci";
 import { AiOutlineNumber } from "react-icons/ai";
-import { BsPerson,BsFileEarmarkCode } from "react-icons/bs";
+import { BsPerson, BsFileEarmarkCode } from "react-icons/bs";
 
 const initialValues = {
   requestCode: "",
@@ -51,13 +54,13 @@ const PurchaseRequest = () => {
     axios
       .post(`http://localhost:4000/purchasingReequests`, values)
       .then((res) => {
-        navigate("/PurchasingCondition");
+        navigate("/PurchasingRequestList");
         toast.success("purchase request added successfully");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
   };
-  
+
   //get the applicant list from DB
   useEffect(() => {
     axios
@@ -93,7 +96,7 @@ const PurchaseRequest = () => {
     validationSchema,
     validateOnMount: true,
   });
-  console.log(formik.errors)
+  console.log(formik.errors);
   return (
     <div className="lg:flex-1">
       {personnel && jobPosition && productName && supplier && (
@@ -123,14 +126,18 @@ const PurchaseRequest = () => {
               name="jobPosition"
               label="job position"
               formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
+              logo={
+                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+              }
             />
             <SearchSelect
               options={productName}
               name="productName"
               label="product name"
               formik={formik}
-              logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
+              logo={
+                <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
+              }
             />
             <Input
               type="number"
@@ -143,7 +150,9 @@ const PurchaseRequest = () => {
               label="consuming for"
               name="consumingFor"
               formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
+              logo={
+                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+              }
             />
 
             <SearchSelect
@@ -151,7 +160,9 @@ const PurchaseRequest = () => {
               name="supplier"
               label="supplier"
               formik={formik}
-              logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
+              logo={
+                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+              }
             />
             <Input
               type="date"
@@ -170,7 +181,9 @@ const PurchaseRequest = () => {
 
             <button
               disabled={!formik.isValid}
-              className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${!formik.isValid ? 'bg-opacity-60' :'bg-opacity-100'} `}
+              className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${
+                !formik.isValid ? "bg-opacity-60" : "bg-opacity-100"
+              } `}
               type="submit"
             >
               {formik.isValid ? "Add" : "please complete all fields"}
