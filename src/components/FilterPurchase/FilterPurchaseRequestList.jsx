@@ -36,7 +36,7 @@ const FilterPurchaseRequestList = ({
   return (
     <>
       {productNames.data && (
-        <div className="grid sm:grid-cols-2 container mx-auto max-w-2xl gap-4 w-full">
+        <div className="grid container mx-auto max-w-md gap-4 w-full">
           {/* make search select for productNames */}
           <div className="flex flex-col items-start justify-center">
             <label
@@ -71,7 +71,7 @@ const FilterPurchaseRequestList = ({
           </div>
 
           {/* ascending or descending based on date */}
-          <div className="w-full">
+          <div>
             <label className="inline-flex relative items-center cursor-pointer">
               <input
                 type="checkbox"

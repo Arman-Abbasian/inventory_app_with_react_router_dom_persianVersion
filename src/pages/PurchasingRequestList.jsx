@@ -94,17 +94,16 @@ const PurchasingRequestList = () => {
         sum: {sum}
       </p>
       <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
-      {showAllPurchasingRequests &&
-        showAllPurchasingRequests.map((item) => (
-          
+        {showAllPurchasingRequests &&
+          showAllPurchasingRequests.map((item) => (
             <OnePurchaseItem
               productName={item.productName}
               number={item.number}
               date={item.date}
               id={item.id}
             />
-        ))}
-        </div>
+          ))}
+      </div>
     </div>
   );
 };

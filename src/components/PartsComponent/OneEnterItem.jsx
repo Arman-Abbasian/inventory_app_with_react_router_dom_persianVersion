@@ -20,7 +20,7 @@ const OneEnterItem = ({ id, productName, number, date, deleteHandler }) => {
       </div>
       <div className="flex justify-center items-center gap-6 md:col-span-2 xl:col-span-3 2xl:col-span-4 md:justify-self-center">
         <span>
-          <Link to={`/PartEnter/${id}`}>
+          <Link to={`/PurchaseRequestItemEdit/${id}`}>
             <CiEdit className="w-6 h-6 text-primary_dark_green" />
           </Link>
         </span>
