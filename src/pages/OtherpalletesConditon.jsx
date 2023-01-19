@@ -12,78 +12,67 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineNumber } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 
-const PartEnterEditInput = () => {
+const OtherPalleteCondition = () => {
   let navigate = useNavigate();
   const initialValues = {
-    productName: "",
     date: "",
-    number: "",
-    supplier: "",
-    enterDelivery: "",
-    enterTransferee: "",
+    customerName: "",
+    palleteKind: "",
+    numberOfEntries: "",
+    numberOfExits: "",
   };
   const onSubmit = (values, { resetForm }) => {
     axios
-      .post(`http://localhost:4000/enter`, values)
+      .post(`http://localhost:4000/PalleteConditonEnter`, values)
       .then((res) => {
-        navigate("/PartEnterList");
+        navigate("/EnterList");
         toast.success("data added successfully");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
   };
   const validationSchema = Yup.object({
-    productName: Yup.string().required("product name is required"),
     date: Yup.date("the format is not date format").required(
       "data is required"
     ),
-    number: Yup.number("the format is not number format").required(
-      "number is required"
+    customerName: Yup.string().required("customer name is required"),
+    palleteKind: Yup.string().required("pallete kind is required"),
+    numberOfEntries: Yup.number("the format is not number format").required(
+      "number of Entries is required"
     ),
-    supplier: Yup.string().required("supplier is required"),
-    enterDelivery: Yup.string().required("delivery is required"),
-    enterTransferee: Yup.string().required("transferee is required"),
   });
-  const [overall, setOverall] = useState(null);
+  const [customerName, setCustomerName] = useState(null);
+  const [palleteKind, setPalleteKind] = useState(null);
   const options = {
-    productName: [],
-    supplier: [],
-    enterDelivery: [],
-    enterTransferee: [],
+    productName: "",
+    palleteKind: "",
+    enterDelivery: "",
+    enterTransferee: "",
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/overall`)
+      .get(`http://localhost:4000/customer`)
       .then((res) => {
-        setOverall(res.data);
+        setCustomerName(res.data);
       })
       .catch((err) => toast.error(err.message));
   }, []);
-  function fillOptions() {
-    options.productName = overall.filter(
-      (item) => item.category === "productName"
-    );
-    options.supplier = overall.filter((item) => item.category === "supplier");
-    options.enterDelivery = overall.filter(
-      (item) => item.category === "enterDelivery"
-    );
-    options.enterTransferee = overall.filter(
-      (item) => item.category === "enterTransferee"
-    );
-  }
-  if (overall) {
-    fillOptions();
-  }
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/palleteKind`)
+      .then((res) => {
+        setCustomerName(res.data);
+      })
+      .catch((err) => toast.error(err.message));
+  }, []);
+
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
   });
-  console.log(formik.errors);
-  //console.log(formik.touched)
-  // console.log(formik.isValid);
-  console.log(options);
+
   return (
     <div className="lg:flex-1">
       <form
@@ -91,17 +80,6 @@ const PartEnterEditInput = () => {
         className="container mx-auto max-w-md p-2 "
       >
         <div className="flex flex-col gap-4 justify-center items-center">
-          {options.productName && (
-            <SearchSelect
-              options={options.productName}
-              name="productName"
-              label="product name"
-              formik={formik}
-              logo={
-                <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
-              }
-            />
-          )}
           <Input
             type="date"
             name="date"
@@ -109,16 +87,9 @@ const PartEnterEditInput = () => {
             formik={formik}
             logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
           />
-          <Input
-            type="number"
-            label="number"
-            name="number"
-            formik={formik}
-            logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
-          />
-          {options.supplier && (
+          {customerName && (
             <SearchSelect
-              options={options.supplier}
+              options={customerName}
               name="supplier"
               label="supplier"
               formik={formik}
@@ -134,6 +105,14 @@ const PartEnterEditInput = () => {
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
           )}
+          <Input
+            type="number"
+            label="number"
+            name="number"
+            formik={formik}
+            logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
+          />
+
           {options.enterTransferee && (
             <SearchSelect
               options={options.enterTransferee}
@@ -156,4 +135,4 @@ const PartEnterEditInput = () => {
   );
 };
 
-export default PartEnterEditInput;
+export default OtherPalleteCondition;

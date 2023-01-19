@@ -23,6 +23,7 @@ import Purchasing from "./pages/Purchasing";
 import PurchasingRequestList from "./pages/PurchasingRequestList";
 import PurchasingItemDetail from "./pages/PurchasingItemDetail";
 import PurchaseRequestItemEdit from "./pages/PurchaseRequestItemEdit";
+import OtherPalletesConditon from "./pages/OtherpalletesConditon";
 
 
 const Routee = () => {
@@ -54,6 +55,9 @@ const Routee = () => {
             <Route path="/PurchasingRequestList"  element={<PurchasingRequestList />} />
             <Route path="/PurchasingRequestList/:id"  element={<PurchasingItemDetail />} />
             <Route path="/PurchaseRequestItemEdit/:id"  element={<PurchaseRequestItemEdit />} />
+
+
+            <Route path="/OtherPalletesConditon"  element={<OtherPalletesConditon />} />
 
 
             <Route path="/*" element={<NotFound />} />
