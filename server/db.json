@@ -326,6 +326,11 @@
       "palleteKind": "GP4",
       "information": "",
       "id": 2
+    },
+    {
+      "palleteKind": "GP7",
+      "information": "",
+      "id": 3
     }
   ],
   "purchasingReequests": [
