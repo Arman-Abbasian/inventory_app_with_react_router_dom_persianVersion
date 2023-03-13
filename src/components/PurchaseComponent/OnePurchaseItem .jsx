@@ -8,13 +8,13 @@ const OnePurchaseItem = ({ id, productName, number, date, deleteHandler }) => {
       <div className="flex flex-col gap-2 flex-1">
         <Link to={`/PurchasingRequestList/${id}`} key={id}>
           <p>
-            <span className="font-bold">product name:</span> {productName}
+            <span className="font-bold">نام محصول :</span> {productName}
           </p>
           <p>
-            <span className="font-bold">number:</span> {number}
+            <span className="font-bold">تعداد :</span> {number}
           </p>
           <p>
-            <span className="font-bold">date:</span> {date}
+            <span className="font-bold">تاریخ :</span> {new Date(date).toLocaleDateString('fa-IR')}
           </p>
         </Link>
       </div>

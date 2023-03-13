@@ -23,7 +23,7 @@ const PartNameFormInput = ({ name, label, logo, searchSelectOptions }) => {
     axios
       .post(`http://localhost:4000/overall`, values)
       .then((res) => {
-        toast.success(`${label} added successfully`);
+        toast.success(`${label} با موفقیت اضافه گردید`);
         setIsShow(false);
       })
       .catch((err) => toast.error(err.message));
@@ -31,10 +31,10 @@ const PartNameFormInput = ({ name, label, logo, searchSelectOptions }) => {
   };
 
   const validationSchema = Yup.object({
-    [name]: Yup.string().required(`${label} is required`),
-    measurmentUnit: Yup.string().required(`measurment unit is required`),
-    safetyStock: Yup.number().required(`safety stock is required`),
-    orderPoint: Yup.number().required(`order point is required`),
+    [name]: Yup.string().required(`${label} را لطفا وارد کنید`),
+    measurmentUnit: Yup.string().required(`واحد اندازه گیری را وارد کنید`),
+    safetyStock: Yup.number().required(`موجودی اطمینان را وارد کنید`),
+    orderPoint: Yup.number().required(`نقطه سفارش را وارد کنید`),
     information: Yup.string(),
   });
   const [isShow, setIsShow] = useState(false);
@@ -51,7 +51,7 @@ const PartNameFormInput = ({ name, label, logo, searchSelectOptions }) => {
         className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`}
         onClick={() => setIsShow(!isShow)}
       >
-        {isShow ? "hide" : "show"} {label} input
+        {isShow ? "بستن" : "نمایش"} فرم {label}
       </button>
       <form
         onSubmit={formik.handleSubmit}
@@ -62,26 +62,27 @@ const PartNameFormInput = ({ name, label, logo, searchSelectOptions }) => {
           <SearchSelect
             options={searchSelectOptions}
             name="measurmentUnit"
-            label="measurement unit"
+            label="واحد اندازه گیری"
             formik={formik}
             logo={<BsSpeedometer2 className="w-6 h-6 text-primary_cream" />}
           />
           <Input
             type="number"
-            label="safety stock"
+            label="موجودی اطمینان"
             name="safetyStock"
             formik={formik}
             logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
           />
           <Input
             type="number"
-            label="order point"
+            label="نقطه سفارش"
             name="orderPoint"
             formik={formik}
             logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
           />
           <Textarea
             name="information"
+            label="توضیحات"
             formik={formik}
             logo={
               <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -92,7 +93,7 @@ const PartNameFormInput = ({ name, label, logo, searchSelectOptions }) => {
             className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60"
             type="submit"
           >
-            {formik.isValid ? "Add" : "please fill add the field"}
+            {formik.isValid ? "ثبت" : "لطفا تمامی فیلد های مورد نیاز را وارد کنید"}
           </button>
         </div>
       </form>

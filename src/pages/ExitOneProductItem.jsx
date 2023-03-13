@@ -43,23 +43,23 @@ const ExitOneProductItem = () => {
         .then((res) => {
           axios
             .delete(
-              `http://localhost:4000/enterProducts/${choosedEnterItem.id}`
+              `http://localhost:4000/allEnterProducts/${choosedEnterItem.id}`
             )
             .then((res) => {
               navigate("/ProductsInventory");
-              toast.success("data added successfully");
+              toast.success("اطلاعات با موقفیت ثبت گردید");
             });
         })
         .catch((err) => toast.error(err.message));
       resetForm();
     } else {
-      toast.error("some error occured");
+      toast.error("خطایی در ورود اطلاعات رخ داده است");
     }
   };
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/enterProducts`)
+      .get(`http://localhost:4000/allEnterProducts`)
       .then((res) => {
         setProductsEnters(res.data);
       })
@@ -78,7 +78,7 @@ const ExitOneProductItem = () => {
   }, []);
 
   const validationSchema = Yup.object({
-    palleteNumber: Yup.string().required("pallete number is required"),
+    palleteNumber: Yup.string().required("لطفا شماره پالت را وارد نمایید"),
     date: Yup.string("the format is not date format").required(
       "date is required"
     ),
@@ -113,7 +113,7 @@ const ExitOneProductItem = () => {
           <div className="flex flex-col gap-4 justify-center items-center">
             <Input
               type="number"
-              label="pallete number"
+              label="شماره پالت"
               name="palleteNumber"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
@@ -121,7 +121,7 @@ const ExitOneProductItem = () => {
             {productList && (
               <SearchSelect
                 options={productList}
-                label="product name"
+                label="نام محصول"
                 name="whole"
                 formik={formik}
                 logo={
@@ -131,7 +131,7 @@ const ExitOneProductItem = () => {
             )}
             <Input
               type="date"
-              label="date"
+              label="تاریخ خروج"
               name="date"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
@@ -139,6 +139,7 @@ const ExitOneProductItem = () => {
             <Textarea
               name="information"
               formik={formik}
+              label="توضیحات"
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
               }
@@ -150,7 +151,7 @@ const ExitOneProductItem = () => {
               }`}
               type="submit"
             >
-              {formik.isValid ? "Add" : "please complete all fields"}
+              {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را وارد نمایید"}
             </button>
           </div>
         </form>

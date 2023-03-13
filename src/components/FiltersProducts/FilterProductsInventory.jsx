@@ -43,7 +43,7 @@ const FilterProductsInventory = ({
       {customerFilter && productFilter && partFilter && stageFilter && (
         <div className="grid sm:grid-cols-2 container mx-auto max-w-2xl gap-4">
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1 text-primary_light_green">select a customer</label>
+            <label className="mb-1 text-primary_light_green">نام مشتری </label>
             <select
               className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
@@ -54,7 +54,7 @@ const FilterProductsInventory = ({
               }
             >
               <option value="" className="bg-primary_light_green">
-                All
+                همه
               </option>
               {customerFilter.map((item) => (
                 <option className="bg-primary_light_green" value={item.customerName}>
@@ -65,7 +65,7 @@ const FilterProductsInventory = ({
           </div>
 
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1 text-primary_light_green">select a product</label>
+            <label className="mb-1 text-primary_light_green">نام محصول</label>
             <select
               className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
@@ -76,7 +76,7 @@ const FilterProductsInventory = ({
               }
             >
               <option value="" className="bg-primary_light_green">
-                All
+                همه
               </option>
               {productFilter.map((item) => (
                 <option className="bg-primary_light_green" value={item.productName}>
@@ -86,7 +86,7 @@ const FilterProductsInventory = ({
             </select>
           </div>
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1 text-primary_light_green">select a part</label>
+            <label className="mb-1 text-primary_light_green">نام اجزا </label>
             <select
               className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
@@ -97,7 +97,7 @@ const FilterProductsInventory = ({
               }
             >
               <option value="" className="bg-primary_light_green">
-                All
+                همه
               </option>
               {partFilter.map((item) => (
                 <option className="bg-primary_light_green" value={item.partName}>
@@ -107,7 +107,7 @@ const FilterProductsInventory = ({
             </select>
           </div>
           <div className="flex flex-col items-start justify-center">
-            <label className="mb-1 text-primary_light_green">select a stage</label>
+            <label className="mb-1 text-primary_light_green">نام مرحله </label>
             <select
               className="w-full bg-transparent p-2 border rounded focus:outline-none text-primary_cream"
               onChange={(e) =>
@@ -118,7 +118,7 @@ const FilterProductsInventory = ({
               }
             >
               <option className="bg-primary_light_green" value="">
-                All
+                همه
               </option>
               {stageFilter.map((item) => (
                 <option className="bg-primary_light_green hover:shadow-[0 0 0 0.25rem rgb(25 135 84 , 25%)] hover:border-primary_cream" value={item.stageName}>
@@ -139,12 +139,12 @@ const FilterProductsInventory = ({
                 onChange={(e) => toggleChangeExistanceHandler(e)}
               />
               <div
-                className="w-11 h-6 bg-primary_light_green peer-focus:outline-none
-                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+                className="w-12 h-6 bg-primary_light_green peer-focus:outline-none
+                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[116px]
                         after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_yellow"
               ></div>
               <span className="ml-3 text-sm font-medium text-primary_cream">
-                {all ? "all product" : "existed product"}
+                {all ? "همه ی محصولات" : "محصولات موجود"}
               </span>
             </label>
           </div>

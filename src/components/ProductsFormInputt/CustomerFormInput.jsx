@@ -18,7 +18,7 @@ const CustomerFormInput = () => {
     axios
       .post(`http://localhost:4000/customer`, values)
       .then((res) => {
-        toast.success(`data added successfully`);
+        toast.success(`اطلاعات با موفقیت ثبت شد`);
         setIsShow(false);
       })
       .catch((err) => toast.error(err.message));
@@ -26,7 +26,7 @@ const CustomerFormInput = () => {
   };
 
   const validationSchema = Yup.object({
-    customerName: Yup.string().required(`customer name is required`),
+    customerName: Yup.string().required(`نام مشتری را وارد نمایید`),
     information: Yup.string(),
   });
 
@@ -42,7 +42,7 @@ const CustomerFormInput = () => {
         className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`}
         onClick={() => setIsShow(!isShow)}
       >
-        {isShow ? "hide customer name" : "show customer name"} input
+        {isShow ? "بستن فرم تعریف مشتری جدید" : "نمایش فرم تعریف مشتری جدید"}
       </button>
       <form
         onSubmit={formik.handleSubmit}
@@ -51,13 +51,13 @@ const CustomerFormInput = () => {
         <div className="flex flex-col gap-4 justify-center items-center border border-primary_green rounded-sm p-2 shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]">
           <Input
             name="customerName"
-            label="customer name"
+            label="نام مشتری"
             formik={formik}
             logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
           />
           <Textarea
             name="information"
-            label="information"
+            label="توضیحات"
             formik={formik}
             logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
           />
@@ -66,7 +66,7 @@ const CustomerFormInput = () => {
             className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60"
             type="submit"
           >
-            {formik.isValid ? "Add" : "please fill necessary fields"}
+            {formik.isValid ? "ثبت" : "لطفا اطلاعات تمامی فیلدهای مورد نیاز را وارد نمایید"}
           </button>
         </div>
       </form>

@@ -9,7 +9,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
     productNames: null,
     consumingFor: null,
     exitDelivery: null,
-    jobPosition: null,
+    exitTransferee: null,
     unit: null,
   });
   const [showFilterSection, setShowFilterSection] = useState(false);
@@ -67,15 +67,15 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
       .catch((err) => toast.error(err.message));
   }
   //make job position options
-  if (!options.jobPosition) {
+  if (!options.exitTransferee) {
     axios
-      .get(`http://localhost:4000/overall?category=jobPosition`)
+      .get(`http://localhost:4000/overall?category=exitTransferee`)
       .then((res) => {
         const data = res.data;
-        const jobPosition = data.map((item) => {
-          return { id: item.id, jobPosition: item.jobPosition };
+        const exitTransferee = data.map((item) => {
+          return { id: item.id, exitTransferee: item.exitTransferee };
         });
-        setOptions({ ...options, jobPosition });
+        setOptions({ ...options, exitTransferee });
       })
       .catch((err) => toast.error(err.message));
   }
@@ -103,7 +103,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
       {options.productNames &&
         options.consumingFor &&
         options.exitDelivery &&
-        options.jobPosition &&
+        options.exitTransferee &&
         options.unit && (
           <div
             className={`sm:grid-cols-2 gap-8  w-full relative ${
@@ -117,7 +117,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search product name"
+                  placeholder="نام قطعه را جستجو کنید ..."
                   list="productNamee"
                   name="productName"
                   className="w-full bg-transparent outline-none text-primary_cream"
@@ -143,7 +143,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search supplier name"
+                  placeholder="مورد مصرف ..."
                   list="consumingForr"
                   name="consumingFor"
                   className="w-full bg-transparent outline-none text-primary_cream"
@@ -169,7 +169,7 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search delivery name"
+                  placeholder="نام تحویل دهنده را جستجو کنید ..."
                   list="exitDeliveryy"
                   name="exitDelivery"
                   className="w-full bg-transparent outline-none text-primary_cream"
@@ -187,51 +187,26 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                 })}
               </datalist>
             </>
-            {/* make exit job position options */}
+            {/* make exit transferee options */}
             <>
               <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
                 <span>
                   <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
                 </span>
                 <input
-                  placeholder="search job position"
-                  list="jobPositionn"
-                  name="jobPosition"
+                  placeholder="نام تحویل گیرنده را جستجو کنید ..."
+                  list="exitTransfereen"
+                  name="exitTransferee"
                   className="w-full bg-transparent outline-none text-primary_cream"
-                  value={filters.jobPosition}
+                  value={filters.exitTransferee}
                   onChange={(e) => changeHandler(e)}
                 />
               </div>
-              <datalist id="jobPositionn">
-                {options.jobPosition.map((item) => {
+              <datalist id="exitTransfereen">
+                {options.exitTransferee.map((item) => {
                   return (
-                    <option key={item.id} value={item.jobPosition}>
-                      {item.jobPosition}
-                    </option>
-                  );
-                })}
-              </datalist>
-            </>
-            {/* make unit options */}
-            <>
-              <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
-                <span>
-                  <AiOutlineFilter className="w-6 h-6 text-primary_cream" />
-                </span>
-                <input
-                  placeholder="search unit"
-                  list="unitt"
-                  name="unit"
-                  className="w-full bg-transparent outline-none text-primary_cream"
-                  value={filters.unit}
-                  onChange={(e) => changeHandler(e)}
-                />
-              </div>
-              <datalist id="unitt">
-                {options.unit.map((item) => {
-                  return (
-                    <option key={item.id} value={item.unit}>
-                      {item.unit}
+                    <option key={item.id} value={item.exitTransferee}>
+                      {item.exitTransferee}
                     </option>
                   );
                 })}
@@ -249,12 +224,12 @@ const FilterExits = ({ filters, changeHandler, toggleChangeHandler }) => {
                   onChange={(e) => toggleChangeHandler(e)}
                 />
                 <div
-                  className="w-11 h-6 bg-gray-200 peer-focus:outline-none
-                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                        after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_light_green"
+                  className="w-16 h-6 bg-primary_cream peer-focus:outline-none
+                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[88px]
+                        after:bg-primary_light_green after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_cream"
                 ></div>
-                <span className="ml-3 text-sm font-medium text-primary-white">
-                  {filters.latest ? "latest" : "earliest"}
+                <span className="ml-3 mr-1 text-sm font-medium text-primary_cream">
+                  {filters.latest ? "جدیدترین" : "قدیمی ترین"}
                 </span>
               </label>
             </div>

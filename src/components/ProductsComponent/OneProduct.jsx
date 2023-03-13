@@ -22,19 +22,19 @@ const OneProduct = ({
     >
       <div className="flex flex-col gap-2 flex-1">
         <p>
-          <span className="font-bold">customer name:</span> {customerName}
+          <span className="font-bold">نام مشتری :</span> {customerName}
         </p>
         <p>
-          <span className="font-bold">product name:</span> {productName}
+          <span className="font-bold">نام محصول :</span> {productName}
         </p>
         <p>
-          <span className="font-bold">part name:</span> {partName}
+          <span className="font-bold">نام اجزا :</span> {partName}
         </p>
         <p>
-          <span className="font-bold">stage name:</span> {stageName}
+          <span className="font-bold">نام مرحله :</span> {stageName}
         </p>
         <p>
-          <span className="font-bold">inventory:</span> {inventory}
+          <span className="font-bold">موجودی:</span> {inventory}
         </p>
         <p className="hidden">
           <span className="font-bold">whole name:</span> {whole}

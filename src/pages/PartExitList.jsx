@@ -7,7 +7,7 @@ import OneExitItem from "../components/PartsComponent/OneExitItem";
 const PartExitList = () => {
     const [exitList,setExitList]=useState({data:null,error:null,loading:false});
     const [showdExitList,setShowedExitList]=useState(null);
-    const [filters,setFilters]=useState({latest:true,productName:"",consumingFor:"",exitDelivery:"",jobPosition:"",unit:""});
+    const [filters,setFilters]=useState({latest:true,productName:"",consumingFor:"",exitDelivery:"",exitTransferee:""});
 
     async  function getExitList(){
         setExitList({data:null,error:null,loading:true})
@@ -32,11 +32,11 @@ const PartExitList = () => {
     useEffect(()=>{
         if(exitList.data){
         let val=[...exitList.data];
+        console.log(val)
         val=includeProductNameFilter(val)
         val=includeConsumingForFilter(val)
         val=includeExitDeliveryFilter(val)
-        val=includeJobPositionFilter(val)
-        val=includeUnitFilter(val)
+        val=includeExitTransfereeFilter(val)
         val=sortDate(val)
         setShowedExitList(val)
         }
@@ -62,14 +62,11 @@ const PartExitList = () => {
         array=array.filter(item=>item.exitDelivery.toLowerCase().includes(filters.exitDelivery.toLowerCase()));
         return array;
     };
-    function includeJobPositionFilter(array){
-        array=array.filter(item=>item.jobPosition.toLowerCase().includes(filters.jobPosition.toLowerCase()));
+    function includeExitTransfereeFilter(array){
+        array=array.filter(item=>item.exitTransferee.toLowerCase().includes(filters.exitTransferee.toLowerCase()));
         return array;
     };
-    function includeUnitFilter(array){
-        array=array.filter(item=>item.unit.toLowerCase().includes(filters.unit.toLowerCase()));
-        return array;
-    };
+    
     function sortDate(array){
         if(filters.latest){
             array.sort(function(a, b){

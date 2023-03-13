@@ -7,13 +7,13 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const FormInput = ({ name, label, logo }) => {
+const FormInput = ({ name, label, logo, textareaLabel }) => {
   const initialValues = { category: name, [name]: "", information: "" };
   const onSubmit = (values, { resetForm }) => {
     axios
       .post(`http://localhost:4000/overall`, values)
       .then((res) => {
-        toast.success(`${label} added successfully`);
+        toast.success(`${label} با موفقیت اضافه گردید`);
         setIsShow(false);
       })
       .catch((err) => toast.error(err.message));
@@ -21,7 +21,7 @@ const FormInput = ({ name, label, logo }) => {
   };
 
   const validationSchema = Yup.object({
-    [name]: Yup.string().required(`${label} is required`),
+    [name]: Yup.string().required(`${label} را وارد کنید`),
     information: Yup.string(),
   });
   const [isShow, setIsShow] = useState(false);
@@ -38,7 +38,7 @@ const FormInput = ({ name, label, logo }) => {
         className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`}
         onClick={() => setIsShow(!isShow)}
       >
-        {isShow ? "hide" : "show"} {label} input
+        {isShow ? "بستن" : "نمایش"} فرم {label}
       </button>
       <form
         onSubmit={formik.handleSubmit}
@@ -49,6 +49,7 @@ const FormInput = ({ name, label, logo }) => {
           <Textarea
             name="information"
             formik={formik}
+            label={textareaLabel}
             logo={
               <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
             }
@@ -58,7 +59,9 @@ const FormInput = ({ name, label, logo }) => {
             className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60"
             type="submit"
           >
-            {formik.isValid ? "Add" : "please fill necessary fields"}
+            {formik.isValid
+              ? "ثبت"
+              : "لطفا تمامی فیلد های مورد  نیاز را وارد کنید"}
           </button>
         </div>
       </form>

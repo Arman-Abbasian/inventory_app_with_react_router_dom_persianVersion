@@ -1,169 +1,522 @@
 {
   "enter": [
     {
-      "productName": "product 1 door 15",
-      "date": "2023-01-17",
-      "number": 900,
-      "supplier": "supplier 2",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 1",
+      "productName": "روغن کشش",
+      "date": "2023-01-30",
+      "number": 200,
+      "supplier": "کیمیا ماهان البرز",
+      "enterDelivery": "حسین صفری",
+      "enterTransferee": "بهمن غیوری",
       "id": 1
     },
     {
-      "productName": "product 3 door 20",
-      "date": "2023-01-09",
-      "number": 1000,
-      "supplier": "supplier 2",
-      "enterDelivery": "enter delivery 2",
-      "enterTransferee": "enter transferee 1",
+      "productName": "پیچ 30*10",
+      "date": "2023-01-30",
+      "number": 30,
+      "supplier": "جهان پیچ",
+      "enterDelivery": "مصطفی یوسفی",
+      "enterTransferee": "صابر یاری",
       "id": 2
+    },
+    {
+      "productName": "مهره جوشی M8 دور 15",
+      "date": "2023-02-01",
+      "number": 150000,
+      "supplier": "کامکان",
+      "enterDelivery": "حسین صفری",
+      "enterTransferee": "بهمن غیوری",
+      "id": 3
+    },
+    {
+      "productName": "روغن کشش",
+      "date": "2023-02-04",
+      "number": 100,
+      "supplier": "کیمیا ماهان البرز",
+      "enterDelivery": "مصطفی یوسفی",
+      "enterTransferee": "صابر یاری",
+      "id": 4
     }
   ],
-  "exit": [],
+  "exit": [
+    {
+      "productName": "روغن کشش",
+      "date": "2023-02-10",
+      "number": 100,
+      "consumingFor": "دستگاه ها",
+      "exitDelivery": "بهمن غیوری",
+      "exitTransferee": "حسن سهرابی",
+      "id": 1
+    },
+    {
+      "productName": "روغن کشش",
+      "date": "2023-02-12",
+      "number": 170,
+      "consumingFor": "دستگاه ها",
+      "exitDelivery": "صابر یاری",
+      "exitTransferee": "حسن سهرابی",
+      "id": 2
+    },
+    {
+      "productName": "روغن کشش",
+      "date": "2023-02-12",
+      "number": 20,
+      "consumingFor": "CNC",
+      "exitDelivery": "بهمن غیوری",
+      "exitTransferee": "حسن سهرابی",
+      "id": 3
+    },
+    {
+      "productName": "پیچ 30*10",
+      "date": "2023-02-13",
+      "number": 4,
+      "consumingFor": "دستگاه ها",
+      "exitDelivery": "بهمن غیوری",
+      "enterTransferee": "",
+      "exitTransferee": "حسن سهرابی",
+      "id": 4
+    },
+    {
+      "productName": "پیچ 30*10",
+      "date": "2023-02-13",
+      "number": 4,
+      "consumingFor": "CNC",
+      "exitDelivery": "صابر یاری",
+      "exitTransferee": "یوسف رستمی",
+      "id": 5
+    },
+    {
+      "productName": "مهره جوشی M8 دور 15",
+      "date": "2023-02-14",
+      "number": 1000,
+      "consumingFor": "بدنه رینف دش پنل",
+      "exitDelivery": "صابر یاری",
+      "exitTransferee": "یوسف رستمی",
+      "id": 6
+    },
+    {
+      "productName": "پیچ 30*10",
+      "date": "2023-02-14",
+      "number": 8,
+      "consumingFor": "دستگاه ها",
+      "exitDelivery": "بهمن غیوری",
+      "exitTransferee": "حسن سهرابی",
+      "id": 7
+    }
+  ],
   "overall": [
     {
       "category": "measurmentUnit",
-      "measurmentUnit": "kg",
+      "measurmentUnit": "عدد",
       "information": "",
       "id": 1
     },
     {
       "category": "measurmentUnit",
-      "measurmentUnit": "meter",
+      "measurmentUnit": "کیلوگرم",
       "information": "",
       "id": 2
     },
     {
       "category": "measurmentUnit",
-      "measurmentUnit": "number",
+      "measurmentUnit": "لیتر",
       "information": "",
       "id": 3
     },
     {
-      "category": "productName",
-      "productName": "product 1 door 15",
-      "measurmentUnit": "number",
-      "safetyStock": 100,
-      "orderPoint": 149,
+      "category": "measurmentUnit",
+      "measurmentUnit": "متر",
       "information": "",
       "id": 4
     },
     {
       "category": "supplier",
-      "supplier": "supplier 1",
+      "supplier": "کامکان",
       "information": "",
       "id": 5
     },
     {
       "category": "supplier",
-      "supplier": "supplier 2",
+      "supplier": "بازرگانی جابری",
       "information": "",
       "id": 6
     },
     {
       "category": "enterDelivery",
-      "enterDelivery": "enter delivery 1",
+      "enterDelivery": "حسین صفری",
       "information": "",
       "id": 7
     },
     {
       "category": "enterDelivery",
-      "enterDelivery": "enter delivery 2",
+      "enterDelivery": "مصطفی یوسفی",
       "information": "",
       "id": 8
     },
     {
-      "category": "consumingFor",
-      "consumingFor": "SSPPR212",
+      "category": "enterTransferee",
+      "enterTransferee": "بهمن غیوری",
       "information": "",
       "id": 9
     },
     {
-      "category": "exitDelivery",
-      "exitDelivery": "delivery input 1",
+      "category": "enterTransferee",
+      "enterTransferee": "صابر یاری",
       "information": "",
       "id": 10
     },
     {
-      "category": "exitTransferee",
-      "exitTransferee": "transfree input 1",
+      "category": "consumingFor",
+      "consumingFor": "دستگاه ها",
+      "information": "",
+      "id": 11
+    },
+    {
+      "category": "consumingFor",
+      "consumingFor": "CNC",
       "information": "",
       "id": 12
     },
     {
-      "category": "exitTransferee",
-      "exitTransferee": "transfree input 2",
+      "category": "consumingFor",
+      "consumingFor": "بدنه رینف دش پنل",
       "information": "",
       "id": 13
     },
     {
-      "category": "personnel",
-      "personnel": "ali yousefi",
+      "category": "consumingFor",
+      "consumingFor": "براکت رینف دش پنل",
       "information": "",
       "id": 14
     },
     {
-      "category": "personnel",
-      "personnel": "Ahmad haghbin",
+      "category": "exitDelivery",
+      "exitDelivery": "بهمن غیوری",
       "information": "",
       "id": 15
     },
     {
-      "category": "jobPosition",
-      "jobPosition": "purchase manager",
+      "category": "exitTransferee",
+      "exitTransferee": "حسن سهرابی",
       "information": "",
       "id": 16
     },
     {
-      "category": "jobPosition",
-      "personnel": "sell manager",
+      "category": "exitTransferee",
+      "exitTransferee": "سعید محمدی",
       "information": "",
       "id": 17
     },
     {
-      "category": "unit",
-      "unit": "purchase",
+      "category": "jobPosition",
+      "jobPosition": "سرپرست نت",
       "information": "",
       "id": 18
     },
     {
-      "category": "unit",
-      "unit": "sale",
+      "category": "jobPosition",
+      "jobPosition": "اپراتور پرسکاری",
       "information": "",
       "id": 19
     },
     {
-      "category": "enterTransferee",
-      "enterTransferee": "enter transferee 1",
+      "category": "unit",
+      "unit": "پرسکاری",
       "information": "",
       "id": 20
     },
     {
-      "category": "enterTransferee",
-      "enterTransferee": "enter transferee 2",
+      "category": "unit",
+      "unit": "نت",
       "information": "",
       "id": 21
     },
     {
       "category": "productName",
-      "productName": "product 3 door 20",
-      "measurmentUnit": "number",
-      "safetyStock": 200,
-      "orderPoint": 250,
+      "productName": "پیچ 30*10",
+      "measurmentUnit": "عدد",
+      "safetyStock": 10,
+      "orderPoint": 15,
       "information": "",
       "id": 22
+    },
+    {
+      "category": "productName",
+      "productName": "مهره جوشی M8 دور 15",
+      "measurmentUnit": "عدد",
+      "safetyStock": 5000,
+      "orderPoint": 10000,
+      "information": "",
+      "id": 23
+    },
+    {
+      "category": "productName",
+      "productName": "روغن کشش",
+      "measurmentUnit": "لیتر",
+      "safetyStock": 20,
+      "orderPoint": 40,
+      "information": "",
+      "id": 24
+    },
+    {
+      "category": "supplier",
+      "supplier": "کیمیا ماهان البرز",
+      "information": "",
+      "id": 25
+    },
+    {
+      "category": "supplier",
+      "supplier": "جهان پیچ",
+      "information": "",
+      "id": 26
+    },
+    {
+      "category": "exitDelivery",
+      "exitDelivery": "صابر یاری",
+      "information": "",
+      "id": 27
+    },
+    {
+      "category": "exitTransferee",
+      "exitTransferee": "یوسف رستمی",
+      "information": "",
+      "id": 28
+    },
+    {
+      "category": "personnel",
+      "personnel": "ali yousefi",
+      "information": "",
+      "id": 29
+    },
+    {
+      "category": "personnel",
+      "personnel": "سعید محمدی",
+      "information": "",
+      "id": 30
     }
   ],
-  "overallProucts": [],
-  "allEnterProducts": [],
-  "allExitProducts": [],
-  "palletes": [],
-  "customer": [],
-  "product": [],
-  "part": [],
-  "stage": [],
-  "palleteKind": [],
-  "purchasingReequests": [],
-  "purchasing": [],
+  "overallProucts": [
+    {
+      "name": "products",
+      "customerName": "پایا کلاچ",
+      "productName": "کاور 206",
+      "partName": "بدنه",
+      "stageName": "بلنک",
+      "RandomWeight": 1.2,
+      "information": "",
+      "whole": "پایا کلاچ کاور 206 بدنه بلنک",
+      "id": 1
+    },
+    {
+      "name": "products",
+      "customerName": "پایا کلاچ",
+      "productName": "کاور 206",
+      "partName": "بدنه",
+      "stageName": "کشش",
+      "RandomWeight": 1.3,
+      "information": "",
+      "whole": "پایا کلاچ کاور 206 بدنه کشش",
+      "id": 2
+    },
+    {
+      "name": "products",
+      "customerName": "فرآوری و ساخت",
+      "productName": "ناکل پراید",
+      "partName": "بدنه",
+      "stageName": "پانچ",
+      "RandomWeight": 0.363,
+      "information": "",
+      "whole": "فرآوری و ساخت ناکل پراید بدنه پانچ",
+      "id": 3
+    },
+    {
+      "name": "products",
+      "customerName": "فرآوری و ساخت",
+      "productName": "ناکل پراید",
+      "partName": "بدنه",
+      "stageName": "بلنک",
+      "RandomWeight": 0.363,
+      "information": "",
+      "whole": "فرآوری و ساخت ناکل پراید بدنه بلنک",
+      "id": 4
+    }
+  ],
+  "allEnterProducts": [
+    {
+      "palleteNumber": 1111,
+      "whole": "پایا کلاچ کاور 206 بدنه کشش",
+      "weight": 1100,
+      "date": "2023-02-15",
+      "information": "",
+      "productId": 2,
+      "productNumber": 692,
+      "id": 2
+    },
+    {
+      "palleteNumber": 1112,
+      "whole": "پایا کلاچ کاور 206 بدنه بلنک",
+      "weight": 1400,
+      "date": "2023-02-15",
+      "information": "",
+      "productId": 1,
+      "productNumber": 1008,
+      "id": 3
+    },
+    {
+      "palleteNumber": 1110,
+      "whole": "فرآوری و ساخت ناکل پراید بدنه پانچ",
+      "weight": 900,
+      "date": "2023-02-20",
+      "information": "",
+      "productId": 3,
+      "productNumber": 2011,
+      "id": 4
+    }
+  ],
+  "allExitProducts": [
+    {
+      "palleteNumber": 1110,
+      "whole": "پایا کلاچ کاور 206 بدنه بلنک",
+      "date": "2023-02-19",
+      "information": "",
+      "productNumber": 525,
+      "id": 1
+    },
+    {
+      "palleteNumber": 1113,
+      "whole": "فرآوری و ساخت ناکل پراید بدنه پانچ",
+      "date": "2023-02-19",
+      "information": "",
+      "productNumber": 1620,
+      "id": 2
+    }
+  ],
+  "palletes": [
+    {
+      "name": "pallete",
+      "palleteNumber": 1110,
+      "palleteColor": "blue",
+      "palleteKind": "GP8",
+      "palleteWeight": 170,
+      "whole": "1110 blue GP8 170 ",
+      "id": 1
+    },
+    {
+      "name": "pallete",
+      "palleteNumber": 1111,
+      "palleteColor": "blue",
+      "palleteKind": "GP8",
+      "palleteWeight": 200,
+      "whole": "1111 blue GP8 200 ",
+      "id": 2
+    },
+    {
+      "name": "pallete",
+      "palleteNumber": 1112,
+      "palleteColor": "blue",
+      "palleteKind": "GP8",
+      "palleteWeight": 190,
+      "whole": "1112 blue GP8 190 ",
+      "id": 3
+    },
+    {
+      "name": "pallete",
+      "palleteNumber": 1113,
+      "palleteColor": "green",
+      "palleteKind": "GP8",
+      "palleteWeight": 212,
+      "whole": "1113 green GP8 212 ",
+      "id": 4
+    }
+  ],
+  "customer": [
+    {
+      "customerName": "پایا کلاچ",
+      "information": "",
+      "id": 1
+    },
+    {
+      "customerName": "فرآوری و ساخت",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "product": [
+    {
+      "productName": "کاور 206",
+      "information": "",
+      "id": 1
+    },
+    {
+      "productName": "ناکل پراید",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "part": [
+    {
+      "partName": "بدنه",
+      "information": "",
+      "id": 1
+    },
+    {
+      "partName": "بدنه",
+      "information": "",
+      "id": 2
+    }
+  ],
+  "stage": [
+    {
+      "stageName": "بلنک",
+      "information": "",
+      "id": 1
+    },
+    {
+      "stageName": "کشش",
+      "information": "",
+      "id": 2
+    },
+    {
+      "stageName": "تریم",
+      "information": "",
+      "id": 3
+    },
+    {
+      "stageName": "پانچ",
+      "information": "",
+      "id": 4
+    }
+  ],
+  "palleteKind": [
+    {
+      "palleteKind": "GP8",
+      "information": "",
+      "id": 1
+    }
+  ],
+  "purchasingReequests": [
+    {
+      "requestCode": "to011201",
+      "personnel": "سعید محمدی",
+      "jobPosition": "اپراتور پرسکاری",
+      "productName": "مهره جوشی M8 دور 15",
+      "number": 15000,
+      "consumingFor": "دستگاه ها",
+      "supplier": "کامکان",
+      "date": "2023-02-21",
+      "neededDate": "2023-02-28",
+      "id": 1
+    }
+  ],
+  "purchasing": [
+    {
+      "requestCode": "to011201",
+      "date": "2023-02-27",
+      "enterDelivery": "حسین صفری",
+      "number": 15000,
+      "unitCost": 1700,
+      "wholeCost": 25500000,
+      "id": 1
+    }
+  ],
   "PalleteConditonEnter": []
 }

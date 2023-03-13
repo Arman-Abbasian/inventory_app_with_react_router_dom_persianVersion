@@ -1,10 +1,10 @@
-const Textarea = ({ name, type = "text", formik, logo }) => {
+const Textarea = ({ name, type = "text", formik, logo ,label}) => {
   return (
     <div className="flex flex-col gap-2 justify-center items-center w-full relative">
       <label
         className="flex w-full text-primary_light_green"
         htmlFor={`${name}`}
-      >{`${name}`}</label>
+      >{`${label}`}</label>
       <div className="border rounded-sm focus:border-2 flex items-center w-full p-2 gap-2">
         <span>{logo}</span>
         <textarea

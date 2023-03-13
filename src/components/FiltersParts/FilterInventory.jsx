@@ -4,10 +4,10 @@ import { toast } from "react-hot-toast";
 import { AiOutlineFilter } from "react-icons/ai";
 
 const conditon = [
-  { id: 1, conditon: "", name: "All"},
-  { id: 2, conditon: "ok", name: "ok", color: "green-500" },
-  { id: 3, conditon: "warning", name: "warning", color: "yellow-500" },
-  { id: 4, conditon: "danger", name: "danger", color: "red-500" },
+  { id: 1, conditon: "", name: "همه",color: "gray-100"},
+  { id: 2, conditon: "ok", name: "عادی", color: "green-500" },
+  { id: 3, conditon: "warning", name: "خطر", color: "yellow-500" },
+  { id: 4, conditon: "danger", name: "بحرانی", color: "red-500" },
 ];
 
 const FilterInventory = ({ filters, changeHandler }) => {
@@ -35,7 +35,7 @@ const FilterInventory = ({ filters, changeHandler }) => {
               <AiOutlineFilter className="text-primary_cream" />
             </span>
             <input
-              placeholder="search product name"
+              placeholder="نام قطعه یا تجهیز را وارد کنید"
               list="productName"
               name="productName"
               className="w-full bg-transparent outline-none text-primary_cream"

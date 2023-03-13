@@ -106,7 +106,7 @@ const PurchasingRequestList = () => {
         latest={filters.latest}
       />
       <p className="bg-primary_light_green inline-block p-2 rounded mb-10 mt-10 shadow-sm shadow-primary_cream">
-        sum: {sum}
+        مجموع : {sum}
       </p>
       <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
         {showAllPurchasingRequests &&

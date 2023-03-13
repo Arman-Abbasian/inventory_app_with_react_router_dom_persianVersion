@@ -41,7 +41,7 @@ const ProductsFormInput = () => {
           values.stageName,
       })
       .then((res) => {
-        toast.success(`data added successfully`);
+        toast.success(`اطلاعات با موفقیت ثبت شد`);
         setIsShow(false);
       })
       .catch((err) => toast.error(err.message));
@@ -77,11 +77,11 @@ const ProductsFormInput = () => {
   }, []);
 
   const validationSchema = Yup.object({
-    customerName: Yup.string().required(`customer name is required`),
-    productName: Yup.string().required(`product name is required`),
-    partName: Yup.string().required(`part name is required`),
-    stageName: Yup.string().required(`stage name is required`),
-    RandomWeight: Yup.number().required(`random number is required`),
+    customerName: Yup.string().required(`لطفا نام مشتری را وارد نمایید`),
+    productName: Yup.string().required(`لطفا نام محصول را وارد نمایید`),
+    partName: Yup.string().required(`لطفا نام اجزا را وارد نمایید`),
+    stageName: Yup.string().required(`لطفا نام مرحله را وارد نمایید`),
+    RandomWeight: Yup.number().required(`لطفا وزن رندم را وارد نمایید`),
     information: Yup.string(),
   });
 
@@ -97,7 +97,7 @@ const ProductsFormInput = () => {
         className={`w-full p-2 rounded-sm bg-primary_cream shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]`}
         onClick={() => setIsShow(!isShow)}
       >
-        {isShow ? "hide products form" : "show products form"} input
+        {isShow ? "بستن فرم تعریف محصول جدید" : "نمایش فرم تعریف محصول جدید"}
       </button>
       {customers && products && parts && stages && (
         <form
@@ -107,7 +107,7 @@ const ProductsFormInput = () => {
           <div className="flex flex-col gap-4 justify-center items-center border border-primary_green rounded-sm p-2 shadow-[0_10px_20px_rgba(79,_119,_45,_0.5)]">
             <SearchSelect
               name="customerName"
-              label="customer name"
+              label="نام مشتری"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -116,7 +116,7 @@ const ProductsFormInput = () => {
             />
             <SearchSelect
               name="productName"
-              label="product name"
+              label="نام محصول"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -125,7 +125,7 @@ const ProductsFormInput = () => {
             />
             <SearchSelect
               name="partName"
-              label="part name"
+              label="نام اجزا"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -134,7 +134,7 @@ const ProductsFormInput = () => {
             />
             <SearchSelect
               name="stageName"
-              label="stage name"
+              label="نام مرحله"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -143,14 +143,14 @@ const ProductsFormInput = () => {
             />
             <Input
               name="RandomWeight"
-              label="random weight"
+              label="وزن رندم"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
               type="number"
             />
             <Textarea
               name="information"
-              label="information"
+              label="توضیحات"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -161,7 +161,7 @@ const ProductsFormInput = () => {
               className="py-2 px-4 bg-primary_cream rounded-sm w-full disabled:bg-opacity-60"
               type="submit"
             >
-              {formik.isValid ? "Add" : "please fill necessary fields"}
+              {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را وارد نمایید"}
             </button>
           </div>
         </form>

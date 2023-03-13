@@ -75,7 +75,7 @@ const PurchaseRequestItemEdit = () => {
       .put(`http://localhost:4000/purchasingReequests/${id}`, values)
       .then((res) => {
         navigate("/PurchasingRequestList");
-        toast.success("purchase request edited successfully");
+        toast.success("ویرایش اطلاعات با موقفیت انجام گردید");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
@@ -128,7 +128,7 @@ const PurchaseRequestItemEdit = () => {
           <div className="flex flex-col gap-4 justify-center items-center">
             <Input
               name="requestCode"
-              label="request code"
+              label="کد درخواست"
               formik={formik}
               logo={
                 <BsFileEarmarkCode className="w-6 h-6 text-primary_cream" />
@@ -138,14 +138,14 @@ const PurchaseRequestItemEdit = () => {
             <SearchSelect
               options={personnel}
               name="personnel"
-              label="Applicant"
+              label="درخواست کننده"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
             <SearchSelect
               options={jobPosition}
               name="jobPosition"
-              label="job position"
+              label="پست سازمانی"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -154,7 +154,7 @@ const PurchaseRequestItemEdit = () => {
             <SearchSelect
               options={productName}
               name="productName"
-              label="product name"
+              label="نام محصول"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -162,13 +162,13 @@ const PurchaseRequestItemEdit = () => {
             />
             <Input
               type="number"
-              label="number"
+              label="تعداد"
               name="number"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
             />
             <Input
-              label="consuming for"
+              label="مورد مصرف"
               name="consumingFor"
               formik={formik}
               logo={
@@ -179,7 +179,7 @@ const PurchaseRequestItemEdit = () => {
             <SearchSelect
               options={supplier}
               name="supplier"
-              label="supplier"
+              label="تامین کننده"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -187,14 +187,14 @@ const PurchaseRequestItemEdit = () => {
             />
             <Input
               type="date"
-              label="date"
+              label="تاریخ درخواست"
               name="date"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
-              label="needed date"
+              label="تاریخ مورد نیاز"
               name="neededDate"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
@@ -207,7 +207,9 @@ const PurchaseRequestItemEdit = () => {
               } `}
               type="submit"
             >
-              {formik.isValid ? "Edit" : "please complete all fields"}
+              {formik.isValid
+                ? "ویرایش"
+                : "لطفا تمامی فیلدهای مورد نیاز را تکمیل نمایید"}
             </button>
           </div>
         </form>

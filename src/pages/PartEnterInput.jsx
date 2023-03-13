@@ -95,7 +95,7 @@ const PartEnterEditInput = () => {
             <SearchSelect
               options={options.productName}
               name="productName"
-              label="product name"
+              label="نام قطعه"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -105,13 +105,13 @@ const PartEnterEditInput = () => {
           <Input
             type="date"
             name="date"
-            label="date"
+            label="تاریخ"
             formik={formik}
             logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
           />
           <Input
             type="number"
-            label="number"
+            label="تعداد"
             name="number"
             formik={formik}
             logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
@@ -120,7 +120,7 @@ const PartEnterEditInput = () => {
             <SearchSelect
               options={options.supplier}
               name="supplier"
-              label="supplier"
+              label="تامین کننده"
               formik={formik}
               logo={<RiStore2Line className="w-6 h-6 text-primary_cream" />}
             />
@@ -129,7 +129,7 @@ const PartEnterEditInput = () => {
             <SearchSelect
               options={options.enterDelivery}
               name="enterDelivery"
-              label="enter delivery"
+              label="تحویل دهنده ورودی"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
@@ -138,7 +138,7 @@ const PartEnterEditInput = () => {
             <SearchSelect
               options={options.enterTransferee}
               name="enterTransferee"
-              label="enter transferee"
+              label="تحویل گیرنده ورودی"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
@@ -148,7 +148,7 @@ const PartEnterEditInput = () => {
             className="py-2 px-4 bg-primary_cream rounded-sm w-full"
             type="submit"
           >
-            {formik.isValid ? "Add" : "please complete all fields"}
+            {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را وارد نمایید"}
           </button>
         </div>
       </form>

@@ -39,8 +39,6 @@ const PartExitEditInput = () => {
     consumingFor: "",
     exitDelivery: "",
     exitTransferee: "",
-    jobPosition: "",
-    unit: "",
   };
   const onSubmit = (values, { resetForm }) => {
     axios
@@ -63,8 +61,6 @@ const PartExitEditInput = () => {
     consumingFor: Yup.string().required("consumig for is required"),
     exitDelivery: Yup.string().required("delivery is required"),
     exitTransferee: Yup.string().required("transferee is required"),
-    jobPosition: Yup.string().required("job position is required"),
-    unit: Yup.string().required("unit is required"),
   });
   useEffect(() => {
     setExitItem({ data: null, error: null, loading: true });
@@ -125,7 +121,7 @@ const PartExitEditInput = () => {
             {options.productName && (
               <SearchSelect
                 options={options.productName}
-                label="product name"
+                label="نام قطعه"
                 name="productName"
                 formik={formik}
                 logo={<HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />}
@@ -134,13 +130,13 @@ const PartExitEditInput = () => {
             <Input
               type="date"
               name="date"
-              label="date"
+              label="تاریخ"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="number"
-              label="number"
+              label="تعداد"
               name="number"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
@@ -148,7 +144,7 @@ const PartExitEditInput = () => {
             {options.consumingFor && (
               <SearchSelect
                 options={options.consumingFor}
-                label="consuming for"
+                label="مورد مصرف"
                 name="consumingFor"
                 formik={formik}
                 logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
@@ -157,7 +153,7 @@ const PartExitEditInput = () => {
             {options.exitDelivery && (
               <SearchSelect
                 options={options.exitDelivery}
-                label="delivery"
+                label="تحویل دهنده"
                 name="exitDelivery"
                 formik={formik}
                 logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
@@ -166,28 +162,10 @@ const PartExitEditInput = () => {
             {options.exitTransferee && (
               <SearchSelect
                 options={options.exitTransferee}
-                label="transferee"
+                label="تحویل گیرنده"
                 name="exitTransferee"
                 formik={formik}
                 logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
-              />
-            )}
-            {options.jobPosition && (
-              <SearchSelect
-                options={options.jobPosition}
-                label="job position"
-                name="jobPosition"
-                formik={formik}
-                logo={<HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />}
-              />
-            )}
-            {options.unit && (
-              <SearchSelect
-                options={options.unit}
-                label="unit"
-                name="unit"
-                formik={formik}
-                logo={<FaRegBuilding className="w-6 h-6 text-primary_cream" />}
               />
             )}
             <button
@@ -197,7 +175,7 @@ const PartExitEditInput = () => {
               }`}
               type="submit"
             >
-              {formik.isValid ? "Edit" : "please complete all fields"}
+              {formik.isValid ? "ویرایش" : "لطفا تمامی فیلدهای مورد نیاز را تکمیل نمایید"}
             </button>
           </div>
         </form>

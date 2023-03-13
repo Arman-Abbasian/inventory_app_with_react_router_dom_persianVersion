@@ -31,7 +31,7 @@ const PartInputs = () => {
         <ProductNameFormInput
           name="productName"
           searchSelectOptions={measurmentUnit}
-          label="product name"
+          label="قطعات"
           logo={
             <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
           }
@@ -39,54 +39,64 @@ const PartInputs = () => {
       )}
       <FormInput
         name="measurmentUnit"
-        label="measurement unit"
+        label="واحد اندازه گیری"
+        textareaLabel="توضیحات"
         logo={<BsSpeedometer2 className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="supplier"
-        label="supplier"
+        label="تامین کننده"
+        textareaLabel="توضیحات"
         logo={<RiStore2Line className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="enterDelivery"
-        label="enter delivery"
+        label="تحویل دهنده ورودی"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="enterTransferee"
-        label="enter transferee"
+        label="تحویل گیرنده ورودی"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="consumingFor"
-        label="consuming for"
+        label="مورد مصرف"
+        textareaLabel="توضیحات"
         logo={
           <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
         }
       />
       <FormInput
         name="exitDelivery"
-        label="exit delivery"
+        label="تحویل دهنده خروجی"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="exitTransferee"
-        label="exit transferee"
+        label="تحویل گیرنده خروجی"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="personnel"
-        label="personnel name"
+        label="نام پرسنل"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="jobPosition"
-        label="job position"
+        label="پست سازمانی"
+        textareaLabel="توضیحات"
         logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
       />
       <FormInput
         name="unit"
-        label="unit"
+        label="واحد سازمانی"
+        textareaLabel="توضیحات"
         logo={<HiBuildingOffice className="w-6 h-6 text-primary_cream" />}
       />
     </div>

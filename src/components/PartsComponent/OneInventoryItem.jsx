@@ -11,13 +11,13 @@ const OneInventoryItem = ({productName,measurmentUnit,enter,exit,safetyStock,ord
         <>
         {condition && 
             <div className="flex flex-col gap-8 items-start">
-                <p className="text-primary_cream"><span className="font-bold">product name:</span> {productName}</p>
-                <p className="text-primary_cream"><span className="font-bold">measurement unit:</span> {measurmentUnit}</p>
-                <p className="text-primary_cream"><span className="font-bold">enter:</span> {enter}</p>
-                <p className="text-primary_cream"><span className="font-bold">exit:</span> {exit}</p>
-                <p className="text-primary_cream"><span className="font-bold">inventory:</span> {enter - exit}</p>
-                <p className="text-primary_cream"><span className="font-bold">safety stock:</span> {safetyStock}</p>
-                <p className="text-primary_cream"><span className="font-bold">order point :</span> {orderPoint}</p>
+                <p className="text-primary_cream"><span className="font-bold">نام قطعه :</span> {productName}</p>
+                <p className="text-primary_cream"><span className="font-bold">واحد اندازه گیری :</span> {measurmentUnit}</p>
+                <p className="text-primary_cream"><span className="font-bold">ورودی :</span> {enter}</p>
+                <p className="text-primary_cream"><span className="font-bold">خروجی :</span> {exit}</p>
+                <p className="text-primary_cream"><span className="font-bold">موجودی :</span> {enter - exit}</p>
+                <p className="text-primary_cream"><span className="font-bold">موجودی اطمینان :</span> {safetyStock}</p>
+                <p className="text-primary_cream"><span className="font-bold">نقطه سفارش :</span> {orderPoint}</p>
             </div>            
     }
     </> 

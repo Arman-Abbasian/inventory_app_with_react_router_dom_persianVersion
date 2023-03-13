@@ -27,7 +27,7 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  requestCode: Yup.string().required("request code is required"),
+  requestCode: Yup.string().required("لطفا کد درخواست را وارد نمایید"),
   personnel: Yup.string().required("applicant is required"),
   jobPosition: Yup.string().required("job position code is required"),
   productName: Yup.string().required("product name code is required"),
@@ -47,6 +47,7 @@ const PurchaseRequest = () => {
   const [jobPosition, setJobPosition] = useState(null);
   const [productName, setProductName] = useState(null);
   const [supplier, setSupplier] = useState(null);
+  const [consumingFor, setConsumingFor] = useState(null);
 
   let navigate = useNavigate();
 
@@ -55,7 +56,7 @@ const PurchaseRequest = () => {
       .post(`http://localhost:4000/purchasingReequests`, values)
       .then((res) => {
         navigate("/PurchasingRequestList");
-        toast.success("purchase request added successfully");
+        toast.success("درخواست خرید با موفقیت ثبت گردید");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
@@ -89,6 +90,12 @@ const PurchaseRequest = () => {
       .then((res) => setProductName(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/overall?category=consumingFor`)
+      .then((res) => setConsumingFor(res.data))
+      .catch((err) => toast.error(err.message));
+  }, []);
 
   const formik = useFormik({
     initialValues,
@@ -107,7 +114,7 @@ const PurchaseRequest = () => {
           <div className="flex flex-col gap-4 justify-center items-center">
             <Input
               name="requestCode"
-              label="request code"
+              label="کد درخواست"
               formik={formik}
               logo={
                 <BsFileEarmarkCode className="w-6 h-6 text-primary_cream" />
@@ -117,14 +124,14 @@ const PurchaseRequest = () => {
             <SearchSelect
               options={personnel}
               name="personnel"
-              label="Applicant"
+              label="درخواست دهنده"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
             <SearchSelect
               options={jobPosition}
               name="jobPosition"
-              label="job position"
+              label="پست سازمانی"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -133,7 +140,7 @@ const PurchaseRequest = () => {
             <SearchSelect
               options={productName}
               name="productName"
-              label="product name"
+              label="نام محصول"
               formik={formik}
               logo={
                 <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
@@ -141,24 +148,25 @@ const PurchaseRequest = () => {
             />
             <Input
               type="number"
-              label="number"
+              label="تعداد"
               name="number"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
             />
-            <Input
-              label="consuming for"
+            <SearchSelect
+              options={consumingFor}
               name="consumingFor"
+              label="مورد مصرف"
               formik={formik}
               logo={
-                <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
+                <HiOutlineShoppingCart className="w-6 h-6 text-primary_cream" />
               }
             />
 
             <SearchSelect
               options={supplier}
               name="supplier"
-              label="supplier"
+              label="تامین کننده"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -166,14 +174,14 @@ const PurchaseRequest = () => {
             />
             <Input
               type="date"
-              label="date"
+              label="تاریخ"
               name="date"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
-              label="needed date"
+              label="تاریخ مورد نیاز"
               name="neededDate"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
@@ -186,7 +194,7 @@ const PurchaseRequest = () => {
               } `}
               type="submit"
             >
-              {formik.isValid ? "Add" : "please complete all fields"}
+              {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را وارد نمایید"}
             </button>
           </div>
         </form>

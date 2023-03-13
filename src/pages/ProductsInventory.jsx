@@ -80,7 +80,7 @@ const ProductsInventory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/enterProducts`)
+      .get(`http://localhost:4000/allEnterProducts`)
       .then((res) => setEnterProducts(res.data))
       .catch((err) => toast.error(err.message));
   }, []);

@@ -38,9 +38,9 @@ const Navigation = () => {
         >
           {/* Home icon in side bar */}
           <div className="bg-primary_cream rounded">
-            <Link to={"/"} className="flex items-center p-2 rounded-lg  mb-4">
+            <Link to={"/"} className="flex items-center p-2 rounded  mb-4">
               <AiOutlineHome className="w-6 h-6 text-primary_red" />
-              <span class="ml-3">Home</span>
+              <span class="ml-3 mr-1">صفحه اصلی</span>
             </Link>
           </div>
           {/* part section icon in side bar */}
@@ -49,11 +49,11 @@ const Navigation = () => {
               className="w-full"
               onClick={() => setShowInventorySection(!showInventorySection)}
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    part section
+                  <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                    انبار قطعات و تجهیزات
                   </span>
                 </div>
                 <div>
@@ -76,30 +76,30 @@ const Navigation = () => {
             <li>
               <Link
                 to={"/PartInventory"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">inventory</span>
+                <span class="ml-3 mr-1">موجودی</span>
               </Link>
             </li>
 
             <li>
               <Link
                 to={"/PartInputs"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">inputs</span>
+                <span class="ml-3 mr-1">اضافه کردن آیتم ها</span>
               </Link>
             </li>
 
             <li>
               <button onClick={() => setEnter(!enter)} className="w-full">
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogin className="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Enters
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      ورودی ها
                     </span>
                   </div>
                   <div>
@@ -114,17 +114,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/PartEnterInput`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one enter item
+                      اضافه کردن ورودی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/PartEnterList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter list
+                      لیست ورودی ها
                     </Link>
                   </li>
                 </ul>
@@ -133,11 +133,11 @@ const Navigation = () => {
 
             <li>
               <button onClick={() => setExit(!exit)} className="w-full">
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group hover:bg-primary_red gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream gap-4">
                   <div className="flex items-center">
                     <MdLogout class="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Exits
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      خروجی ها
                     </span>
                   </div>
                   <div>
@@ -152,17 +152,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/PartExitInput`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75  hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one Exit item
+                      اضافه کردن خروجی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/PartExitList`}
-                      className="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red"
+                      className="flex items-center p-2  w-full rounded transition duration-75  hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      exit list
+                      لیست خروجی ها
                     </Link>
                   </li>
                 </ul>
@@ -176,11 +176,11 @@ const Navigation = () => {
               onClick={() => setShowProductSection(!showProductSection)}
               className="w-full"
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    product section
+                  <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                    انبار محصولات نیم ساخته و نهایی
                   </span>
                 </div>
                 <div>
@@ -204,20 +204,20 @@ const Navigation = () => {
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/ProductsInventory"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">Inventory</span>
+                <span class="ml-3 mr-1">موجودی</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/ProductsInputs"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">Inputs</span>
+                <span class="ml-3 mr-1">اضافه کردن آیتم ها</span>
               </Link>
             </li>
             <li>
@@ -225,11 +225,11 @@ const Navigation = () => {
                 onClick={() => setEnterProduct(!enterProduct)}
                 className="w-full"
               >
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogin className="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Enters
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      ورودی ها
                     </span>
                   </div>
                   <div>
@@ -246,17 +246,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/EnterOneProductItem`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one enter product
+                      اضافه کردن ورودی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/EnterProductsList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter list
+                      لیست ورودی ها
                     </Link>
                   </li>
                 </ul>
@@ -267,11 +267,11 @@ const Navigation = () => {
                 onClick={() => setExitProduct(!exitProduct)}
                 className="w-full"
               >
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogout className="w-6 h-6" />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Exits
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      خروجی ها
                     </span>
                   </div>
                   <div>
@@ -288,17 +288,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/ExitOneProductItem`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one exit product
+                      اضافه کردن خروجی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/ExitProductsList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      exit list
+                      لیست خروجی ها
                     </Link>
                   </li>
                 </ul>
@@ -312,11 +312,11 @@ const Navigation = () => {
               onClick={() => setShowPurchaseSection(!showPurchaseSection)}
               className="w-full"
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    purchasing section
+                  <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                    خرید
                   </span>
                 </div>
                 <div>
@@ -340,91 +340,30 @@ const Navigation = () => {
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/PurchaseRequest"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">purchasing request</span>
+                <span class="ml-3 mr-1">درخواست خرید</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/Purchasing"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing</span>
+                <span class="ml-3 mr-1">انجام خرید</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/PurchasingRequestList"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing requst list</span>
-              </Link>
-            </li>
-          </ul>
-          {/* other section */}
-          <div className="bg-primary_cream rounded mb-4">
-            <button
-              onClick={() => setShowOtherSection(!showOtherSection)}
-              className="w-full"
-            >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
-                <div className="flex items-center">
-                  <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    purchasing section
-                  </span>
-                </div>
-                <div>
-                  <BsChevronUp
-                    className={`${showOtherSection ? "hidden" : "block"}`}
-                  />
-                  <BsChevronDown
-                    className={`${!showOtherSection ? "hidden" : "block"}`}
-                  />
-                </div>
-              </div>
-            </button>
-          </div>
-          {/* items in other section sidebar */}
-          <ul
-            className={`flex flex-col gap-4 ${
-              showOtherSection ? "block" : "hidden"
-            }`}
-          >
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/PurchaseRequest"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">purchasing request</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/Purchasing"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/PurchasingRequestList"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing requst list</span>
+                <span class="ml-3 mr-1">لیست درخواست های خرید</span>
               </Link>
             </li>
           </ul>
@@ -436,9 +375,9 @@ const Navigation = () => {
         <div className="fixed bg-primary_light_green bottom-4 top-4 scrollbar-hide overflow-y-auto py-4 px-3 rounded">
           {/* Home icon in side bar */}
           <div className="bg-primary_cream rounded">
-            <Link to={"/"} className="flex items-center p-2 rounded-lg  mb-4">
+            <Link to={"/"} className="flex items-center p-2 rounded  mb-4">
               <AiOutlineHome className="w-6 h-6 text-primary_red" />
-              <span class="ml-3">Home</span>
+              <span class="ml-3 mr-1">صفحه اصلی</span>
             </Link>
           </div>
           {/* part section icon in side bar */}
@@ -447,11 +386,11 @@ const Navigation = () => {
               className="w-full"
               onClick={() => setShowInventorySection(!showInventorySection)}
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    part section
+                  <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                    انبار قطعات و تجهیزات
                   </span>
                 </div>
                 <div>
@@ -474,30 +413,30 @@ const Navigation = () => {
             <li>
               <Link
                 to={"/PartInventory"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">inventory</span>
+                <span class="ml-3 mr-1">موجودی</span>
               </Link>
             </li>
 
             <li>
               <Link
                 to={"/PartInputs"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">inputs</span>
+                <span class="ml-3 mr-1">اضافه کردن آیتم</span>
               </Link>
             </li>
 
             <li>
               <button onClick={() => setEnter(!enter)} className="w-full">
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogin className="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Enters
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      ورودی ها
                     </span>
                   </div>
                   <div>
@@ -512,17 +451,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/PartEnterInput`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one enter item
+                      اضافه کردن ورودی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/PartEnterList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter list
+                      لیست ورودی ها
                     </Link>
                   </li>
                 </ul>
@@ -531,11 +470,11 @@ const Navigation = () => {
 
             <li>
               <button onClick={() => setExit(!exit)} className="w-full">
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group hover:bg-primary_red gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream gap-4">
                   <div className="flex items-center">
                     <MdLogout class="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Exits
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      خروجی ها
                     </span>
                   </div>
                   <div>
@@ -550,17 +489,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/PartExitInput`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75  hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75  hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one Exit item
+                      اضافه کردن خروجی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/PartExitList`}
-                      className="flex items-center p-2  w-full rounded-lg transition duration-75  hover:bg-primary_red"
+                      className="flex items-center p-2  w-full rounded transition duration-75  hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      exit list
+                      لیست خروجی ها
                     </Link>
                   </li>
                 </ul>
@@ -574,11 +513,11 @@ const Navigation = () => {
               onClick={() => setShowProductSection(!showProductSection)}
               className="w-full"
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
                   <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    product section
+                    انبار محصولات نیم ساخته و نهایی
                   </span>
                 </div>
                 <div>
@@ -602,20 +541,20 @@ const Navigation = () => {
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/ProductsInventory"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">Inventory</span>
+                <span class="ml-3 mr-1">موجودی</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowAside(false)}
                 to={"/ProductsInputs"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">Inputs</span>
+                <span class="ml-3 mr-1">اضافه کردن آیتم ها</span>
               </Link>
             </li>
             <li>
@@ -623,11 +562,11 @@ const Navigation = () => {
                 onClick={() => setEnterProduct(!enterProduct)}
                 className="w-full"
               >
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogin className="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Enters
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      ورودی ها
                     </span>
                   </div>
                   <div>
@@ -644,17 +583,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/EnterOneProductItem`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one enter product
+                      اضافه کردن ورودی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/EnterProductsList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter list
+                      لیست ورودی ها
                     </Link>
                   </li>
                 </ul>
@@ -665,11 +604,11 @@ const Navigation = () => {
                 onClick={() => setExitProduct(!exitProduct)}
                 className="w-full"
               >
-                <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 hover:bg-primary_red group gap-4">
+                <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 hover:bg-primary_dark_green hover:text-primary_cream group gap-4">
                   <div className="flex items-center">
                     <MdLogout className="w-6 h-6 " />
-                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                      Exits
+                    <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                      خروجی ها
                     </span>
                   </div>
                   <div>
@@ -686,17 +625,17 @@ const Navigation = () => {
                   <li>
                     <Link
                       to={`/ExitOneProductItem`}
-                      className="flex items-center p-2  w-full  rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2  w-full  rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      enter one exit product
+                      اضافه کردن خروجی
                     </Link>
                   </li>
                   <li>
                     <Link
                       to={`/ExitProductsList`}
-                      className="flex items-center p-2 w-full rounded-lg transition duration-75 group hover:bg-primary_red"
+                      className="flex items-center p-2 w-full rounded transition duration-75 group hover:bg-primary_dark_green hover:text-primary_cream"
                     >
-                      exit list
+                      لیست خروجی ها
                     </Link>
                   </li>
                 </ul>
@@ -710,11 +649,11 @@ const Navigation = () => {
               onClick={() => setShowPurchaseSection(!showPurchaseSection)}
               className="w-full"
             >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
+              <div className="flex justify-between items-center p-2 w-full  rounded transition duration-75 group  gap-4">
                 <div className="flex items-center">
                   <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    purchasing section
+                  <span className="flex-1 ml-3 mr-1 text-left whitespace-nowrap">
+                    خرید
                   </span>
                 </div>
                 <div>
@@ -738,91 +677,30 @@ const Navigation = () => {
               <Link
                 onClick={() => setShowProductSection(false)}
                 to={"/PurchaseRequest"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">purchasing request</span>
+                <span class="ml-3 mr-1">درخواست خرید</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowProductSection(false)}
                 to={"/Purchasing"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded  hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing</span>
+                <span class="ml-3 mr-1 ">انجام خرید</span>
               </Link>
             </li>
             <li>
               <Link
                 onClick={() => setShowProductSection(false)}
                 to={"/PurchasingRequestList"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
+                className="flex items-center p-2 rounded hover:bg-primary_dark_green hover:text-primary_cream"
               >
                 <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing requst list</span>
-              </Link>
-            </li>
-          </ul>
-          {/* other section */}
-          <div className="bg-primary_cream rounded">
-            <button
-              onClick={() => setShowOtherSection(!showOtherSection)}
-              className="w-full"
-            >
-              <div className="flex justify-between items-center p-2 w-full  rounded-lg transition duration-75 group  gap-4">
-                <div className="flex items-center">
-                  <MdOutlineProductionQuantityLimits class="w-6 h-6 text-primary_red" />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    purchasing section
-                  </span>
-                </div>
-                <div>
-                  <BsChevronUp
-                    className={`${showOtherSection ? "hidden" : "block"}`}
-                  />
-                  <BsChevronDown
-                    className={`${!showOtherSection ? "hidden" : "block"}`}
-                  />
-                </div>
-              </div>
-            </button>
-          </div>
-          {/* items in other section sidebar */}
-          <ul
-            className={`flex flex-col gap-4 ${
-              showOtherSection ? "block" : "hidden"
-            }`}
-          >
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/OtherPalletesConditon"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <RiStore2Line class="w-6 h-6 " />
-                <span class="ml-3">palletes conditon</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/Purchasing"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => setShowAside(false)}
-                to={"/PurchasingRequestList"}
-                className="flex items-center p-2 rounded-lg  hover:bg-primary_red"
-              >
-                <CiCircleList className="w-6 h-6 " />
-                <span class="ml-3">purchasing requst list</span>
+                <span class="ml-3 mr-1">لیست درخواست های خرید</span>
               </Link>
             </li>
           </ul>

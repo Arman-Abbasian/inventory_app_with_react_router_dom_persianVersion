@@ -66,10 +66,10 @@ const FilterProductsExits = ({
             {/* make search select for products */}
             <div className="flex flex-col items-start justify-center">
               <label className="mb-1 text-primary_light_green" htmlFor="productName">
-                select a products
+                نام محصول
               </label>
               <input
-                placeholder="Search.."
+                placeholder="نام محصول را جستجو کنید ..."
                 id="productName"
                 className="w-full bg-transparent p-2 border text-primary_cream rounded focus:outline-none"
                 list="overallProducts"
@@ -95,12 +95,12 @@ const FilterProductsExits = ({
             {/* make search select for palletes */}
             <div className="flex flex-col items-start justify-center">
               <label className="mb-1 text-primary_light_green" htmlFor="pallete">
-                select a pallete number
+                شماره پالت
               </label>
               <input
                 type="text"
                 className="w-full bg-transparent p-2 border text-primary_cream rounded focus:outline-none"
-                placeholder="Search.."
+                placeholder="شماره پالت رو جستجو کنید ..."
                 id="pallete"
                 list="palleteNumber"
                 name="pallete"
@@ -136,12 +136,12 @@ const FilterProductsExits = ({
               onChange={(e) => toggleChangeDateHandler(e)}
             />
             <div
-              className="w-11 h-6 bg-primary_light_green peer-focus:outline-none
-                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+              className="w-16 h-6 bg-primary_light_green peer-focus:outline-none ml-1
+                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[82px]
                         after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_yellow"
             ></div>
-            <span className="ml-3 text-sm font-medium text-primary-white">
-              {latest ? "latest" : "earliest"}
+            <span className="ml-1 text-sm font-medium text-primary_cream">
+              {latest ? "جدید ترین" : "قدیمی ترین"}
             </span>
           </label>
         </div>

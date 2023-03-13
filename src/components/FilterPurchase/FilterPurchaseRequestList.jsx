@@ -43,10 +43,10 @@ const FilterPurchaseRequestList = ({
               className="mb-1 text-primary_light_green"
               htmlFor="productName"
             >
-              select a products
+             نام محصول
             </label>
             <input
-              placeholder="Search product name..."
+              placeholder=" نام محصول را جستجو کنید ..."
               id="productNamee"
               className="w-full bg-transparent p-2 border text-primary_cream rounded focus:outline-none"
               list="productName"
@@ -82,12 +82,12 @@ const FilterPurchaseRequestList = ({
                 onChange={(e) => toggleChangeDateHandler(e)}
               />
               <div
-                className="w-11 h-6 bg-primary_light_green peer-focus:outline-none
-                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+                className="w-16 h-6 bg-primary_light_green peer-focus:outline-none
+                        rounded-md peer  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[92px]
                         after:bg-white after:border-gray-300 after:border after:rounded-md after:h-5 after:w-5  after:transition-all  peer-checked:bg-primary_yellow"
               ></div>
-              <span className="ml-3 text-sm font-medium text-primary_cream">
-                {latest ? "latest" : "earliest"}
+              <span className="ml-3 mr-2 text-sm font-medium text-primary_cream">
+                {latest ? "جدیدترین" : "قدیمی ترین"}
               </span>
             </label>
           </div>

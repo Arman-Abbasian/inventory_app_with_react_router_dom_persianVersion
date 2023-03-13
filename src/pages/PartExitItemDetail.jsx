@@ -15,15 +15,12 @@ const PartExitItemDetail = () => {
         <>
         {item &&
             <div className="flex flex-col gap-8 justify-start items-start text-primary_cream">
-                <p><span className="font-bold">product name : </span> {item.productName}</p>
-                <p><span className="font-bold">number : </span> {item.number}</p>
-                <p><span className="font-bold">measurement unit : </span> {item.measurmentUnit}</p>
-                <p><span className="font-bold">date : </span> {item.date}</p>
-                <p><span className="font-bold">consuming for : </span> {item.consumingFor}</p>
-                <p><span className="font-bold">exit delivery : </span> {item.exitDelivery}</p>
-                <p><span className="font-bold">exit transferee : </span> {item.exitTransferee}</p>
-                <p><span className="font-bold">job position : </span> {item.jobPosition}</p>
-                <p><span className="font-bold">unit : </span>{item.unit}</p>
+                <p><span className="font-bold">نام قطعه : </span> {item.productName}</p>
+                <p><span className="font-bold">تعداد : </span> {item.number}</p>
+                <p><span className="font-bold">تاریخ : </span> {new Date(item.date).toLocaleDateString('fa-IR')}</p>
+                <p><span className="font-bold">مورد مصرف : </span> {item.consumingFor}</p>
+                <p><span className="font-bold">تحویل دهنده : </span> {item.exitDelivery}</p>
+                <p><span className="font-bold">تحویل گیرنده : </span> {item.exitTransferee}</p>
             </div>  
             }          
         </>

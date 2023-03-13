@@ -45,8 +45,9 @@ const EnterOneProductItem = () => {
       findedPalleteInwholePalletes !== undefined &&
       choosedOverallProduct
     ) {
+      console.log("dddd")
       axios
-        .post(`http://localhost:4000/enterProducts/`, {
+        .post(`http://localhost:4000/allEnterProducts`, {
           ...values,
           productId: choosedOverallProduct.id,
           productNumber: Math.round(
@@ -54,21 +55,10 @@ const EnterOneProductItem = () => {
               choosedOverallProduct.RandomWeight
           ),
         })
-        .then((res) => {
-          axios
-            .post(`http://localhost:4000/allEnterProducts/`, {
-              ...values,
-              productId: choosedOverallProduct.id,
-              productNumber: Math.round(
-                (values.weight - findedPalleteInwholePalletes.palleteWeight) /
-                  choosedOverallProduct.RandomWeight
-              ),
-            })
             .then((res) => {
-              navigate("/ProductsInventory");
+              navigate("/EnterProductsList");
               toast.success("data added successfully");
-            });
-        })
+            })
         .catch((err) => toast.error(err.message));
       resetForm();
     } else {
@@ -78,7 +68,7 @@ const EnterOneProductItem = () => {
   //get enterProducts from enterProducts DB
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/enterProducts`)
+      .get(`http://localhost:4000/allEnterProducts`)
       .then((res) => {
         const data = res.data.map((item) => item.palleteNumber);
         setProductsEnters(data);
@@ -133,7 +123,7 @@ const EnterOneProductItem = () => {
           <div className="flex flex-col gap-4 justify-center items-center">
             <Input
               type="number"
-              label="pallete number"
+              label="شماره پالت"
               name="palleteNumber"
               formik={formik}
               logo={
@@ -143,7 +133,7 @@ const EnterOneProductItem = () => {
             {productList && (
               <SearchSelect
                 options={productList}
-                label="product name"
+                label="نام محصول"
                 name="whole"
                 formik={formik}
                 logo={
@@ -153,20 +143,21 @@ const EnterOneProductItem = () => {
             )}
             <Input
               type="number"
-              label="weight"
+              label="وزن کلی"
               name="weight"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
-              label="date"
+              label="تاریخ"
               name="date"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
             />
             <Textarea
               name="information"
+              label="توضیحات"
               formik={formik}
               logo={
                 <HiOutlineInformationCircle className="w-6 h-6 text-primary_cream" />
@@ -179,7 +170,7 @@ const EnterOneProductItem = () => {
               }`}
               type="submit"
             >
-              {formik.isValid ? "Add" : "please complete all fields"}
+              {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را وارد نمایید"}
             </button>
           </div>
         </form>

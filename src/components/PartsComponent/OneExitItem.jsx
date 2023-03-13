@@ -7,9 +7,9 @@ const OneExitItem = ({id,productName,number,date,deleteHandler}) => {
             <div className="flex items-center gap-2 bg-primary_cream rounded-sm p-2 shadow-md shadow-primary_light_green">
                 <div className="flex flex-col gap-2 flex-1">
                     <Link to={`/PartExit/detail/${id}`}>
-                        <p><span className="font-bold">product name:</span> {productName}</p>
-                        <p><span className="font-bold">number:</span> {number}</p>
-                        <p><span className="font-bold">date:</span> {date}</p>
+                        <p><span className="font-bold">نام قطعه :</span> {productName}</p>
+                        <p><span className="font-bold">تعداد :</span> {number}</p>
+                        <p><span className="font-bold">تاریخ :</span> {new Date(date).toLocaleDateString('fa-IR')} </p>
                     </Link>
                 </div>
                 <div className="flex justify-center items-center gap-6 md:col-span-2 xl:col-span-3 2xl:col-span-4 md:justify-self-center">

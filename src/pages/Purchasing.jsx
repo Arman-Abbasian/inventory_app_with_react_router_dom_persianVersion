@@ -15,20 +15,20 @@ import { BsPerson,BsFileEarmarkCode } from "react-icons/bs";
 const initialValues = {
   requestCode: "",
   date: "",
-  personnel: "",
+  enterDelivery: "",
   number: "",
   unitCost: "",
 };
 
 const validationSchema = Yup.object({
   requestCode: Yup.string().required("request code is required"),
-  date: Yup.date("the format is not date format").required("date is required"),
-  personnel: Yup.string().required("resposible for purchase is required"),
-  number: Yup.number("the format is not number format").required(
-    "number is required"
+  date: Yup.date("the format is not date format").required("تاریخ را وارد نمایید"),
+  enterDelivery: Yup.string().required("resposible for purchase is required"),
+  number: Yup.number("لطفا داده عددی وارد نمایید").required(
+    "تعداد را وارد نمایید"
   ),
-  unitCost: Yup.number("the format is not number format").required(
-    "unit cost is required"
+  unitCost: Yup.number("لطفا داده عددی وارد نمایید").required(
+    "قیمت واحد را وارد نمایید"
   ),
   
 });
@@ -43,7 +43,7 @@ const Purchasing = () => {
       .post(`http://localhost:4000/purchasing`, {...values,wholeCost:values.number*values.unitCost})
       .then((res) => {
         navigate("/PurchasingCondition");
-        toast.success("purchase request added successfully");
+        toast.success("داده با موقفیت ثبت گردید");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
@@ -59,7 +59,7 @@ const Purchasing = () => {
   //get the personnel list from DB
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/overall?category=personnel`)
+      .get(`http://localhost:4000/overall?category=enterDelivery`)
       .then((res) => setPersonnel(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
@@ -83,13 +83,13 @@ const Purchasing = () => {
           <SearchSelect
               options={requestCode}
               name="requestCode"
-              label="request code"
+              label="کد درخواست"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="date"
-              label="date"
+              label="تاریخ"
               name="date"
               formik={formik}
               logo={<CiCalendarDate className="w-6 h-6 text-primary_cream" />}
@@ -97,22 +97,22 @@ const Purchasing = () => {
 
             <SearchSelect
               options={personnel}
-              name="personnel"
-              label="Resposible for purchase"
+              name="enterDelivery"
+              label="مسئول خرید"
               formik={formik}
               logo={<BsPerson className="w-6 h-6 text-primary_cream" />}
             />
             
             <Input
               type="number"
-              label="number"
+              label="تعداد"
               name="number"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
             />
             <Input
               type="number"
-              label="unit cost"
+              label="قیمت"
               name="unitCost"
               formik={formik}
               logo={<AiOutlineNumber className="w-6 h-6 text-primary_cream" />}
@@ -125,7 +125,7 @@ const Purchasing = () => {
               className={`py-2 px-4 bg-primary_cream rounded-sm w-full ${!formik.isValid ? 'bg-opacity-60' :'bg-opacity-100'} `}
               type="submit"
             >
-              {formik.isValid ? "Add" : "please complete all fields"}
+              {formik.isValid ? "ثبت" : "لطفا تمامی فیلدهای مورد نیاز را تکمیل نمایید"}
             </button>
           </div>
         </form>

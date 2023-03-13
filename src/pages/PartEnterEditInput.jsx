@@ -40,8 +40,8 @@ const PartEnterEditInput = () => {
     axios
       .put(`http://localhost:4000/enter/${id}`, values)
       .then((res) => {
-        navigate("/EnterList");
-        toast.success("data added successfully");
+        navigate("/PartEnterList");
+        toast.success("اطلاعات با موفقیت ویرایش یافت");
       })
       .catch((err) => toast.error(err.message));
     resetForm();
@@ -179,7 +179,7 @@ const PartEnterEditInput = () => {
                 }`}
                 type="submit"
               >
-                {formik.isValid ? "Edit" : "please complete all fields"}
+                 {formik.isValid ? "ویرایش" : "لطفا تمامی فیلدهای مورد نیاز را تکمیل نمایید"}
               </button>
             </div>
           </form>
