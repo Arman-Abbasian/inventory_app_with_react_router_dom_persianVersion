@@ -3,14 +3,13 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="36"  alt="react" style="padding-right:10px;" align="left"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png" width="36" alt="tailwind" style="padding-right:10px;" align="left" />
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s---xCsVK0j--/c_imagga_scale,f_auto,fl_progressive,h_1080,q_auto,w_1080/https://reacttraining.com/images/blog/reach-react-router-future.png"  alt="react-router-dom" width="36" alt="Terminal"  style="padding-right:10px;" align="left" />
-<img src="https://user-images.githubusercontent.com/4060187/61057426-4e5a4600-a3c3-11e9-9114-630743e05814.png" width="36" alt="formik" style="padding-right:10px;" align="left" />
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStGGRtqsssCJyeyAVx-JYEj-lj7JQJajQ19Q&usqp=CAU" width="66" alt="axios" style="padding-right:10px;" align="left" />
 <br />
-<br/>
+<br />
 
 <p width="960" style="padding-right: 10px;" align="left" >json-server</p>
 <p width="960" style="padding-right:40px;" align="left" >yup</p>
-<p width="960" style="padding-right:40px;" align="left" >react-select</p>\
+<p width="960" style="padding-right:40px;" align="left" >react-select</p>
 <p width="960" style="padding-right:40px;" align="left" >react-hot-toast</p>
 
 # overview of project
