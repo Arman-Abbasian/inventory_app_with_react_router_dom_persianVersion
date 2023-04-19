@@ -5,7 +5,8 @@
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s---xCsVK0j--/c_imagga_scale,f_auto,fl_progressive,h_1080,q_auto,w_1080/https://reacttraining.com/images/blog/reach-react-router-future.png"  alt="react-router-dom" width="36" alt="Terminal"  style="padding-right:10px;" align="left" />
 <img src="https://user-images.githubusercontent.com/4060187/61057426-4e5a4600-a3c3-11e9-9114-630743e05814.png" width="36" alt="formik" style="padding-right:10px;" align="left" />
 <img src="https://seeklogo.com/images/A/axios-logo-CD0C90458F-seeklogo.com.png" width="70" height="30" alt="axios" style="padding-right:10px;" align="left" />
-
+<br />
+<br />
 
 <p width="960" style="padding-right: 10px;" align="left" >json-server</p>
 <p width="960" style="padding-right:40px;" align="left" >yup</p>
